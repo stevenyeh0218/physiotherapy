@@ -1,0 +1,235 @@
+/* 會員名稱列 */
+#member {
+  @include grid(column, auto, auto, center, inherit);
+  justify-content: space-between;
+  border-bottom: 2px solid var(--gray);
+  color: var(--fontColor);
+
+  @include for-desktop {
+    padding-left: 36px;
+  }
+
+  .user {
+    @include flexbox-gap(row, center, center, 12px);
+
+    .icon {
+      font-size: 2.25rem;
+    }
+
+    &-info {
+      small {
+        margin-left: 6px;
+      }
+
+      .permissions {
+        color: var(--purple);
+        font-size: .75rem;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  .header-tool {
+    @include flexbox-gap(row, center, center, 6px);
+
+    .reminder {
+      position: relative;
+
+      .counter {
+        position: relative;
+
+        .reminder-btn {
+          border-radius: 5px;
+          padding: 12px;
+          @include ease(.2s);
+        }
+
+        .num {
+          @include flexbox(row, center, center);
+          background: var(--red);
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          border-radius: 50px;
+          color: var(--white);
+          cursor: pointer;
+          font-size: 0.75rem;
+          top: 10px;
+          right: 5px;
+          @include scale(0.9);
+        }
+
+        &:hover {
+          .reminder-btn {
+            background: var(--purple);
+            color: var(--white);
+          }
+        }
+      }
+
+      .reminder-table {
+        @include grid(row, auto, 24px auto, unset, 0);
+        position: absolute;
+        background: var(--white);
+        width: max-content;
+        border-radius: 5px;
+        padding: 12px;
+        top: 48px;
+        right: 0;
+        @include hide;
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+        z-index: 10;
+        @include ease(.2s);
+
+        @include for-phone{
+          right: -80px;
+        }
+
+        .tools {
+          @include flexbox-gap(row, center, flex-end, 12px);
+          font-size: 0.875rem;
+          margin-bottom: 12px;
+
+          .btn-style {
+            color: var(--fontColor);
+            @include ease(.2s);
+
+            &:hover {
+              color: var(--purple);
+            }
+          }
+
+          .disable {
+            pointer-events: none;
+            color: var(--lightgray);
+          }
+        }
+
+        .list {
+          @include grid(row, auto, auto, unset, 12px);
+          max-height: 335px;
+          overflow: hidden;
+          @include mac-scrollbar-style;
+
+          .item {
+            @include grid(row, auto, auto, unset, 6px);
+            cursor: pointer;
+            color: var(--fontColor);
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 12px;
+            @include ease(.2s);
+
+            .title {
+              @include flexbox(row, center, flex-start);
+              color: var(--black);
+              @include ease(.2s);
+
+              .name {
+                color: var(--green);
+                margin-right: 3px;
+                @include ease(.2s);
+              }
+            }
+
+            .time {
+              @include flexbox(row, center, flex-start);
+
+              &>.micon-time {
+                margin-right: 6px;
+              }
+
+              &>.micon-down-arrow {
+                @include rotate(-90deg);
+                margin-left: 24px;
+              }
+            }
+
+            &:hover {
+              color: var(--purple);
+              border-bottom: 1px solid var(--purple);
+
+              .title {
+                color: var(--purple);
+
+                .name {
+                  color: var(--purple);
+                }
+              }
+            }
+
+            &:last-child {
+              border: none;
+            }
+
+          }
+
+          .read {
+            color: var(--lightgray);
+            border-bottom: 1px solid var(--lightgray);
+
+            .title {
+              color: var(--lightgray);
+
+              .name {
+                color: var(--lightgray);
+              }
+            }
+
+            &:hover {
+              .title {
+                .name {
+                  color: var(--purple);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* 訊息通知開啟 */
+    .reminder-open {
+      .counter {
+        .reminder-btn {
+          background: var(--purple);
+          color: var(--white);
+        }
+      }
+
+      .reminder-table {
+        @include show;
+      }
+
+    }
+
+    .signout-btn {
+      @include flexbox(row, center, center);
+      border-radius: 5px;
+      color: var(--fontColor);
+      cursor: pointer;
+      font-size: 1.125rem;
+      padding: 12px;
+      @include ease(.2s);
+
+      @include for-desktop {
+        font-size: 1rem;
+        padding: 6px;
+      }
+
+      .icon {
+        margin-right: 12px;
+
+        @include for-desktop {
+          font-size: 1.125rem;
+          margin-right: 6px;
+        }
+      }
+
+      &:hover {
+        background: var(--purple);
+        color: var(--white);
+      }
+    }
+
+  }
+}

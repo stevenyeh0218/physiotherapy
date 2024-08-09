@@ -1,0 +1,14 @@
+body {
+  @include grid(row, auto 1fr, 60px auto, inherit, 24px);
+  margin: 0;
+  padding: 16px;
+
+  @include for-desktop {
+    grid-template-columns: auto;
+    gap: 12px;
+  }
+
+  @include for-phone {
+    grid-auto-flow: row;
+  }
+}

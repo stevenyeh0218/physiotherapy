@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="synchronization-content">
+            <h4>[領健已建檔]會員資料且[客戶未下載APP]才會從領健下載該筆會員資料新增至後台會員資料</h4>
+            <div class="syn-search-bar">
+                <input type="text" class="input-style" placeholder="請輸入電話號碼">
+                <button type="button" class="btn-style">
+                    <i class="micon-data-synchronization"></i>
+                    同步
+                </button>
+            </div>
+            <div class="result-table border-style">
+                <div class="result">
+                    <div class="result-amount">比對領健資料：<div class="num">1筆</div></div>
+                    <div class="result-amount">異動後台：<div class="num">1筆</div></div>                    
+                </div>
+                <div class="table-header">
+                    <div class="text">手機</div>
+                    <div class="text">姓名</div>
+                </div>
+                <div class="table-list">
+                    <div class="table-row">
+                        <div class="text" data-title="手機">0909624612</div>
+                        <div class="text" data-title="姓名">JW</div>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 引用 filter 套件  -->
+<script src="vendor/filter-search/js/jquery-search.js"></script>
+
+<!-- 使用 filter 套件  -->
+<script src="js/filter.js"></script>
+
+</html>

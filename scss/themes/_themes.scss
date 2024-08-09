@@ -1,0 +1,466 @@
+:root {
+  --fontColor: #666666;
+  --purple: #6868AC;
+  --white: #ffffff;
+  --black: #000000;
+  --red: #FF0000;
+  --gray: #DDDDDD;
+  --lightgray: #CCCCCC;
+  --brown: #F2D6A6;
+  --green: #00BBB4;
+  --blue: #3998EA;  
+  --disableColor: #999999;
+}
+
+html,
+body {
+  font-family: 'Noto Sans TC' !important;
+  width: 100%;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  @include link-default;
+}
+
+input {
+  @include fill-available;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  @include link-default;
+
+  &::placeholder {
+    font-size: 0.875rem;
+    color: var(--lightgray);
+  }
+
+  &:read-only {
+    border-color: var(--gray) !important;
+    color: var(--disableColor) !important;
+  }
+}
+
+select {
+  outline: none;
+}
+
+textarea {
+  outline: none;
+
+  &::placeholder {
+    font-size: 0.875rem;
+    color: var(--lightgray);
+  }
+
+  &:read-only {
+    border-color: var(--gray) !important;
+    color: var(--disableColor) !important;
+  }
+}
+
+button {
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+video,
+audio {
+  width: 100%;
+}
+
+.icon {
+  font-size: 1.25rem;
+
+  @include for-desktop {
+    font-size: 1.125rem;
+  }
+}
+
+.point {
+  color: var(--red) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-weight: normal;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5em;
+}
+
+/* content 共用樣式 */
+.border-style {
+  border: 2px solid var(--gray);
+  border-radius: 5px;
+  padding: 12px;
+
+  @include for-desktop {
+    padding: 6px;
+  }
+}
+
+/* sortable 共同樣式 */
+.sortable-chosen,
+.ui-sortable-helper {
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* 按鈕無效 */
+.disable-btn {
+  border: 1px solid var(--gray) !important;
+  color: var(--gray) !important;
+  pointer-events: none;
+}
+
+.disable-btn-no-border {
+  color: var(--gray) !important;
+  pointer-events: none;
+}
+
+.disable-btn-bg {
+  background: var(--lightgray) !important;
+  color: var(--gray) !important;
+  pointer-events: none;
+}
+
+
+/* 使用者剛進入畫面時使用 */
+.initial {
+  opacity: 0.1 !important;
+  pointer-events: none;
+}
+
+
+@mixin opacity-bg($p-opacity-x, $p-opacity-y, $b-opacity-x, $b-opacity-y, $radius) {
+  background: linear-gradient(rgba(255, 255, 255, $p-opacity-x), rgba(255, 255, 255, $p-opacity-y)) padding-box,
+    linear-gradient(180deg, var(--brown) $b-opacity-x, var(--purple) $b-opacity-y) border-box;
+  border: 4px solid transparent;
+  border-radius: $radius;
+}
+
+@mixin btn-common-style($background, $padding, $b-color, $f-color, $h-b-color, $h-f-color) {
+  @include flexbox-gap(row, center, center, 12px);
+  background: $background;
+  border-radius: 5px;
+  border: 1px solid $b-color;
+  color: $f-color;
+  padding: $padding;
+  @include ease(.2s);
+
+  &:hover {
+    background: $h-b-color;
+    color: $h-f-color;
+  }
+}
+
+@mixin s-checkbox {
+  @include flexbox-gap(row, center, flex-start, 16px);
+  cursor: pointer;
+  @include ease(.2s);
+
+  &:hover {
+    color: var(--brown);
+  }
+
+  &>input[type="checkbox"] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    height: 24px;
+    width: 24px;
+  }
+
+  .checkbox {
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--purple);
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      @include ease(.2s);
+    }
+
+    &::after {
+      content: "";
+      width: 24px;
+      height: 24px;
+      background: var(--white);
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &:checked {
+      &::before {
+        background: var(--purple);
+      }
+
+      &::after {
+        background: transparent;
+        height: 12px;
+        width: 6px;
+        border-bottom: 3px solid #fff;
+        border-right: 3px solid #fff;
+        top: 4px;
+        left: 10px;
+        z-index: 1;
+        @include rotate(45deg);
+      }
+    }
+  }
+}
+
+@mixin s-radio {
+  @include flexbox-gap(row, center, flex-start, 16px);
+  cursor: pointer;
+  @include ease(.2s);
+
+  &:hover {
+    color: var(--brown);
+  }
+
+  .radio {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    height: 24px;
+    width: 24px;
+  }
+
+  .radio {
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      border-radius: 50px;
+      border: 1px solid var(--purple);
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      @include ease(.2s);
+    }
+
+    &::after {
+      content: "";
+      width: 24px;
+      height: 24px;
+      background: var(--white);
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &:checked {
+      &::before {
+        background: var(--purple);
+      }
+
+      &::after {
+        background: transparent;
+        height: 12px;
+        width: 6px;
+        border-bottom: 3px solid #fff;
+        border-right: 3px solid #fff;
+        top: 4px;
+        left: 10px;
+        z-index: 1;
+        @include rotate(45deg);
+      }
+    }
+  }
+}
+
+
+@mixin s-input-style($b-radius, $padding) {
+  border: 1px solid var(--purple);
+  border-radius: $b-radius;
+  padding: $padding;
+  color: var(--purple);
+}
+
+@mixin advance-close-btn-style {
+  position: absolute;
+  cursor: pointer;
+  border: 1px solid var(--white);
+  border-radius: 50px;
+  font-size: 1.5rem;
+  top: 12px;
+  right: 12px;
+  @include ease(.2s);
+
+  &:hover {
+    background: var(--white);
+    color: var(--purple);
+  }
+}
+
+@mixin text-ellipse {
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin s-tabs($fontsize, $border-bottom, $tabsID, $panelClass, $panelID) {
+  display: none;
+
+  &:checked+label {
+    background: var(--purple);
+    color: var(--white);
+  }
+
+  &+label {
+    @include flexbox(row, center, center);
+    width: 100%;
+    border-bottom: $border-bottom solid var(--purple);
+    border-radius: 5px 5px 0 0;
+    color: var(--purple);
+    cursor: pointer;
+    font-size: $fontsize;
+    @include ease(.2s);
+
+
+    @include for-phone {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background: var(--purple);
+      color: var(--white);
+    }
+  }
+
+  @for $i from 1 through 3 {
+    &#{$tabsID}#{$i}:checked {
+      ~#{$panelClass} #{$panelID}-#{$i} {
+        display: grid;
+        z-index: 1;
+        @include show;
+      }
+    }
+  }
+}
+
+@mixin table-row-mobile {
+  grid-auto-flow: row;
+  grid-template-columns: auto;
+  height: fit-content;
+  border-bottom: 2px solid var(--gray);
+  padding: 0 12px;
+  padding-bottom: 12px;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+@mixin released-btn-common-style {
+  position: relative;
+  width: 84px;
+  height: 24px;
+
+  &>input[type="checkbox"] {
+    display: none;
+
+    &+label {
+      display: block;
+      background: var(--gray);
+      position: absolute;
+      border-radius: 100px;
+      cursor: pointer;
+      width: 44px;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      right: 0;
+      @include ease(.2s);
+
+      &::before {
+        content: '';
+        background: var(--white);
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 100px;
+        top: 2px;
+        left: 2px;
+        @include ease(.2s);
+      }
+    }
+
+    &:checked {
+      &+label {
+        background: var(--purple);
+
+        &::before {
+          transform: translate(20px);
+        }
+      }
+
+      &~span {
+        display: block;
+        color: var(--fontColor);
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+
+    &:not(:checked) {
+
+      &~span {
+        display: none;
+
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &>span {
+    position: absolute;
+    left: 0;
+    top: 2px;
+  }
+}

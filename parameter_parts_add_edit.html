@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <form action="" method="post">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <a href="parameter_parts.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增動作部位</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <div class="table-row">
+                            <h4>*中文名稱</h4>
+                            <input type="text" class="input-style" placeholder="請輸入中文名稱">      
+                        </div>  
+                        <div class="table-row">
+                            <h4>英文名稱</h4>
+                            <input type="text" class="input-style" placeholder="請輸入英文名稱">      
+                        </div> 
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+</html>

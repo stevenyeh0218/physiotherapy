@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <form action="" method="post">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <a href="questionnaire_result_bank.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增結果題庫</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <div class="table-row">
+                            <h4>*題目名稱</h4>
+                            <input type="text" class="input-style" placeholder="請輸入結果題目名稱">      
+                        </div>
+                        <div class="table-row textarea-row">
+                            <h4>*結果說明</h4>
+                            <textarea class="textarea-style" placeholder="請輸入約20個字的說明"></textarea>
+                        </div>
+                        <div class="table-row exercise-prescription-list-row">
+                            <h4>
+                                *運動處方列表
+                                <button type="button" class="btn-style exercise-prescription-btn">
+                                    <i class="micon-data icon"></i>資料匯入
+                                </button>
+                            </h4>
+                            <div class="list sortable">
+                                <div class="item">
+                                    <i title="drag" class="micon-drag"></i>
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img" >
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <i title="drag" class="micon-drag"></i>
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img" >
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <i title="drag" class="micon-drag"></i>
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img" >
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <i title="drag" class="micon-drag"></i>
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img" >
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <i title="drag" class="micon-drag"></i>
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img" >
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <i title="drag" class="micon-drag"></i>
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img" >
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+    <div class="cursor"></div>
+</body> 
+<!--運動處方列表匯入彈出視窗-->
+<div class="exercise-prescription-data-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="table">
+            <div class="search-bar">
+                <i class="micon-search icon"></i>
+                <input type="text" class="input-style"  placeholder="請搜尋動作元件">
+            </div>
+            <h4>動作元件列表</h4>
+            <div class="list">
+                <div class="label--checkbox disable">
+                    <input type="checkbox" id="result[0]" class="checkbox"> 
+                    <label for="result[0]" class="text">坐姿上胸椎伸直運動＿雙手抱頭列表</label>   
+                    <img src="img/test.png" class="medical-prescription-img">   
+                </div>
+                <div class="label--checkbox">
+                    <input type="checkbox" id="result[1]" class="checkbox">
+                    <label for="result[1]" class="text">坐姿左中斜角肌伸展運動＿手輔助頭</label>   
+                    <img src="img/test.png" class="medical-prescription-img">   
+                </div>
+                <div class="label--checkbox">
+                    <input type="checkbox" id="result[2]" class="checkbox">
+                    <label for="result[1]" class="text">坐姿上胸椎伸直運動＿雙手抱頭列表</label>   
+                    <img src="img/test.png" class="medical-prescription-img">   
+                </div>
+                <div class="label--checkbox">
+                    <input type="checkbox" id="result[3]" class="checkbox">                   
+                    <label for="result[2]" class="text">坐姿上胸椎伸直運動＿雙手抱頭列表</label>   
+                    <img src="img/test.png" class="medical-prescription-img">   
+                </div>
+            </div>
+            <button type="button" class="btn-style save-btn">新增至列表</button>
+        </div>
+    </div>
+</div> 
+<!--lightbox-->
+<div class="lightbox-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>        
+        <video controls src="img/b7a9a1edfcc947eb891bf0a7e7487ed5.mp4"></video>  
+        <audio controls src="img/be5c2f999b974c33978064236f32602b.mp3"></audio>
+    </div>
+</div>  
+
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 引用 jquery ui  -->
+<script src="vendor/jquery-ui.js"></script>
+<script src="vendor/jquery.ui.touch-punch.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- popup window 功能  -->
+<script src="js/popup.js"></script>
+
+<!-- 使用 sortable -->
+<script>
+    $(function() {
+        $(".sortable").sortable();
+        $(".sortable").disableSelection();
+    });
+</script>
+
+</html>

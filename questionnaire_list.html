@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <!-- 工具列 -->
+            <nav class="tool-list">         
+                <div class="amount">
+                     <div class="text">問卷總數：</div>
+                     <div class="amount-number">102</div>
+                </div>    
+                <div class="search-bar">
+                    <i class="micon-search icon"></i>
+                    <input type="text" class="input-style" placeholder="搜輸入關鍵字">
+                </div>
+                <a href="#" class="btn-style question-btn">
+                    <i class="micon-plus icon"></i>新增
+                </a>
+            </nav>
+            <div class="default-table questionnaire-table border-style">
+                <div class="table-header questionaire-list-header">
+                    <div class="text">序號</div>
+                    <div class="text">問卷名稱</div>
+                    <div class="text">建立日期</div>
+                    <div class="text">更新時間</div>
+                    <div class="setting-item"></div>
+                </div>
+                <div class="table-list">
+                    <div class="table-row questionaire-list-row">
+                        <div class="text" data-title="序號">1</div>
+                        <div class="text" data-title="問卷名稱">自我檢測</div>
+                        <div class="text" data-title="建立日期">2020-01-09</div>
+                        <div class="text" data-title="更新時間">2020-01-09 10:10:10</div>
+                        <div class="setting-item">
+                            <button type="button" class="micon-edit icon btn-style edit-btn"></button>
+                            <a href="#" class="micon-preview icon btn-style preview-btn"></a>
+                            <button type="button" class="micon-trash icon btn-style del-btn"></button>
+                            <div class="released-btn">
+                                <input type="checkbox" id="switch" ched>
+                                <label for="switch"></label>
+                                <span>上架</span>
+                                <span>下架</span>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="table-row questionaire-list-row">
+                        <div class="text" data-title="序號">2</div>
+                        <div class="text" data-title="問卷名稱">進階檢測</div>
+                        <div class="text" data-title="建立日期">2020-01-09</div>
+                        <div class="text" data-title="更新時間">2020-01-09 10:10:10</div>
+                        <div class="setting-item">
+                            <button type="button" class="micon-edit icon btn-style edit-btn"></button>
+                            <a href="#" class="micon-preview icon btn-style preview-btn"></a>
+                            <button type="button" class="micon-trash icon btn-style del-btn"></button>
+                            <div class="released-btn">
+                                <input type="checkbox" id="switch" ched>
+                                <label for="switch"></label>
+                                <span>上架</span>
+                                <span>下架</span>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!--題目匯入彈出視窗-->
+<div class="question-data-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="table">
+            <div class="search-bar">
+                <i class="micon-search icon"></i>
+                <input type="text" class="input-style" placeholder="請輸入關鍵字">
+            </div>
+            <h4>請先選擇題目</h4>
+            <div class="list">
+                <header>
+                    <div class="text"></div>
+                    <div class="text">題目名稱</div>
+                    <div class="text">回答選項</div>
+                    <div class="text">題型</div>
+                    <div class="text">備註</div>
+                </header>
+                <div class="label--radio">
+                    <input type="radio" id="question[0]" class="radio" name="option">
+                    <label for="question[0]" class="text">請問以下哪個部位感到疼痛?</label>
+                    <label for="question[0]" class="text">頸部/腰部/髖部/無疼痛部位</label>  
+                    <label for="question[0]" class="text">單選</label>  
+                    <label for="question[0]" class="text">Q1</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="question[1]" class="radio" name="option">
+                    <label for="question[1]" class="text">請問哪一側疼痛?</label>
+                    <label for="question[1]" class="text">左側/右側/雙側</label>  
+                    <label for="question[1]" class="text">多選</label>  
+                    <label for="question[1]" class="text">Q2</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="question[2]" class="radio" name="option">
+                    <label for="question[2]" class="text">請問疼痛分數幾分?</label>
+                    <label for="question[2]" class="text">0/1/2/3/4/5/6/7/8/9/10</label>  
+                    <label for="question[2]" class="text">單選</label>  
+                    <label for="question[2]" class="text">Q3</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="question[3]" class="radio" name="option">
+                    <label for="question[3]" class="text">請問您的狀況較符合哪張片?</label>
+                    <label for="question[3]" class="text">
+                        <img src="img/test.png">
+                    </label>                      
+                    <label for="question[3]">單選</label>  
+                    <label for="question[3]">Q4</label>  
+                </div>
+            </div>
+            <button type="button" class="btn-style save-btn">確定</button>
+        </div>
+    </div>
+</div> 
+<!-- 預覽彈出視窗 -->
+<div class="preview-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="tree">
+            <h2>問卷名稱</h2>            
+            <div class="tree-content">
+                <details class="is-expandable" open>
+                    <summary class="tree-title no-line">
+                        [問題1] 請問以下哪個部位感到疼痛 
+                        <a href="#" class="micon-edit"></a>
+                    </summary>                    
+                    <details class="tree-detail is-expandable" open>
+                        <summary class="tree-title">
+                            [選項一] 名稱
+                            <a href="#" class="micon-edit"></a>
+                        </summary>                        
+                        <details class="tree-detail is-expandable" open>
+                            <summary class="tree-title">
+                                [選項一] 無名稱
+                                <a href="#" class="micon-edit"></a>
+                            </summary>  
+                            <button class="tree-node-import">[選項1][問題4]</button>                     
+                            <div class="tree-node">[選項二] 名稱</div>
+                            <div class="tree-node">[選項三] 名稱</div>
+                            <div class="tree-node">[選項四] 名稱</div>                        
+                        </details>                    
+                        <div class="tree-node">[選項N] 名稱</div>
+                        <div class="tree-node">[選項N] 名稱</div>                    
+                    </details>                
+                    <div class="tree-node">[選項二] 名稱</div>
+                    <div class="tree-node">[選項三] 名稱</div>                
+                </details>                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- popup window 功能  -->
+<script src="js/popup.js"></script>
+
+</html>

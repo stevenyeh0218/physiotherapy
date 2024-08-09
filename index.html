@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- icomoon.css -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- default.css -->
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+<body>
+    <div id="login">
+        <form class="login-form">
+            <div class="aicare-ci">
+                <div class="logo">
+                    <img src="../img/logo/ci.svg">
+                </div>            
+            </div>
+            <div class="input">
+                <i class="micon-user icon"></i>
+                <input type="text" class="input-style user-input" placeholder="請輸入帳號">
+            </div>
+            <div class="input">
+                <i class="micon-lock icon"></i>
+                <input type="password" class="input-style pswd-input" placeholder="請輸入密碼(首次登入帳密相同)">
+                <i id="icon-pswd" class="micon-eye-close icon view-icon"></i>
+            </div>
+            <a href="mail.html" class="forgot-btn">
+                <i class="micon-forget-pswd icon"></i>
+                忘記密碼?
+            </a>
+            <div class="login-fail">帳號不存在</div>
+            <button type="submit" class="btn-style login-btn">登入</button>
+        </form>
+        <footer class="copyrights">居家物理治療後台© 2022 梅科股份有限公司 all rights reserved. </footer>
+    </div>
+    <div class="loading" style="display: none;">
+        <div class="aicare-logo">
+            <img src="../img/logo/ci.svg">
+        </div>
+        <div class="text">載入中...</div>
+    </div>
+</body>
+<!-- 引用 jquery 3.6.1 -->
+<script src="../vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 觀看密碼  -->
+<script src="../js/viewpswd.js"></script>
+
+</html>

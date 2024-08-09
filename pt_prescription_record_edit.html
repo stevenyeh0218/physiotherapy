@@ -1,0 +1,706 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <!-- 表單區塊 -->
+        <section class="form-content record-form-content">
+            <div class="name">會員名稱：</div>
+            <input id="form-tab1" type="radio" name="form-tabs" checked>
+            <label for="form-tab1">評估檢測</label>
+            <input id="form-tab2" type="radio" name="form-tabs">
+            <label for="form-tab2">開立處方</label>
+            <div class="line"></div>
+            <div class="panel">
+                <!-- 評估檢測 -->
+                <div id="panel-1" class="panel-table detection-table">
+                    <!-- 主要診斷 -->
+                    <div class="form main-assessment-form border-style">
+                        <header>主要診斷</header>
+                        <div class="table">
+                            <div class="list">
+                                <div class="search-keyword">
+                                    <input class="input-style search-input" placeholder="主要診斷關鍵字">
+                                    <button class="btn-style search-btn">
+                                        <i class="micon-search icon"></i>
+                                    </button>
+                                </div>
+                                <div class="overflow">
+                                    <div class="item added">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-plus icon add-btn"></i>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-plus icon add-btn"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="line"><i class="micon-two-arrow icon"></i></div>
+                            <div class="result">
+                                <h5>結果</h5>
+                                <div class="overflow">
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-minus icon add-btn"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 功能性診斷 -->
+                    <div class="form functional-assessment-form border-style">
+                        <header>功能性診斷</header>
+                        <div class="table">
+                            <div class="list">
+                                <div class="search-keyword">
+                                    <input class="input-style search-input" placeholder="功能性診斷關鍵字">
+                                    <button class="btn-style search-btn">
+                                        <i class="micon-search icon"></i>
+                                    </button>
+                                </div>
+                                <div class="overflow">
+                                    <div class="item added">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-plus icon add-btn"></i>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-plus icon add-btn"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="line"><i class="micon-two-arrow icon"></i></div>
+                            <div class="result">
+                                <h5>結果</h5>
+                                <div class="overflow">
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-minus icon add-btn"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 線上評估結果 -->
+                    <div class="form online-assessment-results-form border-style">
+                        <header>線上評估結果</header>
+                        <div class="table">
+                            <div class="list">
+                                <h5>評估日期</h5>
+                                <div class="overflow">
+                                    <div class="item added">
+                                        <div class="text">2022.11.11</div>
+                                        <i class="micon-two-arrow icon add-btn"></i>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">2022.11.11</div>
+                                        <i class="micon-two-arrow icon add-btn"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="result">
+                                <h5>結果</h5>
+                                <div class="overflow">
+                                    <div>以下是建議的舒緩運動，若舒緩運動做完，手腕與手部疼痛並未有任何減緩，請至院所評估與治療</div>
+                                    <ol class="recommend-sports-list">
+                                        <h4>推薦運動</h4>
+                                        <li>運動名稱</li>
+                                        <li>運動名稱</li>
+                                        <li>運動名稱</li>
+                                    </ol>
+                                    <small>※本問卷僅為動作測試，詳細診斷尚需經由精密影像及醫師評估。</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 開立處方 -->
+                <div id="panel-2" class="panel-table prescription-table">
+                    <!-- 進階搜尋以及匯入 -->
+                    <div class="advanced-filter-bar">
+                        <!-- 資料查詢 -->
+                        <div class="data-search-btn">
+                            <i class="micon-filter icon"></i>
+                            <div class="text">資料查詢</div>
+                        </div>
+                        <div class="data-search-table">
+                            <i class="micon-close close-btn"></i>
+                            <div class="search-content">
+                                <div class="search-bar">
+                                    <input type="text" class="input-style" placeholder="請輸入關鍵字">
+                                </div>
+                                <div class="filter-table">
+                                    <div class="filter-list">
+                                        <div class="item">
+                                            動作側邊<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="item">
+                                            動作部位<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="item">
+                                            動作類別<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="item">
+                                            姿勢擺位<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="item">
+                                            動作強度<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="item">
+                                            輔具<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="filter-list-result">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" name="searchExerClass" data-level="filter"
+                                                class="checkbox" value="評估動作"><span>評估動作</span>
+                                        </label>
+                                    </div>
+                                    <div class="filter-list-result">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" name="searchExerClass" data-level="filter"
+                                                class="checkbox" value="評估動作"><span>評估動作</span>
+                                        </label>
+                                    </div>
+                                    <div class="filter-list-result">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" name="searchExerClass" data-level="filter"
+                                                class="checkbox" value="評估動作"><span>評估動作</span>
+                                        </label>
+                                    </div>
+                                    <div class="filter-list-result">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" name="searchExerClass" data-level="filter"
+                                                class="checkbox" value="評估動作"><span>評估動作</span>
+                                        </label>
+                                    </div>
+                                    <div class="filter-list-result">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" name="searchExerClass" data-level="filter"
+                                                class="checkbox" value="評估動作"><span>評估動作</span>
+                                        </label>
+                                    </div>
+                                    <div class="filter-list-result">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" name="searchExerClass" data-level="filter"
+                                                class="checkbox" value="評估動作"><span>評估動作</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="filter-select-result">
+                                    <div class="text">已選擇：</div>
+                                    <div class="filter-result-list"></div>
+                                </div>
+                                <button type="button" class="btn-style search-btn">查詢</button>
+                            </div>
+                            <div class="line"><i class="micon-two-arrow icon"></i></div>
+                            <form class="data-search-result">
+                                <h4>運動處方搜尋結果列表</h4>
+                                <div class="list">
+                                    <div class="label--checkbox">
+                                        <input type="checkbox" id="result[0]" class="checkbox">
+                                        <label for="result[0]" class="text">坐姿左中斜角肌伸展運動＿手輔助頭</label>
+                                        <img src="img/yoga-mat.jpg" class="medical-prescription-img" />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-style save-btn disable-btn-bg">新增至列表</button>
+                            </form>
+                        </div>
+                        <!-- 選擇套組 -->
+                        <div class="select-module-btn">
+                            <i class="micon-module icon"></i>
+                            <div class="text">選擇套組</div>
+                        </div>
+                        <div class="select-module-table">
+                            <i class="micon-close close-btn"></i>
+                            <div class="list">
+                                <h5>自建</h5>
+                                <div class="overflow">
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="point_public_id" class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn2"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="list">
+                                <h5>共享</h5>
+                                <div class="overflow">
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="text">腰部穩定性訓練套組</div>
+                                        <i class="micon-info icon info-btn"></i>
+                                        <i class="micon-plus icon add-btn"></i>
+                                        <div class="module-popup-table">
+                                            <i class="micon-close close-module-info-btn"></i>
+                                            <div class="module-popup-list">
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                                <div class="module-popup-list-item">
+                                                    <div class="text">腰部穩定性訓練套組</div>
+                                                    <img src="/img/test.png" class="medical-prescription-img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 運動處方 -->
+                    <div class="form medical-prescription-form border-style">
+                        <header>運動處方</header>
+                        <div class="table">
+                            <div class="list">
+                                <h5>選擇時段</h5>
+                                <div class="overflow">
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" data-level="parent" class="checkbox" value="盡量多做">盡量多做
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" data-level="child" class="checkbox"
+                                            value="06:00~09:00">06:00~09:00
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" data-level="child" class="checkbox"
+                                            value="10:00~12:00">10:00~12:00
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" data-level="child" class="checkbox"
+                                            value="13:00~15:00">13:00~15:00
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" data-level="child" class="checkbox"
+                                            value="16:00~18:00">16:00~18:00
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="result">
+                                <h5>已選擇的運動處方</h5>
+                                <div class="overflow sortable">
+                                    <div class="item">
+                                        <div class="drag-handle">
+                                            <i title="drag" class="micon-drag"></i>
+                                        </div>
+                                        <div class="setting">
+                                            <div class="text">L't Hip abductor strengthening exercise_ side lying
+                                                左髖外展肌力運動_側躺</div>
+                                            <div class="select-times-secon-bar">
+                                                <div class="bar-item">
+                                                    <input type="number" class="input-style" name="second"
+                                                        onkeydown="return event.keyCode !== 69"><small>秒/次</small>
+                                                </div>
+                                                <div class="bar-item">
+                                                    <input type="number" class="input-style" name="time"
+                                                        onkeydown="return event.keyCode !== 69"><small>次</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="/img/test.png" class="medical-prescription-img">
+                                        <i class="micon-minus icon add-btn"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 安全提醒 -->
+                    <div class="form safety-reminder-form border-style">
+                        <div class="table">
+                            <div class="list">
+                                <div class="module-content">
+                                    <input id="module-tab1" type="radio" name="module-tabs" checked>
+                                    <label for="module-tab1">安全提醒</label>
+
+                                    <input id="module-tab2" type="radio" name="module-tabs">
+                                    <label for="module-tab2">運動叮嚀</label>
+                                    <div class="module">
+                                        <div id="module-1" class="module-table">
+                                            <div class="item">
+                                                <div class="text">共享模組</div>
+                                                <i class="micon-plus icon add-btn"></i>
+                                            </div>
+                                        </div>
+                                        <div id="module-2" class="module-table">
+                                            <div class="item">
+                                                <div class="text">自建模組</div>
+                                                <i class="micon-plus icon add-btn"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"><i class="micon-two-arrow icon"></i></div>
+                            <div class="result">
+                                <h5>叮嚀提醒</h5>
+                                <div class="overflow">
+                                    <textarea class="textarea-style"></textarea>
+                                    <label class="label--checkbox self-build">
+                                        <input type="checkbox" class="checkbox" value="存到自建">存到自建
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 表單按鈕區塊 -->
+        <section class="form-button record-button">
+            <button class="btn-style save-btn">
+                <i class="micon-save icon"></i>送出
+            </button>
+        </section>
+    </article>
+    <!-- 變動區 end -->
+</body>
+<!--會員資料匯入彈出視窗-->
+<div class="imoprt-data-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="table">
+            <div class="search-bar">
+                <i class="micon-search icon"></i>
+                <input type="text" class="input-style" id="member-search" placeholder="搜尋姓名/電話">
+            </div>
+            <h4>會員列表</h4>
+            <div class="list member-list">
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="王先生">王先生 0912345678
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="黃先生">黃先生 0912345678
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="黃先生">黃先生 0912345678
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="黃先生">黃先生 0912345678
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="黃先生">黃先生 0912345678
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="黃先生">黃先生 0912345678
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="黃先生">黃先生 0912345678
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="黃先生">黃先生 0912345678
+                </label>
+            </div>
+            <button type="button" class="btn-style save-btn">新增至待處理</button>
+        </div>
+    </div>
+</div>
+<!--lightbox-->
+<div class="lightbox-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <video controls src="img/b7a9a1edfcc947eb891bf0a7e7487ed5.mp4"></video>
+        <audio controls src="img/be5c2f999b974c33978064236f32602b.mp3"></audio>
+    </div>
+</div>
+
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 引用 jquery ui  -->
+<script src="vendor/jquery-ui.js"></script>
+<script src="vendor/jquery.ui.touch-punch.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- NAV on mobile  -->
+<script src="js/mobilenav.js"></script>
+
+<!-- nav switch 功能 -->
+<script src="js/sidebar.js"></script>
+
+<!-- popup window 功能  -->
+<script src="js/popup.js"></script>
+
+<!-- 選擇運動時段功能  -->
+<script src="js/exerciseperiod.js"></script>
+
+<!-- 使用 filter 套件 -->
+<script src="js/filter.js"></script>
+
+<!-- 使用 sortable -->
+<script src="vendor/Sortable/Sortable.min.js"></script>
+<script src="js/sortable.js"></script>
+
+</html>

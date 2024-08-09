@@ -1,0 +1,1494 @@
+/* 表單區塊 */
+.form-content {
+  @include grid(column, repeat(2, 1fr), 32px auto, inherit, 0);
+  grid-row: 2/4;
+  position: relative;
+
+  @include for-desktop {
+    grid-template-rows: 32px auto;
+  }
+
+  @include for-phone {
+    height: 465px;
+    grid-row: 3;
+    grid-column: 1/3;
+  }
+
+  & > input[type="radio"] {
+    @include s-tabs(1.125rem, 0px, "#form-tab", ".panel", "#panel");
+  }
+
+  & > .line {
+    background: var(--purple);
+    width: 100%;
+    height: 2px;
+    @include grid-child(1, 3, 2, 2);
+  }
+
+  .panel {
+    position: relative;
+    color: var(--fontColor);
+    height: auto;
+    margin-top: 16px;
+    @include grid-child(1, 3, 2, 2);
+    overflow: hidden;
+    @include mac-scrollbar-style;
+
+    &-table {
+      @include grid(row, auto, auto, inherit, 12px);
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: inherit;
+      top: 0;
+      @include ease(0.2s);
+
+      .form {
+        @include grid(column, 1fr, 44px auto, inherit, 0);
+        align-items: center;
+        height: max-content;
+
+        & > header {
+          color: var(--purple);
+          font-size: 1.125rem;
+
+          @include for-phone {
+            word-break: keep-all;
+          }
+        }
+
+        & > .table {
+          @include grid(column, 1fr 40px 1fr, auto, center, 8px);
+          @include grid-child(1, 5, 2, 2);
+          align-self: baseline;
+          border-top: 2px solid #ddd;
+          padding-top: 12px;
+
+          @include for-phone {
+            grid-auto-flow: row;
+            grid-template-columns: auto !important;
+          }
+
+          .list,
+          .result {
+            @include grid(column, auto, auto 200px, initial, 12px);
+            width: 100%;
+
+            .search-keyword {
+              @include flexbox(row, end, center);
+              position: relative;
+              color: var(--purple);
+              place-self: end;
+
+              .input-style {
+                @include s-input-style(0, 6.5px);
+                border: 0;
+                border-bottom: 1px solid var(--purple);
+
+                @include for-phone {
+                  width: 120px;
+                  padding: 4px;
+                }
+              }
+
+              .btn-style {
+                @include btn-common-style(
+                  transparent,
+                  6.5px,
+                  var(--purple),
+                  var(--purple),
+                  var(--purple),
+                  var(--white)
+                );
+              }
+            }
+
+            .module-select-bar {
+              @include flexbox-gap(row, end, center, 24px);
+
+              .label--checkbox {
+                @include s-checkbox;
+              }
+            }
+
+            & > h5 {
+              font-size: 0.875rem;
+              font-weight: normal;
+              margin: 0;
+            }
+
+            .overflow {
+              @include grid(row, auto, auto, inherit, 6px);
+              align-content: baseline;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              @include mac-scrollbar-style;
+
+              .item {
+                display: grid;
+                grid-template-columns: auto 36px;
+                align-items: center;
+                position: relative;
+                width: 100%;
+
+                @include for-phone {
+                  justify-content: space-between;
+                  width: 100%;
+                }
+
+                .icon {
+                  color: var(--purple);
+                  cursor: pointer;
+                  font-size: 1.5rem;
+                  border-radius: 5px;
+                  padding: 6px;
+                  @include ease(0.2s);
+
+                  &:hover {
+                    background: var(--purple);
+                    color: var(--white);
+                  }
+                }
+
+                .text {
+                  position: relative;
+                  padding-left: 16px;
+                  width: 100%;
+                  height: 20px;
+                  @include text-ellipse;
+
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    background: var(--fontColor);
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    top: 7px;
+                    left: 4px;
+                    @include ease(0.2s);
+                  }
+                }
+
+                .setting {
+                  @include grid(row, auto, auto, inherit, 12px);
+
+                  .select-times-secon-bar {
+                    @include grid(
+                      column,
+                      repeat(2, 100px),
+                      auto,
+                      inherit,
+                      24px
+                    );
+
+                    @include for-largepad {
+                      grid-template-columns: auto;
+                      gap: 0;
+                    }
+
+                    .bar-item {
+                      @include grid(column, auto 40px, auto, inherit, 6px);
+                      color: var(--purple);
+
+                      @include for-phone {
+                        grid-template-columns: auto 32px;
+                      }
+
+                      .input-style {
+                        @include s-input-style(5px, 6px);
+                        width: 100%;
+                        height: 32px;
+
+                        @include for-phone {
+                          padding: 3px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .added {
+                color: var(--gray);
+                pointer-events: none;
+
+                .text {
+                  &::before {
+                    background: var(--gray);
+                  }
+                }
+
+                .icon {
+                  color: var(--gray);
+                  cursor: text;
+
+                  &:hover {
+                    background: transparent;
+                    color: var(--gray);
+                  }
+                }
+
+                &::before {
+                  background: var(--gray);
+                }
+              }
+
+              .recommend-sports-list {
+                @include grid(row, auto, auto, inherit, 12px);
+                counter-reset: num;
+
+                @include for-desktop {
+                  gap: 12px;
+                }
+
+                & > h4 {
+                  position: relative;
+                  font-size: 1rem;
+                  padding-left: 16px;
+
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    background: var(--fontColor);
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    top: 8px;
+                    left: 4px;
+                    @include ease(0.2s);
+                  }
+                }
+
+                & > li {
+                  position: relative;
+                  padding-left: 32px;
+
+                  &::before {
+                    counter-increment: num;
+                    content: " " counter(num) ". ";
+                    position: absolute;
+                    left: 16px;
+                    @include ease(0.2s);
+                  }
+                }
+              }
+
+              & > small {
+                color: var(--red);
+              }
+
+              .textarea-style {
+                width: 100%;
+                height: 100px;
+                color: var(--purple);
+                border: 2px solid var(--gray);
+                border-radius: 5px;
+                margin-bottom: 12px;
+                padding: 12px;
+                resize: none;
+                @include mac-scrollbar-style;
+
+                &:hover,
+                &:active,
+                &:focus,
+                &:visited {
+                  border-color: var(--purple);
+                }
+              }
+
+              .label--checkbox {
+                @include s-checkbox;
+              }
+            }
+
+            /* 安全提醒模組 */
+            .module-content {
+              @include grid(column, repeat(2, 1fr), 32px 110px, inherit, 0);
+              position: relative;
+              width: 100%;
+              height: 100%;
+
+              & > input[type="radio"] {
+                @include s-tabs(1rem, 2px, "#module-tab", ".module", "#module");
+              }
+
+              .module {
+                position: relative;
+                color: var(--fontColor);
+                width: 100%;
+                height: 100%;
+                margin-top: 16px;
+                overflow: hidden;
+                @include grid-child(1, 3, 2, 2);
+                @include mac-scrollbar-style;
+
+                &-table {
+                  @include grid(row, auto, auto, inherit, 6px);
+                  align-content: baseline;
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  top: 0;
+                  @include hide;
+                  @include ease(0.2s);
+
+                  @include for-desktop {
+                    gap: 12px;
+                  }
+
+                  .item {
+                    display: grid;
+                    grid-template-columns: auto 36px;
+                    align-items: center;
+                    position: relative;
+                    width: 100%;
+
+                    @include for-phone {
+                      justify-content: space-between;
+                      width: 100%;
+                    }
+
+                    .icon {
+                      color: var(--purple);
+                      cursor: pointer;
+                      font-size: 1.5rem;
+                      border-radius: 5px;
+                      padding: 6px;
+                      @include ease(0.2s);
+
+                      &:hover {
+                        background: var(--purple);
+                        color: var(--white);
+                      }
+                    }
+
+                    .text {
+                      position: relative;
+                      padding-left: 16px;
+                      width: 100%;
+                      @include text-ellipse;
+
+                      &::before {
+                        content: "";
+                        position: absolute;
+                        background: var(--fontColor);
+                        width: 7px;
+                        height: 7px;
+                        border-radius: 50%;
+                        top: 7px;
+                        left: 4px;
+                        @include ease(0.2s);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            /* 安全提醒模組 end */
+          }
+
+          .line {
+            @include flexbox(row, center, center);
+            background: var(--gray);
+            width: 2px;
+            height: 100%;
+
+            @include for-phone {
+              width: 100%;
+              height: 2px;
+            }
+
+            .icon {
+              font-size: 1.5rem;
+              padding: 6px;
+              background: #fff;
+              border: 2px solid #ddd;
+              border-radius: 50%;
+
+              @include for-phone {
+                font-size: 1rem;
+                padding: 2px;
+                @include rotate(90deg);
+              }
+            }
+          }
+        }
+      }
+
+      /*線上評估結果 運動處方 */
+      .online-assessment-results-form,
+      .medical-prescription-form {
+        .table {
+          .result {
+            .overflow {
+              .item {
+                align-items: baseline;
+              }
+            }
+          }
+        }
+      }
+
+      .medical-prescription-form {
+        & > header {
+          @include flexbox(row, center, flex-start);
+        }
+
+        .table {
+          grid-template-columns: auto 40px 1fr;
+
+          .list,
+          .result {
+            grid-template-rows: auto 320px;
+          }
+
+          .list {
+            @include for-phone {
+              grid-template-rows: repeat(2, auto);
+            }
+          }
+
+          .result {
+            .title{
+              @include flexbox-gap-wrap(row, center, flex-start, 6px,wrap);
+              .exercise-duration-count {
+                @include flexbox-gap(row, center, center, 6px);
+                font-size: 0.875rem;
+                color: var(--green);
+                .item {
+                  @include flexbox-gap(row, center, center, 0px);
+                }
+              }
+
+            }
+            .overflow {
+              .item {
+                grid-template-columns: 32px 1fr 110px 36px;
+                align-items: center;
+                gap: 12px;
+
+                @include for-pad {
+                  grid-template-columns: 32px 1fr 60px 36px;
+                }
+
+                .medical-prescription-img {
+                  cursor: pointer;
+                  object-fit: contain;
+                  @include ease(0.2s);
+
+                  &:hover {
+                    @include scale(1.05);
+                  }
+                }
+
+                .drag-handle {
+                  font-size: 2rem;
+                }
+
+                .setting {
+                  .text {
+                    padding-left: 0;
+
+                    &:active,
+                    &:focus {
+                      height: auto;
+                      word-break: normal;
+                      white-space: initial;
+                      overflow: visible;
+                      text-overflow: unset;
+                    }
+
+                    &::before {
+                      width: 0;
+                      height: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /*線上評估結果 運動處方 end*/
+      /* 安全提醒 */
+      .safety-reminder-form {
+        grid-template-rows: auto;
+
+        .table {
+          border-top: 0;
+
+          .list {
+            grid-template-rows: auto;
+
+            .module-content {
+              grid-template-rows: 32px 159px;
+
+              .module {
+                height: calc(100% - 16px);
+              }
+            }
+          }
+
+          .result {
+            .overflow {
+              grid-template-rows: auto;
+            }
+          }
+        }
+      }
+
+      /* 安全提醒 end */
+    }
+
+    /* 開立處方 */
+    .prescription-table {
+      /* 進階篩選 */
+      .advanced-filter-bar {
+        @include grid(column, repeat(2, auto), auto, initial, 12px);
+        justify-content: end;
+        position: relative;
+
+        @include for-phone {
+          background: var(--white);
+          position: sticky;
+          top: 0px;
+          z-index: 2;
+        }
+
+        .medical-prescription-btn,
+        .advanced-filter-btn,
+        .select-module-btn,
+        .data-search-btn {
+          @include flexbox-gap(row, center, center, 6px);
+          border: 1px solid var(--purple);
+          border-radius: 5px;
+          color: var(--purple);
+          cursor: pointer;
+          padding: 7.5px;
+          @include ease(0.2s);
+
+          &:hover,
+          &:active,
+          &:focus {
+            background: var(--purple);
+            color: var(--white);
+          }
+
+          & > .text {
+            word-break: keep-all;
+          }
+
+          @include for-phone {
+            font-size: 0.875rem;
+          }
+        }
+
+        /* 資料查詢-舊版 */
+        .advanced-filter-table {
+          @include grid(
+            column,
+            repeat(auto-fit, minmax(115px, 1fr)),
+            max-content 44px,
+            inherit,
+            12px
+          );
+          position: absolute;
+          background: var(--purple);
+          border-radius: 5px;
+          color: var(--white);
+          padding: 16px 24px;
+          padding-top: 56px;
+          width: 100%;
+          top: 54px;
+          right: -100%;
+          z-index: 10;
+          @include hide;
+          @include ease(0.2s);
+
+          @include for-desktop {
+            gap: 8px;
+          }
+
+          @include for-largepad {
+            @include grid(
+              row,
+              repeat(2, auto),
+              max-content repeat(3, 44px),
+              inherit,
+              6px
+            );
+            padding: 16px;
+            padding-top: 56px;
+          }
+
+          .close-btn {
+            @include advance-close-btn-style;
+          }
+
+          .filter-result {
+            @include flexbox-gap(row, center, flex-start, 16px);
+            @include grid-child(1, 7, 1, 1);
+
+            .filter-result-list {
+              @include flexbox-gap(row, flex-start, flex-start, 16px);
+
+              .filter-result-item {
+                border: 1px solid var(--white);
+                border-radius: 5px;
+                padding: 6px;
+
+                .filter-clear {
+                  cursor: pointer;
+                  margin-left: 6px;
+
+                  &:hover {
+                    color: var(--brown);
+                  }
+                }
+              }
+            }
+
+            @include for-largepad {
+              @include grid-child(1, 4, 1, 1);
+            }
+
+            @include for-phone {
+              @include grid-child(1, 3, 1, 1);
+            }
+          }
+
+          .advanced-filter-item {
+            display: grid;
+            gap: 16px;
+            grid-row: 2;
+
+            @include for-largepad {
+              grid-row: unset;
+            }
+
+            .advanced-filter-dropdown-text {
+              @include flexbox-gap(row, center, center, 12px);
+              border: 1px solid var(--white);
+              border-radius: 5px;
+              color: var(--white);
+              cursor: pointer;
+              font-size: 0.875rem;
+              padding: 12px;
+              @include ease(0.2s);
+
+              @include for-desktop {
+                gap: 8px;
+              }
+
+              @include for-phone {
+                gap: 6px;
+                padding: 6px;
+              }
+
+              & > i {
+                @include rotate(180deg);
+                @include ease(0.2s);
+              }
+
+              &:hover {
+                background: var(--white);
+                color: var(--purple);
+              }
+            }
+
+            .table {
+              display: none;
+              grid-template-rows: max-content;
+              gap: 16px;
+              @include grid-child(1, 7, 3, 5);
+              position: absolute;
+              background: var(--white);
+              border-radius: 5px;
+              color: var(--purple);
+              width: 100%;
+              height: calc(100% - 90px);
+              padding: 12px;
+              top: 16px;
+              left: 0;
+
+              @include for-largepad {
+                @include grid-child(1, 4, 4, 7);
+              }
+
+              @include for-phone {
+                @include grid-child(1, 3, 5, 7);
+              }
+
+              .filter-search-bar {
+                position: relative;
+                border-bottom: 1px solid var(--purple);
+                color: var(--purple);
+                padding-bottom: 16px;
+
+                .icon {
+                  position: absolute;
+                  top: 8px;
+                  left: 8px;
+                }
+
+                .input-style {
+                  @include s-input-style(5px, 6px);
+                  padding-left: 32px;
+                }
+              }
+
+              .list {
+                @include grid(row, auto, auto, inherit, 16px);
+                align-content: baseline;
+                overflow: hidden;
+                overflow-y: scroll;
+                @include mac-scrollbar-style;
+
+                .label--checkbox {
+                  @include s-checkbox;
+                  height: max-content;
+                }
+              }
+            }
+          }
+
+          .btn-style {
+            @include flexbox-gap(row, center, center, 12px);
+            @include btn-common-style(
+              var(--brown),
+              12px,
+              var(--brown),
+              var(--purple),
+              var(--brown),
+              var(--black)
+            );
+            grid-row: 3;
+            place-self: flex-end;
+            @include ease(0.2s);
+
+            @include for-desktop {
+              gap: 8px;
+            }
+
+            @include for-largepad {
+              @include grid-child(1, 4, 5, 5);
+            }
+
+            @include for-phone {
+              @include grid-child(1, 3, 5, 5);
+            }
+          }
+
+          .drop {
+            .advanced-filter-dropdown-text {
+              background: var(--white);
+              color: var(--purple);
+
+              & > i {
+                @include rotate(0deg);
+              }
+            }
+
+            .table {
+              display: grid;
+            }
+          }
+        }
+
+        /* 資料查詢-新版 */
+        .data-search-table {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          gap: 12px;
+          position: absolute;
+          background: var(--purple);
+          border-radius: 5px;
+          color: var(--white);
+          padding: 12px;
+          padding-top: 44px;
+          width: 100%;
+          top: 44px;
+          right: -100%;
+          @include hide;
+          z-index: 10;
+          @include ease(0.2s);
+
+          @include for-largepad {
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+          }
+
+          @include for-phone {
+            position: fixed;
+            width: 320px;
+            top: 1%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 2;
+          }
+
+          .close-btn {
+            position: absolute;
+            cursor: pointer;
+            border: 1px solid var(--white);
+            border-radius: 50px;
+            font-size: 1.5rem;
+            top: 12px;
+            right: 12px;
+            @include ease(0.2s);
+
+            &:hover {
+              background: var(--white);
+              color: var(--purple);
+            }
+          }
+
+          .search-content {
+            display: grid;
+            grid-template-rows: 30px repeat(2, min-content) 30px;
+            gap: 12px;
+
+            .search-bar {
+              position: relative;
+
+              .input-style {
+                background: var(-white);
+                border-radius: 5px;
+                padding: 6px 12px;
+              }
+            }
+
+            .filter-table {
+              display: grid;
+              gap: 6px;
+
+              .filter-list {
+                @include grid(row, repeat(3, 1fr), repeat(2, 28px), unset, 6px);
+
+                .item {
+                  border: 1px solid var(--white);
+                  border-radius: 5px;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 6px;
+                  font-size: 0.875rem;
+                  padding: 3px;
+                  @include ease(0.2s);
+
+                  &:hover {
+                    background: var(--white);
+                    color: var(--purple);
+                  }
+
+                  .icon {
+                    @include rotate(180deg);
+                    @include ease(0.2s);
+                  }
+                }
+
+                .drop {
+                  background: var(--white);
+                  color: var(--purple);
+
+                  .icon {
+                    @include rotate(0deg);
+                  }
+                }
+              }
+
+              .filter-list-result {
+                display: none;
+                gap: 6px;
+                background: var(--white);
+                border-radius: 5px;
+                padding: 12px;
+                height: fit-content;
+                max-height: 299px;
+                overflow: hidden;
+                @include mac-scrollbar-style;
+
+                @include for-largepad {
+                  max-height: 200px;
+                }
+
+                @include for-phone {
+                  max-height: 130px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                  background-color: var(--brown);
+                }
+
+                .label--checkbox {
+                  @include s-checkbox;
+                  color: var(--purple);
+                  gap: 6px;
+                }
+              }
+
+              .drop {
+                display: grid;
+              }
+            }
+
+            .filter-select-result {
+              display: grid;
+              gap: 6px;
+              font-size: 0.875rem;
+
+              .filter-result-list {
+                @include grid(
+                  row,
+                  repeat(4, 1fr),
+                  repeat(auto-fit, minmax(32px, max-content)),
+                  unset,
+                  6px
+                );
+
+                @include for-pad {
+                  grid-template-columns: repeat(3, 1fr);
+                }
+
+                .filter-result-item {
+                  @include flexbox(row, center, space-between);
+                  border-radius: 5px;
+                  border: 1px solid var(--white);
+                  padding: 6px;
+
+                  .filter-clear {
+                    cursor: pointer;
+                    @include ease(0.2s);
+
+                    &:hover {
+                      color: var(--brown);
+                    }
+                  }
+                }
+              }
+            }
+
+            .search-btn {
+              background: var(--brown);
+              padding: 6px;
+              color: var(--black);
+              @include ease(0.2s);
+
+              &:hover {
+                @include filter-saturate(150%);
+                color: var(--white);
+              }
+            }
+          }
+
+          .line {
+            @include flexbox(row, center, center);
+            background: var(--white);
+            width: 2px;
+            height: 100%;
+
+            @include for-largepad {
+              width: 100%;
+              height: 2px;
+            }
+
+            .icon {
+              background: var(--purple);
+              font-size: 0.875rem;
+
+              @include for-largepad {
+                @include rotate(90deg);
+              }
+            }
+          }
+
+          .data-search-result {
+            display: grid;
+            grid-template-rows: 16px min-content 30px;
+            gap: 12px;
+
+            & > h4 {
+              font-size: 0.875rem;
+            }
+
+            .list {
+              display: grid;
+              gap: 16px;
+              background: var(--white);
+              padding: 12px;
+              border-radius: 5px;
+              height: fit-content;
+              max-height: 380px;
+              overflow: hidden;
+              @include mac-scrollbar-style;
+
+              @include for-largepad {
+                max-height: 200px;
+              }
+
+              @include for-phone {
+                max-height: 154px;
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background-color: var(--brown);
+              }
+
+              .label--checkbox {
+                @include s-checkbox;
+                color: var(--purple);
+                gap: 12px;
+                height: fit-content;
+
+                & > label {
+                  cursor: pointer;
+                  width: 100%;
+                }
+
+                & > img {
+                  width: 80px;
+                }
+              }
+            }
+
+            .btn-group {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 12px;
+
+              .save-btn {
+                background: var(--brown);
+                padding: 6px;
+                color: var(--black);
+                @include ease(0.2s);
+
+                &:hover {
+                  @include filter-saturate(150%);
+                  color: var(--white);
+                }
+              }
+
+              .clear-btn {
+                background: var(--gray);
+                padding: 6px;
+                color: var(--black);
+                @include ease(0.2s);
+
+                &:hover {
+                  background: var(--lightgray);
+                }
+              }
+            }
+          }
+        }
+
+        /* 選擇套組 */
+        .select-module-table {
+          @include grid(column, 1fr auto 1fr, auto, center, 12px);
+          position: absolute;
+          background: var(--purple);
+          border-radius: 5px;
+          color: var(--white);
+          padding: 12px;
+          padding-top: 44px;
+          width: 100%;
+          top: 44px;
+          right: -100%;
+          z-index: 10;
+          @include hide;
+          @include ease(0.2s);
+
+          @include for-pad {
+            grid-template-columns: auto;
+            grid-template-rows: repeat(3, auto);
+          }
+
+          @include for-phone {
+            position: fixed;
+            width: 320px;
+            top: 6%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 2;
+          }
+
+          .close-btn {
+            @include advance-close-btn-style;
+          }
+
+          .list {
+            @include grid(column, auto, auto 350px, initial, 12px);
+            width: 100%;
+
+            @include for-pad {
+              grid-template-rows: auto 240px;
+            }
+
+            @include for-phone {
+              grid-template-rows: auto calc(100% - 36px);
+              place-self: baseline;
+            }
+
+            & > h5 {
+              font-size: 0.875rem;
+              font-weight: normal;
+              margin: 0;
+            }
+
+            .overflow {
+              @include grid(row, auto, auto, inherit, 0);
+              align-content: baseline;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              @include mac-scrollbar-style;
+
+              @include for-phone {
+                max-height: 220px;
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background-color: var(--white);
+              }
+
+              .item {
+                display: grid;
+                grid-template-columns: auto repeat(2, 36px);
+                align-items: center;
+                position: relative;
+                width: 100%;
+
+                .icon {
+                  color: var(--white);
+                  cursor: pointer;
+                  font-size: 1.5rem;
+                  border-radius: 5px;
+                  padding: 6px;
+                  @include ease(0.2s);
+
+                  &:hover {
+                    background: var(--brown);
+                    color: var(--white);
+                  }
+                }
+
+                .text {
+                  position: relative;
+                  padding-left: 16px;
+                  width: 100%;
+                  @include text-ellipse;
+
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    background: var(--white);
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    top: 7px;
+                    left: 4px;
+                    @include ease(0.2s);
+                  }
+                }
+
+                .module-popup-table {
+                  display: none;
+                  grid-column: 1/4;
+                  position: relative;
+                  background: var(--brown);
+                  width: 100%;
+                  height: 325px;
+                  color: var(--black);
+                  border-radius: 5px;
+                  padding: 12px;
+                  padding-top: 44px;
+                  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                  top: 6px;
+                  left: 0;
+                  z-index: 2;
+
+                  .close-module-info-btn {
+                    position: absolute;
+                    right: 12px;
+                    top: 12px;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    @include ease(0.2s);
+
+                    &:hover {
+                      color: var(--white);
+                    }
+                  }
+
+                  .module-popup-list {
+                    @include grid(row, auto, auto, initial, 16px);
+                    align-content: baseline;
+                    border: 1px solid var(--purple);
+                    padding: 6px;
+                    height: -webkit-fill-available;
+                    overflow: hidden;
+                    @include mac-scrollbar-style;
+
+                    &-item {
+                      @include grid(column, 1fr 80px, auto, center, 12px);
+
+                      .text {
+                        padding-left: 0;
+                        height: 20px;
+
+                        &::before {
+                          display: none;
+                        }
+                      }
+
+                      & > img {
+                        cursor: pointer;
+                        @include ease(0.2s);
+
+                        &:hover {
+                          @include scale(1.1);
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .open-info-table {
+                  background: var(--brown);
+                  color: var(--white);
+
+                  & ~ .module-popup-table {
+                    display: block;
+
+                    @include for-phone {
+                      position: fixed;
+                      width: 300px;
+                      margin: auto;
+                      left: 0;
+                      right: 0;
+                      top: 25%;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .line {
+            @include flexbox(row, center, center);
+            background: var(--white);
+            width: 1px;
+            height: 100%;
+
+            @include for-pad {
+              width: 100%;
+              height: 1px;
+            }
+          }
+        }
+
+        /* 選擇套組 end */
+
+        .tableH {
+          height: 500px;
+
+          @include for-largepad {
+            height: 550px;
+          }
+
+          @include for-phone {
+            height: 600px;
+          }
+        }
+
+        /* 資料查詢開啟-舊版 */
+        .open-table {
+          background: var(--purple);
+          color: var(--white);
+
+          & ~ .advanced-filter-table {
+            right: 0;
+            @include show;
+            box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+          }
+        }
+
+        /* 資料查詢開啟-新版 */
+        .open-data-table {
+          background: var(--purple);
+          color: var(--white);
+
+          & ~ .data-search-table {
+            right: 0;
+            @include show;
+            box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+          }
+        }
+
+        /* 選擇套組開啟 */
+        .open-select-table {
+          background: var(--purple);
+          color: var(--white);
+
+          & ~ .select-module-table {
+            right: 0;
+            @include show;
+            box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+          }
+        }
+      }
+    }
+
+    /* 歷程紀錄 */
+    .record-table {
+      grid-template-rows: 44px auto;
+      gap: 16px;
+      height: 100%;
+
+      .form-title {
+        @include grid(column, 90px 1fr repeat(1, 100px), auto, baseline, 12px);
+        align-items: center;
+        font-size: 1.125rem;
+        border-bottom: 2px solid var(--gray);
+        color: var(--purple);
+        padding-right: 16px;
+        @include text-ellipse;
+
+        @include for-phone {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .setting-item {
+          width: 100px;
+        }
+      }
+
+      .form-list {
+        @include grid(row, auto, auto, initial, 16px);
+        align-content: baseline;
+        height: 100%;
+        padding-right: 8px;
+        overflow: hidden;
+        @include mac-scrollbar-style;
+
+        .item {
+          @include grid(
+            column,
+            90px 1fr repeat(1, 100px),
+            auto,
+            baseline,
+            12px
+          );
+
+          @include for-phone {
+            grid-template-columns: repeat(4, 1fr);
+          }
+
+          .text {
+            width: 100%;
+            height: 100%;
+            @include text-ellipse;
+          }
+
+          .btn-style {
+            color: var(--purple);
+            @include text-ellipse;
+            @include ease(0.2s);
+
+            & > i {
+              margin-left: 6px;
+            }
+
+            &:hover {
+              color: var(--brown);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 開立處方切換時使用 */
+  .disable {
+    .advanced-filter-bar,
+    .search-keyword {
+      pointer-events: none;
+    }
+
+    .overflow {
+      .item {
+        pointer-events: none;
+
+        .micon-plus,
+        .micon-minus,
+        .micon-two-arrow {
+          display: none;
+        }
+
+        .bar-item {
+          .input-style {
+            pointer-events: none;
+            border: none !important;
+          }
+        }
+      }
+
+      .label--checkbox {
+        pointer-events: none;
+
+        & > input[type="checkbox"] {
+          display: block;
+        }
+      }
+
+      .self-build {
+        display: none !important;
+      }
+
+      .textarea-style {
+        pointer-events: none;
+      }
+    }
+
+    .module-content {
+      .micon-plus {
+        display: none;
+      }
+    }
+  }
+}
+
+/*處方紀錄編輯表單區塊 */
+.record-form-content {
+  grid-row: 1/3;
+  grid-column: 1/3;
+  margin-top: 12px;
+
+  & > .name {
+    position: absolute;
+    color: var(--fontColor);
+    font-size: 0.875rem;
+    top: -18px;
+  }
+
+  @include for-desktop {
+    height: 78vh;
+  }
+
+  @include for-pad {
+    height: auto;
+  }
+
+  @include for-phone {
+    grid-row: 1;
+    grid-column: 1;
+    height: 82vh;
+  }
+}

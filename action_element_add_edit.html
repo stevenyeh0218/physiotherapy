@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section> 
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <form action="" method="post">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <div class="released-btn">
+                        <input type="checkbox" id="switch" checked>
+                        <label for="switch"></label>
+                        <span>上架</span>
+                        <span>下架</span>
+                    </div>
+                    <a href="action_element.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增動作元件</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <!-- 封面圖上傳 -->
+                        <div class="table-row upload-item cover-img-upload">
+                            <h4>封面圖上傳</h4>
+                            <div class="upload">
+                                <span id="file-chosen">點擊右方按鈕上傳圖片</span>
+                                <input type="file" accept=".png, .jpg, .jpeg" id="imageUpload" class="">
+                                <label for="imageUpload"><i class="micon-folder-open"></i></label>
+                            </div>
+                            <small>※格式：jpg、png，容量大小1MB以內(包含1MB)</small>
+                            <div class="preview">
+                                <div class="imagePreview"></div>
+                            </div>
+                        </div>  
+                        <!-- 運動名稱(中英文) -->
+                        <div class="table-row">
+                            <h4>運動名稱(中文)</h4>
+                            <input type="text" class="input-style" placeholder="請輸入運動名稱(中文)">      
+                        </div>  
+                        <div class="table-row">
+                            <h4>運動名稱(英文)</h4>
+                            <input type="text" class="input-style" placeholder="請輸入運動名稱(英文)">      
+                        </div>    
+                        <!-- 動作強度 -->
+                        <div class="table-row">
+                            <h4>動作強度</h4>  
+                            <input type="number" class="input-style" name="action-intensity">
+                        </div>   
+                        <!-- 姿勢擺位 -->
+                        <div class="table-row">
+                            <h4>姿勢擺位</h4>  
+                            <select class="select-style">
+                                <option value="躺姿">躺姿</option>
+                                <option value="躺姿">躺姿</option>
+                                <option value="躺姿">躺姿</option>
+                                <option value="躺姿">躺姿</option>
+                                <option value="躺姿">躺姿</option>
+                            </select>
+                        </div>   
+                        <!-- 動作側 -->
+                        <div class="table-row">
+                            <h4>動作側</h4>  
+                            <select class="select-style">
+                                <option value="左側">左側</option>
+                                <option value="右側">右側</option>
+                            </select>
+                        </div>  
+                        <!-- 動作劑量 -->
+                        <div class="table-row action-dose">
+                            <h4>動作劑量</h4>  
+                            <div class="select-action-dose-bar">
+                                <div class="item">
+                                    <input type="number" class="input-style" name="second"><small>次/動作</small>
+                                </div>
+                                <div class="item">
+                                    <input type="number" class="input-style" name="time"><small>秒/次</small>
+                                </div>
+                            </div>
+                        </div>  
+                        <!-- 動作種類 -->
+                        <div class="table-row select-row">
+                            <h4>動作種類 <i class="micon-plus add-select-item"></i></h4>  
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                        </div> 
+                        <!-- 動作部位 -->
+                        <div class="table-row select-row">
+                            <h4>動作種類<i class="micon-plus add-select-item"></i></h4>  
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                        </div> 
+                        <!-- 輔具 -->
+                        <div class="table-row select-row">
+                            <h4>輔具<i class="micon-plus add-select-item"></i></h4>  
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                            <div class="select-item">
+                                <select class="select-style">
+                                    <option value="放鬆">放鬆</option>
+                                    <option value="放鬆">放鬆</option>
+                                </select>
+                                <button type="button" class="micon-minus btn-style"></button>
+                            </div>
+                        </div> 
+                        <!-- 動作說明 -->
+                        <div class="table-row textarea-row">
+                            <h4>*動作說明</h4>
+                            <textarea class="textarea-style" placeholder="請輸入約20個字的說明"></textarea>
+                        </div>
+                        <!-- 動作叮嚀 -->
+                        <div class="table-row textarea-row">
+                            <h4>*動作叮嚀</h4>
+                            <textarea class="textarea-style" placeholder="請輸入約20個字的說明"></textarea>
+                        </div>
+                        <!-- 預覽影片、語音檔案上傳 -->
+                        <div class="preview-file-upload">                            
+                            <div class="table-row upload-item">
+                                <h4>預覽影片上傳</h4>
+                                <div class="upload">
+                                    <span id="preview-file-chosen">點擊右方按鈕上傳</span>
+                                    <input type="file" accept=".mov, .mp4" id="previewUpload" class="">
+                                    <label for="previewUpload"><i class="micon-folder-open"></i></label>
+                                </div>
+                                <small>※格式：jpg、png，容量大小50MB以內(包含50MB)</small>
+                                <div class="preview">
+                                    <video controls class="previewVideo"></video>
+                                </div>
+                            </div>  
+                            <div class="table-row upload-item">
+                                <h4>預覽語音檔案上傳</h4>
+                                <div class="upload">
+                                    <span id="previewSound-file-chosen">點擊右方按鈕上傳</span>
+                                    <input type="file" accept=".mp3" id="previewSoundUpload" class="">
+                                    <label for="previewSoundUpload"><i class="micon-folder-open"></i></label>
+                                </div>
+                                <small>※格式：jpg、png，容量大小50MB以內(包含50MB)</small>
+                                <div class="preview">
+                                    <audio controls src="/media/cc0-audio/t-rex-roar.mp3" class="previewSoundVideo"></audio>
+                                </div>
+                            </div>
+                        </div>  
+                        <!-- 起始影片、語音檔案上傳 -->
+                        <div class="start-file-upload">
+                            <div class="table-row upload-item">
+                                <h4>起始影片上傳</h4>
+                                <div class="upload">
+                                    <span id="start-file-chosen">點擊右方按鈕上傳</span>
+                                    <input type="file" accept=".mov, .mp4" id="startUpload" class="">
+                                    <label for="startUpload"><i class="micon-folder-open"></i></label>
+                                </div>
+                                <small>※格式：jpg、png，容量大小50MB以內(包含50MB)</small>
+                                <div class="preview">
+                                    <video controls class="startVideo"></video>
+                                </div>
+                            </div>  
+                            <div class="table-row upload-item">
+                                <h4>起始語音檔案上傳</h4>
+                                <div class="upload">
+                                    <span id="startSound-file-chosen">點擊右方按鈕上傳圖片</span>
+                                    <input type="file" accept=".mp3" id="startSoundUpload" class="">
+                                    <label for="startSoundUpload"><i class="micon-folder-open"></i></label>
+                                </div>
+                                <small>※格式：jpg、png，容量大小50MB以內(包含50MB)</small>
+                                <div class="preview">
+                                    <audio controls src="/media/cc0-audio/t-rex-roar.mp3" class="startSoundVideo"></audio>
+                                </div>
+                            </div>  
+                        </div>
+                        <!-- 中間影片、語音檔案上傳 -->
+                        <div class="middle-file-upload">
+                            <div class="table-row upload-item">
+                                <h4>中間影片上傳</h4>
+                                <div class="upload">
+                                    <span id="middle-file-chosen">點擊右方按鈕上傳圖片</span>
+                                    <input type="file" accept=".mov, .mp4" id="middleUpload" class="">
+                                    <label for="middleUpload"><i class="micon-folder-open"></i></label>
+                                </div>
+                                <small>※格式：jpg、png，容量大小50MB以內(包含50MB)</small>
+                                <div class="preview">
+                                    <video controls class="middleVideo"></video>
+                                </div>
+                            </div>  
+                            <div class="table-row upload-item">
+                                <h4>中間語音檔案上傳</h4>
+                                <div class="upload">
+                                    <span id="middleSound-file-chosen">點擊右方按鈕上傳圖片</span>
+                                    <input type="file" accept=".mp3" id="middleSoundUpload" class="">
+                                    <label for="middleSoundUpload"><i class="micon-folder-open"></i></label>
+                                </div>
+                                <small>※格式：jpg、png，容量大小50MB以內(包含50MB)</small>
+                                <div class="preview">
+                                    <audio controls src="/media/cc0-audio/t-rex-roar.mp3" class="middleSoundVideo"></audio>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 結束影片、語音檔案上傳 -->
+                        <div class="end-file-upload">
+                            <div class="table-row upload-item">
+                                <h4>結束影片上傳</h4>
+                                <div class="upload">
+                                    <span id="end-file-chosen">點擊右方按鈕上傳圖片</span>
+                                    <input type="file" accept=".mov, .mp4" id="endUpload" class="">
+                                    <label for="endUpload"><i class="micon-folder-open"></i></label>
+                                </div>
+                                <small>※格式：jpg、png，容量大小50MB以內(包含50MB)</small>
+                                <div class="preview">
+                                    <video controls class="endVideo"></video>
+                                </div>
+                            </div>  
+                            <div class="table-row upload-item">
+                                <h4>結束語音檔案上傳</h4>
+                                <div class="upload">
+                                    <span id="endSound-file-chosen">點擊右方按鈕上傳圖片</span>
+                                    <input type="file" accept=".mp3" id="endSoundUpload" class="">
+                                    <label for="endSoundUpload"><i class="micon-folder-open"></i></label>
+                                </div>
+                                <small>※格式：jpg、png，容量大小50MB以內(包含50MB)</small>
+                                <div class="preview">
+                                    <audio controls src="/media/cc0-audio/t-rex-roar.mp3" class="endSoundVideo"></audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+            </form>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 上傳功能  -->
+<script src="js/upload.js"></script>
+
+</html>

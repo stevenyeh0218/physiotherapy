@@ -1,0 +1,38 @@
+/* 表單按鈕區塊 */
+.form-button {
+  @include grid(column, 1fr, auto, end, 12px);
+  position: relative;
+  place-self: end;
+  @include grid-child (1, 3, 4, 4);
+  width: 100%;
+  height: 46px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background: var(--gray);
+    width: 100%;
+    height: 2px;
+    top: -6px;
+
+    @include for-desktop {
+      top: 6px;
+    }
+  }
+
+  .btn-style {
+    @include btn-common-style(var(--brown), 12px, var(--brown), var(--white), var(--purple), var(--white));
+
+    @include for-desktop {
+      gap: 6px;
+      padding: 6px;
+    }
+  }
+}
+
+/* 處方紀錄按鈕區塊 */
+.record-button{
+  @include for-phone {
+    @include grid-child (1, 1, 1, 1);
+  }
+}

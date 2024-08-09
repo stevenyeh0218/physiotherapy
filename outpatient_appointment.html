@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>居家物理治療後台</title>
+        <meta property="og:title" content="居家物理治療後台" />
+        <meta property="og:type" content="website" />
+        <meta itemprop="name" content="居家物理治療後台">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 客製化 icon fonts -->
+        <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+        <!-- 使用 flatpickr 套件樣式 -->
+        <link rel="stylesheet" href="vendor/flatpickr_v4/flatpickr.min.css">
+        <!-- 主畫面樣式 -->
+        <link rel="stylesheet" href="css/backstage.css">
+    </head>
+
+    <body>
+        <!-- 側邊攔(menu) -->
+        <aside id="sidebar"></aside>
+        <!-- 會員名稱&登出按鈕 -->
+        <section id="member"></section>
+        <!-- 變動區 -->
+        <article id="contain">
+            <div class="parameter-content">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <div class="amount">
+                        <div class="text">預約資料總數：</div>
+                        <div class="amount-number">33</div>
+                    </div>
+                    <div class="amount unconfirmed">
+                        <div class="text">尚未處理總數：</div>
+                        <div class="amount-number">33</div>
+                    </div>
+                    <div class="search-bar">
+                        <div class="calendar-bar">
+                            <i class="micon-reserve"></i>
+                            <input type="text" class="input-style
+                                calendar-input" placeholder="日期區間查詢">
+                        </div>
+                        <input type="text" class="input-style"
+                            id="pt-exercise-module-search" placeholder="搜輸入關鍵字">
+                        <i class="micon-search icon"></i>
+                    </div>
+                    <div class="filter branch-filter">
+                        <div class="filter-btn btn-style">
+                            <i class="micon-filter icon"></i>
+                            全部分院
+                            <i class="micon-down-arrow icon"></i>
+                        </div>
+                        <div class="filter-list">
+                            <div class="item active">
+                                全部分院
+                                <i class="micon-filter icon"></i>
+                            </div>
+                            <div class="item">
+                                忠孝新生分院
+                                <i class="micon-filter icon"></i>
+                            </div>
+                            <div class="item">
+                                內湖分院
+                                <i class="micon-filter icon"></i>
+                            </div>
+                            <div class="item">
+                                雙和分院
+                                <i class="micon-filter icon"></i>
+                            </div>
+                            <div class="item">
+                                天母分院
+                                <i class="micon-filter icon"></i>
+                            </div>
+                            <div class="item">
+                                民生分院
+                                <i class="micon-filter icon"></i>
+                            </div>
+                            <div class="item">
+                                板橋分院
+                                <i class="micon-filter icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter status-filter">
+                        <div class="filter-btn btn-style">
+                            <i class="micon-filter icon"></i>
+                            預約狀態
+                            <i class="micon-down-arrow icon"></i>
+                        </div>
+                        <div class="filter-list">
+                            <div class="item active">
+                                尚未處理
+                                <i class="micon-filter icon"></i>
+                            </div>
+                            <div class="item">
+                                已確認
+                                <i class="micon-filter icon"></i>
+                            </div>
+                            <div class="item">
+                                取消預約
+                                <i class="micon-filter icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div id="gridcontainer">
+                    <div
+                        class="default-table app-appointment-table border-style">
+                        <div class="table-header">
+                            <div class="text">APP預約狀態</div>
+                            <div class="text">領健預約狀態</div>
+                            <div class="text">來源</div>
+                            <div class="text">姓名</div>
+                            <div class="text">手機</div>
+                            <div class="text">預約日期</div>
+                            <div class="text">預約分院</div>
+                            <div class="setting-item"></div>
+                        </div>
+                        <div class="table-list">
+                            <div class="table-row">
+                                <div class="text sucess" data-title="APP預約狀態"><span>已確認</span><button
+                                        type="button"
+                                        class="micon-cancel-calendar
+                                        cancel-reservation-btn" title="取消預約"></button>
+                                </div>
+                                <div class="text" data-title="領健預約狀態">已確認</div>
+                                <div class="text myself" data-title="來源">自己</div>
+                                <div class="text" data-title="姓名">金色三麥</div>
+                                <div class="text" data-title="手機">0912123456</div>
+                                <div class="text" data-title="預約日期">2022-10-12</div>
+                                <div class="text" data-title="預約分院">板橋門市</div>
+                                <button type="button"
+                                    class="app-appointment-detail-btn">
+                                    詳細資料<i class="micon-two-arrow icon"></i>
+                                </button>
+                            </div>
+                            <div class="table-row">
+                                <div class="text cancel" data-title="APP預約狀態"><span>尚未處理</span><button
+                                        type="button"
+                                        class="micon-cancel-calendar
+                                        cancel-reservation-btn" title="取消預約"></button>
+                                </div>
+                                <div class="text" data-title="領健預約狀態">未確認</div>
+                                <div class="text another" data-title="來源">他人</div>
+                                <div class="text" data-title="姓名">金色三麥</div>
+                                <div class="text" data-title="手機">0912123456</div>
+                                <div class="text" data-title="預約日期">2022-10-12</div>
+                                <div class="text" data-title="預約分院">板橋門市</div>
+                                <button type="button"
+                                    class="app-appointment-detail-btn">
+                                    詳細資料<i class="micon-two-arrow icon"></i>
+                                </button>
+                            </div>
+                            <div class="table-row">
+                                <div class="text cancel" data-title="APP預約狀態"><span>取消預約</span><button
+                                        type="button"
+                                        class="micon-cancel-calendar
+                                        cancel-reservation-btn disable"
+                                        title="取消預約"></button>
+                                </div>
+                                <div class="text" data-title="領健預約狀態">取消預約</div>
+                                <div class="text another" data-title="來源">他人</div>
+                                <div class="text" data-title="姓名">金色三麥</div>
+                                <div class="text" data-title="手機">0912123456</div>
+                                <div class="text" data-title="預約日期">2022-10-12</div>
+                                <div class="text" data-title="預約分院">板橋門市</div>
+                                <button type="button"
+                                    class="app-appointment-detail-btn">
+                                    詳細資料<i class="micon-two-arrow icon"></i>
+                                </button>
+                            </div>
+                            <div class="table-row">
+                                <div class="text cancel" data-title="APP預約狀態"><span>取消預約</span><button
+                                        type="button"
+                                        class="micon-cancel-calendar
+                                        cancel-reservation-btn disable"
+                                        title="取消預約"></button>
+                                </div>
+                                <div class="text" data-title="領健預約狀態">-</div>
+                                <div class="text another" data-title="來源">他人</div>
+                                <div class="text" data-title="姓名">金色三麥</div>
+                                <div class="text" data-title="手機">0912123456</div>
+                                <div class="text" data-title="預約日期">2022-10-12</div>
+                                <div class="text" data-title="預約分院">板橋門市</div>
+                                <button type="button"
+                                    class="app-appointment-detail-btn">
+                                    詳細資料<i class="micon-two-arrow icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="processed border-style">
+                        <div class="text">各分院尚未處理預約列表：</div>
+                        <div class="list">
+                            <div class="item">忠孝新生分院(100)</div>
+                            <div class="item">內湖分院(100)</div>
+                            <div class="item">民生分院(100)</div>
+                            <div class="item">雙和分院(100)</div>
+                            <div class="item">板橋分院(100)</div>
+                            <div class="item">天母分院(100)</div>
+                            <div class="item">忠孝新生分院(100)</div>
+                            <div class="item">內湖分院(100)</div>
+                            <div class="item">民生分院(100)</div>
+                            <div class="item">雙和分院(100)</div>
+                            <div class="item">板橋分院(100)</div>
+                            <div class="item">天母分院(100)</div>
+                            <div class="item">忠孝新生分院(100)</div>
+                            <div class="item">內湖分院(100)</div>
+                            <div class="item">民生分院(100)</div>
+                            <div class="item">雙和分院(100)</div>
+                            <div class="item">板橋分院(100)</div>
+                            <div class="item">天母分院(100)</div>
+                            <div class="item">忠孝新生分院(100)</div>
+                            <div class="item">內湖分院(100)</div>
+                            <div class="item">民生分院(100)</div>
+                            <div class="item">雙和分院(100)</div>
+                            <div class="item">板橋分院(100)</div>
+                            <div class="item">天母分院(100)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- 變動區 end -->
+    </body>
+    <!--App預約詳細資料彈出視窗-->
+    <div class="app-appointment-detail-data-popupwindow">
+        <div class="content">
+            <button type="button" class="close-btn">
+                <i class="micon-close"></i>
+            </button>
+            <div class="table">
+                <div class="info-list">
+                    <h4>建立日期-10-10 00:00:00</h4>
+                    <div class="list">
+                        <div class="item">
+                            <div class="text">領健預約狀態</div>
+                            <div class="text-value sucess">已確認</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">來源</div>
+                            <div class="text-value myself">自己</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">姓名</div>
+                            <div class="text-value">金色三麥</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">手機</div>
+                            <div class="text-value">0912123456</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">領健會員號</div>
+                            <div class="text-value">000000000012</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">預約日期</div>
+                            <div class="text-value">2022-10-12</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">預約時段</div>
+                            <div class="text-value">13:00~14:00</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">預約分院</div>
+                            <div class="text-value">板橋門市</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">治療師</div>
+                            <div class="text-value">林醫師</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">聯絡時段</div>
+                            <div class="text-value">09:00~12:00</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-style select-btn">選擇領健預約</button>
+                </div>
+                <div class="line disapear">
+                    <i class="micon-two-arrow icon"></i>
+                </div>
+                <div class="sync-list disapear">
+                    <div class="search-bar">
+                        <i class="micon-search icon"></i>
+                        <input type="text" class="input-style"
+                            placeholder="搜尋關鍵字">
+                    </div>
+                    <div class="list">
+                        <header>
+                            <div class="text"></div>
+                            <div class="text">姓名</div>
+                            <div class="text">預約日期</div>
+                            <div class="text">預約時段</div>
+                            <div class="text">預約分院</div>
+                            <div class="text">治療師</div>
+                        </header>
+                        <div class="tbody">
+                            <div class="label--radio">
+                                <input type="radio" id="question[0]"
+                                    class="radio" name="option">
+                                <label for="question[0]" class="text">林依依</label>
+                                <label for="question[0]" class="text">2023-10-12</label>
+                                <label for="question[0]" class="text">13:00~14:00</label>
+                                <label for="question[0]" class="text">生生優動忠孝新生分院</label>
+                                <label for="question[0]" class="text">王醫師</label>
+                            </div>
+                            <div class="label--radio">
+                                <input type="radio" id="question[1]"
+                                    class="radio" name="option">
+                                <label for="question[1]" class="text">林依依</label>
+                                <label for="question[1]" class="text">2023-10-12</label>
+                                <label for="question[1]" class="text">13:00~14:00</label>
+                                <label for="question[1]" class="text">生生優動忠孝新生分院</label>
+                                <label for="question[1]" class="text">王醫師</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-style confirm-btn">預約確認</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 引用 jquery 3.6.1 -->
+    <script src="vendor/jquery-3.6.1.min.js"></script>
+
+    <!-- 共同頁面讀取  -->
+    <script src="js/loading.js"></script>
+
+    <!-- popup window 功能  -->
+    <script src="js/popup.js"></script>
+
+    <!-- 領件預約 功能  -->
+    <script src="js/sync.js"></script>
+
+    <!-- 引用 flatpickr 套件樣式 -->
+    <script src="vendor/flatpickr_v4/flatpickr.js"></script>
+
+    <script>
+        $(".calendar-input").flatpickr({
+            mode: "range"
+        });
+    </script>
+</html>

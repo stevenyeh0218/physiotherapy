@@ -1,0 +1,68 @@
+/* 待處理 暫存 已開立區塊 */
+.process-content {
+  @include grid(row, auto, 24px auto, inherit, 0);
+  position: relative;
+  min-height: 300px;
+
+  @include for-phone {
+    min-height: 244px;
+    max-height: 244px;
+  }
+
+  &>h4 {
+    color: var(--purple);
+    border-bottom: 1px solid var(--purple);
+  }
+
+  .list {
+    display: grid;
+    gap: 6px;
+    margin-top: 6px;
+    grid-template-rows: repeat(auto-fit, minmax(24px, max-content));
+    position: relative;
+    color: var(--fontColor);
+    overflow: hidden;
+    @include mac-scrollbar-style;
+
+    .pending-member {
+      @include flexbox(row, center, space-between);
+
+      .name {
+        position: relative;
+        color: var(--fontColor);
+        padding-left: 16px;
+        @include ease(.2s);
+
+        &::before {
+          content: "";
+          position: absolute;
+          background: var(--fontColor);
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          top: 8px;
+          left: 4px;
+          @include ease(.2s);
+        }
+
+        &:hover {
+          color: var(--purple);
+
+          &::before {
+            background: var(--purple);
+            @include scale(1.5);
+          }
+        }
+      }
+
+      &>i {
+        cursor: pointer;
+        @include ease(.2s);
+
+        &:hover {
+          color: var(--brown);
+        }
+      }
+    }
+  }
+}

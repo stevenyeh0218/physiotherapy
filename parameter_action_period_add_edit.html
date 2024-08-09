@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 使用 flatpickr 套件樣式 -->
+    <link rel="stylesheet" href="vendor/flatpickr_v4/flatpickr.min.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <form action="" method="post">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <a href="parameter_action_period.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增動作時段</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <div class="table-row">
+                            <h4>*時段名稱</h4>
+                            <input type="text" class="input-style" placeholder="請輸入中文名稱">      
+                        </div>  
+                        <div class="table-row">
+                            <h4>*運動時段</h4>
+                            <label class="start-time">
+                                <i class="micon-clock icon"></i>
+                                <input type="text" id="time_from" class="input-style" placeholder="請輸入起始時段">
+                            </label>
+                            <label class="end-time">
+                                <i class="micon-clock icon"></i>
+                                <input type="text" id="time_to" class="input-style" placeholder="請輸入結束時段">
+                            </label>
+                        </div>    
+                        <div class="table-row">
+                            <h4>*運動提醒時間</h4>   
+                            <label class="reminder-time">
+                                <i class="micon-clock icon"></i>
+                                <input type="text" id="reminder_time"  class="input-style" placeholder="請輸入運動提醒時間">   
+                            </label>
+                        </div> 
+                    </div>
+                </div>
+            </form>
+        </div>  
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 引用 flatpickr 套件樣式 -->
+<script src="vendor/flatpickr_v4/flatpickr.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<script>
+$("#time_from").flatpickr({
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+});
+
+$("#time_to").flatpickr({
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+});
+
+$("#reminder_time").flatpickr({
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+});
+
+</script>
+</html>

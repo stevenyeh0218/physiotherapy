@@ -1,0 +1,210 @@
+/* 登入頁面 */
+#login {
+  @include flexbox-gap(column, center, center, 16px);
+  background: url(../img/youdonappbg.png) no-repeat center center transparent;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+  .login-form {
+    @include grid(row, auto, auto, normal, 24px);
+    position: relative;
+    padding: 24px;
+
+    @include for-phone {
+      grid-template-columns: 275px;
+    }
+
+    /* 居家物理治療登入 CI */
+    .aicare-ci {
+      z-index: 2;
+
+      .logo {
+        @include flexbox(row, center, center);
+        @include opacity-bg(1, 1, 0%, 100%, 50%);
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+
+        &>img {
+          width: 55px;
+          height: 55px;
+        }
+      }
+    }
+
+    /* 居家物理治療登入 CI end*/
+    /* 輸入框 */
+    .input {
+      position: relative;
+      z-index: 2;
+
+      .icon {
+        position: absolute;
+        color: var(--purple);
+        font-size: 1.5rem;
+        top: 13px;
+        left: 12px;
+      }
+
+      .view-icon {
+        cursor: pointer;
+        left: auto;
+        right: 12px;
+        @include ease(.2s);
+
+        &:hover,
+        &:active {
+          color: var(--brown);
+        }
+      }
+
+      .input-style {
+        color: var(--purple);
+        padding: 13px 44px;
+      }
+    }
+    /* 忘記密碼 */
+    .forgot-btn{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--purple);
+      z-index: 2;
+      @include ease(.2s);
+
+      &:hover{
+        color: var(--brown);
+      }
+    }
+
+    /* 輸入框 end */
+    /* 錯誤訊息 */
+    .login-fail,
+    .reminder {
+      color: var(--red);
+      text-align: center;
+      z-index: 2;
+    }
+
+    /* 錯誤訊息 end */
+    /* 按鈕 */
+    .btn-style {
+      background: var(--purple);
+      border-radius: 10px;
+      color: var(--white);
+      padding: 13px;
+      z-index: 2;
+      @include ease(.2s);
+
+      &:hover {
+        background: var(--brown);
+      }
+    }
+
+    /* 按鈕 end */
+
+    &:before {
+      content: "";
+      @include opacity-bg(.8, .8, 0%, 100%, 10px);
+      position: absolute;
+      width: 100%;
+      height: 375px;
+      bottom: 0;
+    }
+  }
+
+  .copyrights {
+    font-size: 0.75rem;
+    color: var(--fontColor);
+  }
+}
+
+/* 登入頁面 end */
+
+/* 重設密碼頁面背景 */
+.rest {
+  background: url(../img/resetbg.png) no-repeat center center transparent !important;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+  /* 密碼重設提醒 */
+  .rest-hint {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  /*密碼重設提醒*/
+  .login-form {
+    .input {
+      .input-style {
+        background: rgba(104, 104, 172, .5);
+        color: var(--white) !important;
+      }
+
+      .icon {
+        color: var(--white) !important;
+      }
+    }
+
+    .btn-style {
+      background: var(--brown) !important;
+
+      &:hover {
+        background: var(--purple) !important;
+      }
+    }
+
+    &:before {
+      content: "";
+      background: transparent !important;
+    }
+  }
+}
+
+/* 重設密碼頁面背景 */
+
+/* loading 畫面 */
+.loading {
+  position: fixed;
+  @include flexbox-gap(column, center, center, 12px);
+  background: rgba(0, 0, 0, .5);
+  @include background-blur(4px);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+
+  .aicare-logo {
+    @include flexbox(row, center, center);
+    @include opacity-bg(1, 1, 0%, 100%, 50%);
+    width: 100px;
+    height: 100px;
+    animation: infinity_rotate 1.5s linear infinite;
+
+    &>img {
+      width: 55px;
+      height: 55px;
+    }
+  }
+
+  .text {
+    color: var(--white);
+    font-size: 1.5rem;
+  }
+
+  @keyframes infinity_rotate {
+    0% {
+      @include rotate(0deg);
+    }
+
+    100% {
+      @include rotate(360deg);
+    }
+  }
+}

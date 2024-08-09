@@ -1,0 +1,2272 @@
+/* RD開發分頁時會出現的 id */
+#gridcontainer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  height: calc(100vh - 240px);
+
+  @include for-largepad {
+    grid-template-columns: auto;
+  }
+}
+
+/* 參數管理 & PT運動模組叮嚀 content */
+.parameter-content {
+  position: relative;
+  display: grid;
+  gap: 24px;
+  grid-column: 1/3;
+  grid-template-rows: auto calc(100vh - 240px);
+
+  @include for-phone {
+    grid-template-rows: auto calc(100vh - 240px);
+    gap: 12px;
+    align-content: baseline;
+  }
+
+  /* 工具列 */
+  .tool-list {
+    position: relative;
+    place-self: end;
+    grid-column: unset;
+
+    /* 總數 */
+    .amount {
+      @include flexbox-gap(row, center, flex-start, 8px);
+      color: var(--green);
+      word-break: keep-all;
+    }
+
+    .unconfirmed {
+      color: var(--red);
+    }
+
+    /* 操作日誌總數 */
+    .log-amount {
+      @include for-largepad {
+        grid-row: 1;
+      }
+    }
+
+    /* 關鍵字搜尋 */
+    .search-bar {
+      @include flexbox(row, center, flex-start);
+      position: relative;
+      color: var(--purple);
+      height: 100%;
+
+      .calendar-bar {
+        @include flexbox(row, center, flex-start);
+        position: relative;
+        color: var(--purple);
+
+        .micon-reserve {
+          position: absolute;
+          font-size: 1.25rem;
+          left: 12px;
+        }
+
+        .calendar-input {
+          @include s-input-style(5px, 8px);
+          border-color: var(--purple) !important;
+          border-radius: 5px 0 0 5px;
+          border-right: 0;
+          color: var(--purple) !important;
+          width: fit-content;
+          padding-left: 44px;
+
+          @include for-desktop {
+            padding: 3px;
+            padding-left: 44px;
+          }
+
+          @include for-phone {
+            width: 100%;
+          }
+        }
+      }
+
+      #pt-exercise-module-search {
+        border-radius: 0 5px 5px 0;
+      }
+
+      .input-style {
+        @include s-input-style(5px, 8px);
+        padding-right: 44px;
+
+        @include for-desktop {
+          padding: 3px;
+          padding-right: 44px;
+        }
+      }
+
+      .icon {
+        position: absolute;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 4px;
+        right: 0;
+        @include ease(0.2s);
+
+        &:hover {
+          background: var(--purple);
+          color: var(--white);
+        }
+      }
+    }
+
+    /* 篩選樣式 */
+    .filter {
+      position: relative;
+
+      &-btn {
+        cursor: pointer;
+
+        .micon-down-arrow {
+          font: 0.875rem;
+          @include rotate(180deg);
+        }
+      }
+
+      &-list {
+        position: absolute;
+        background: var(--purple);
+        border-radius: 5px;
+        padding: 6px;
+        color: var(--white);
+        display: grid;
+        width: 100%;
+        top: 38px;
+        gap: 12px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        z-index: -1;
+        @include hide;
+        @include transform-origin(top);
+        @include scaleY(0);
+        @include ease(0.2s);
+
+        .item {
+          @include flexbox(row, center, space-between);
+          cursor: pointer;
+          @include ease(0.2s);
+
+          &>.icon {
+            font-size: 0.85rem;
+            @include hide;
+          }
+
+          &:hover {
+            color: var(--brown);
+
+            &>.icon {
+              @include show;
+            }
+          }
+        }
+
+        .active {
+          color: var(--brown);
+          pointer-events: none;
+
+          &>.icon {
+            @include show;
+          }
+        }
+      }
+
+      &:hover {
+        .filter-btn {
+          background: var(--purple);
+          color: var(--white);
+
+          &>.micon-down-arrow {
+            @include rotate(0deg);
+          }
+        }
+
+        .filter-list {
+          z-index: 2;
+          @include show;
+          @include scaleY(1);
+        }
+      }
+    }
+
+    /* 分院篩選 */
+    .branch-filter {
+      @include for-largepad {
+        width: 48%;
+      }
+    }
+
+    .status-filter {
+      @include for-largepad {
+        width: 48%;
+      }
+    }
+
+    /* 操作日誌-資料篩選按鈕 */
+    .data-filter-bar {
+      position: relative;
+
+      .data-filter-btn {
+        cursor: pointer;
+      }
+
+      .data-filter-table {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        position: absolute;
+        background: var(--purple);
+        border-radius: 5px;
+        color: var(--white);
+        padding: 12px;
+        padding-top: 56px;
+        min-width: 45vw;
+        top: 44px;
+        right: 0;
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+        @include transform-origin(top);
+        @include scaleY(0);
+        @include hide;
+        @include ease(0.2s);
+        z-index: 2;
+
+        @include for-pad {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        @include for-phone {
+          min-width: 55vw;
+        }
+
+        .close-btn {
+          position: absolute;
+          cursor: pointer;
+          border: 1px solid var(--white);
+          border-radius: 50px;
+          font-size: 1.5rem;
+          top: 12px;
+          right: 12px;
+
+          &:hover {
+            background: var(--white);
+            color: var(--purple);
+          }
+        }
+
+        .calendar-bar {
+          position: relative;
+
+          &>i {
+            position: absolute;
+            font-size: 1.25rem;
+            left: 8px;
+            top: 7px;
+          }
+
+          &>input {
+            padding: 8px;
+            background: transparent;
+            border: 1px solid var(--white);
+            padding-left: 32px;
+            color: var(--white) !important;
+          }
+        }
+
+        .search-bar {
+          @include for-pad {
+            grid-column: 1;
+          }
+
+          &>input {
+            background: transparent;
+            border: 1px solid var(--white);
+            border-radius: 5px;
+            padding-left: 32px;
+            padding-right: 6px;
+            color: var(--white) !important;
+          }
+
+          &>i {
+            position: absolute;
+            background: transparent;
+            font-size: 1.25rem;
+            color: var(--white);
+            cursor: default;
+            left: 5px;
+            right: auto;
+            top: 4px;
+          }
+        }
+
+        .model-filter {
+          .filter-btn {
+            padding: 7px;
+            color: var(--white);
+            border: 1px solid var(--white);
+          }
+
+          .filter-list {
+            border: 1px solid var(--white);
+          }
+        }
+
+        .btn-group {
+          display: grid;
+          gap: 12px;
+          grid-auto-flow: column;
+          grid-column: 1/4;
+          border-top: 1px solid var(--white);
+          padding-top: 12px;
+
+          @include for-pad {
+            grid-column: 1/2;
+          }
+
+          &>.clear-btn {
+            background: var(--gray);
+            color: var(--fontColor);
+
+            &:hover {
+              background: var(--lightgray);
+            }
+          }
+
+          &>.save-btn {
+            background: var(--brown);
+            color: var(--black);
+
+            &:hover {
+              @include filter-saturate(150%);
+            }
+          }
+        }
+      }
+    }
+
+    /* 操作日誌-資料篩選按鈕 active */
+    .open-data-filter-table {
+      .data-filter-btn {
+        background: var(--purple);
+        color: var(--white);
+      }
+
+      .data-filter-table {
+        @include scaleY(1);
+        @include show;
+      }
+    }
+
+    /* 上下架 */
+    .released-btn {
+      @include released-btn-common-style;
+    }
+  }
+
+  /* 運動模組 tool list */
+  .pt-exercise-module-list {
+    @include for-phone {
+      grid-auto-flow: row;
+      grid-template-columns: repeat(2, auto);
+
+      &>.search-bar {
+        @include for-phone {
+          flex: 1;
+        }
+      }
+
+      &>.btn-style {
+        width: 48%;
+      }
+    }
+  }
+
+  /* 基本表單樣式 */
+  .default-table {
+    @include grid(row, auto, 44px 1fr, unset, 0);
+    height: inherit;
+
+    @include for-pad {
+      grid-template-rows: auto;
+    }
+
+    .table-header {
+      @include grid(column,
+        repeat(auto-fit, minmax(115px, 1fr)),
+        auto,
+        initial,
+        12px);
+      align-items: center;
+      color: var(--purple);
+      font-size: 1.125rem;
+      padding-right: 16px;
+
+      @include for-pad {
+        display: none;
+      }
+
+      .setting-item {
+        width: 72px;
+      }
+    }
+
+    /* 運動模組標題欄位寬度 */
+    .pt-exercise-module-header {
+      grid-template-columns: 50px 25% 1fr 164px;
+    }
+
+    /*處方紀錄標題欄位寬*/
+    .pt-prescription-record-header {
+      grid-template-columns: repeat(2, 10%) 1fr 10% 124px;
+    }
+
+    /* 動作元件標題欄位寬度 */
+    .action-table-header {
+      grid-template-columns: 1fr 25% repeat(2, 10%) 100px 164px;
+    }
+
+    /* 動作模組標題欄位寬度 */
+    .action-module-header {
+      grid-template-columns: 100px 25% 1fr 164px;
+    }
+
+    /* 診所設定標題欄位寬度 */
+    .clinic-setting-header {
+      grid-template-columns: 80px repeat(3, 10%) repeat(2, 1fr) 72px;
+    }
+
+    /* 操作日誌標題欄位寬度 */
+    .account-log-header {
+      grid-template-columns: 50px repeat(2, 100px) 1fr repeat(2, 200px);
+    }
+
+    /* for 列表 */
+    .table-list {
+      @include grid(row, auto, auto, unset, 12px);
+      border-top: 2px solid var(--gray);
+      padding-top: 12px;
+      padding-right: 8px;
+      align-content: baseline;
+      overflow: hidden;
+      @include mac-scrollbar-style;
+
+      @include for-pad {
+        grid-template-rows: auto;
+        padding: 0;
+        border: 0;
+      }
+
+      .table-row {
+        @include grid(column,
+          repeat(auto-fit, minmax(115px, 1fr)),
+          auto,
+          unset,
+          12px);
+        align-items: center;
+        color: var(--fontColor);
+
+        @include for-pad {
+          @include table-row-mobile;
+        }
+
+        &>h4 {
+          color: var(--fontColor);
+        }
+
+        .text {
+          position: relative;
+          width: 100%;
+          height: 20px;
+          @include text-ellipse;
+
+          @include for-pad {
+            height: auto;
+            word-break: break-word;
+            white-space: unset;
+            overflow: visible;
+
+            &::before {
+              content: attr(data-title);
+              display: flex;
+              color: var(--purple);
+              font-size: 0.675rem;
+              margin-bottom: 0;
+            }
+          }
+
+          /* for 密碼重置按鈕 */
+          .btn-style {
+            @include btn-common-style(transparent,
+              6px,
+              var(--purple),
+              var(--purple),
+              var(--purple),
+              var(--white));
+            height: -webkit-fill-available;
+
+            @include for-phone {
+              display: unset;
+              height: fit-content;
+
+              &>i {
+                margin-right: 6px;
+              }
+            }
+          }
+
+          .disable-reset-btn {
+            pointer-events: none;
+            border: 1px solid var(--gray);
+            color: var(--gray);
+          }
+
+          &[data-title="門市照片"] {
+            height: auto;
+          }
+
+          &[data-title="運動處方"] {
+            height: auto;
+          }
+
+          &[data-title="圖片預覽"] {
+            height: auto;
+
+            &>img {
+              width: auto;
+            }
+          }
+        }
+
+        .input-style {
+          @include s-input-style(5px, 6px);
+        }
+
+        .select-style {
+          @include s-input-style(5px, 5px);
+          cursor: pointer;
+        }
+
+        /* only for 評估紀錄詳細資訊&門診預約按鈕 */
+        .assessment-detail-btn,
+        .app-appointment-detail-btn,
+        .record-detail-btn {
+          @include flexbox-gap(row, center, center, 3px);
+          color: var(--purple);
+          font-size: 0.938rem;
+          place-self: end;
+          word-break: keep-all;
+          @include ease(0.2s);
+
+          &:hover {
+            color: var(--brown);
+          }
+
+          @include for-largepad {
+            grid-row: 1;
+          }
+        }
+
+        .record-detail-btn {
+          place-self: inherit;
+        }
+
+        .textarea-style {
+          @include s-input-style(5px, 12px);
+          width: 100%;
+          height: 150px;
+          resize: none;
+        }
+
+        /* 刪除 編輯 暫停 上下架 按鈕 */
+        .setting-item {
+          @include flexbox-gap(row, center, end, 8px);
+
+          @include for-pad {
+            grid-row: 1;
+          }
+
+          .released-btn {
+            @include released-btn-common-style;
+          }
+
+          .edit-btn,
+          .pause-btn,
+          .copy-btn,
+          .preview-btn {
+            color: var(--fontColor);
+          }
+
+          .btn-style {
+            border-radius: 5px;
+            padding: 6px;
+            @include ease(0.2s);
+
+            &:hover {
+              background: var(--purple);
+              color: var(--white);
+            }
+          }
+
+          .disable-del-btn {
+            color: var(--gray);
+            pointer-events: none;
+          }
+        }
+      }
+
+      /* 運動模組內容欄位寬度 */
+      .pt-exercise-module-row {
+        grid-template-columns: 50px 25% 1fr auto;
+
+        @include for-pad {
+          grid-auto-flow: row;
+          grid-template-columns: auto;
+          height: fit-content;
+          border-bottom: 2px solid var(--gray);
+          padding: 0 12px;
+          padding-bottom: 12px;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      /*處方紀錄標題欄位寬*/
+      .pt-prescription-record-row {
+        grid-template-columns: repeat(2, 10%) 1fr 10% auto;
+
+        @include for-pad {
+          grid-auto-flow: row;
+          grid-template-columns: auto;
+          height: fit-content;
+          border-bottom: 2px solid var(--gray);
+          padding: 0 12px;
+          padding-bottom: 12px;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      /* 動作元件內容欄位寬度 */
+      .action-table-row {
+        grid-template-columns: 1fr 25% repeat(2, 10%) 100px auto;
+
+        .text {
+          &[data-title="圖片預覽"] {
+            &>img {
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
+              @include ease(0.2s);
+
+              &:hover {
+                @include scale(1.1);
+              }
+            }
+          }
+        }
+
+        @include for-pad {
+          @include table-row-mobile;
+        }
+      }
+
+      /* 動作模組內容欄位寬度 */
+      .action-module-row {
+        grid-template-columns: 100px 25% 1fr auto;
+
+        @include for-pad {
+          grid-auto-flow: row;
+          grid-template-columns: auto;
+          height: fit-content;
+          border-bottom: 2px solid var(--gray);
+          padding: 0 12px;
+          padding-bottom: 12px;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      /* 診所設定內容欄位寬度 */
+      .clinic-setting-row {
+        grid-template-columns: 80px repeat(3, 10%) repeat(2, 1fr) auto;
+
+        @include for-pad {
+          grid-auto-flow: row;
+          grid-template-columns: auto;
+          height: fit-content;
+          border-bottom: 2px solid var(--gray);
+          padding: 0 12px;
+          padding-bottom: 12px;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      /* 操作日誌內容欄位寬度 */
+      .account-log-row {
+        grid-template-columns: 50px repeat(2, 100px) 1fr repeat(2, 200px);
+
+        @include for-pad {
+          grid-auto-flow: row;
+          grid-template-columns: auto;
+          height: fit-content;
+          border-bottom: 2px solid var(--gray);
+          padding: 0 12px;
+          padding-bottom: 12px;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+
+    /* for 新增 編輯模組 */
+    .input-list {
+      grid-template-columns: repeat(3, 1fr);
+
+      @include for-pad {
+        grid-template-columns: auto;
+      }
+
+      .table-row {
+        grid-auto-flow: row;
+        grid-template-columns: auto;
+        gap: 12px;
+        align-content: baseline;
+
+        &>label {
+          position: relative;
+
+          .icon {
+            position: absolute;
+            color: var(--purple);
+            font-size: 1.5rem;
+            top: 8px;
+            left: 6px;
+          }
+
+          .input-style {
+            padding-left: 36px;
+          }
+
+          .flatpickr-input {
+            border-color: var(--purple) !important;
+            color: var(--purple) !important;
+          }
+        }
+
+        .start-time {
+          grid-column: 1;
+        }
+
+        .end-time {
+          grid-column: 2;
+        }
+      }
+
+      /* 地址 */
+      .addr-row {
+        grid-column: 2/4;
+
+        @include for-pad {
+          grid-column: unset;
+        }
+
+        .addr-bar {
+          @include grid(column,
+            repeat(2, 120px) repeat(3, 1fr),
+            auto,
+            unset,
+            6px);
+
+          @include for-pad {
+            grid-auto-flow: row;
+            grid-template-columns: auto;
+          }
+        }
+      }
+
+      /* 營業時間 */
+      .business-row {
+        grid-column: 1/4;
+
+        @include for-pad {
+          grid-column: unset;
+        }
+      }
+
+      /* 治療師名單*/
+      .doctor-list-row {
+        grid-column: 1/4;
+        border-top: 2px solid var(--purple);
+        padding-top: 16px;
+
+        @include for-pad {
+          grid-column: unset;
+        }
+
+        &>h4 {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          .btn-style {
+            @include btn-common-style(transparent,
+              3px 6px,
+              var(--purple),
+              var(--purple),
+              var(--purple),
+              var(--white));
+          }
+        }
+
+        .list {
+          @include grid(row,
+            repeat(auto-fit, minmax(125px, 1fr)),
+            auto,
+            unset,
+            12px);
+
+          .item {
+            @include flexbox-gap(row, center, space-between, 6px);
+            border-bottom: 1px solid var(--purple);
+            padding: 6px;
+
+            .icon {
+              cursor: pointer;
+              border-radius: 5px;
+              padding: 6px;
+              @include ease(0.2s);
+
+              &:hover {
+                background: var(--purple);
+                color: var(--white);
+              }
+            }
+          }
+        }
+      }
+
+      /* 運動處方名單*/
+      .exercise-prescription-list-row {
+        grid-column: 1/4;
+        border-top: 2px solid var(--purple);
+        padding-top: 16px;
+
+        @include for-pad {
+          grid-column: unset;
+        }
+
+        &>h4 {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          .btn-style {
+            @include btn-common-style(transparent,
+              3px 6px,
+              var(--purple),
+              var(--purple),
+              var(--purple),
+              var(--white));
+          }
+        }
+
+        .list {
+          grid-template-columns: auto;
+
+          .item {
+            @include grid(column, 16px 1fr 60px 36px, auto, center, 8px);
+            border-bottom: 1px solid var(--purple);
+            padding: 6px;
+
+            .icon {
+              cursor: pointer;
+              border-radius: 5px;
+              padding: 6px;
+              @include ease(0.2s);
+
+              &:hover {
+                background: var(--purple);
+                color: var(--white);
+              }
+            }
+
+            &>img {
+              cursor: pointer;
+              @include ease(0.2s);
+
+              &:hover {
+                @include scale(1.1);
+              }
+            }
+          }
+        }
+      }
+
+      /* 問卷列表進階設定共用樣式 */
+      .questionnaire-advanced-row {
+        position: relative;
+        grid-column: 1/4;
+        gap: 12px;
+        padding-top: 12px;
+        border-top: 2px solid var(--purple);
+        height: calc(100vh - 480px);
+
+        @include for-pad {
+          grid-column: unset;
+          padding-top: 0;
+          border-top: 0;
+        }
+
+        .questionnaire-advanced-table {
+          display: grid;
+          gap: 12px;
+          width: 100%;
+          height: inherit;
+
+          &>header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            &>.title {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              background: var(--purple);
+              border-radius: 5px;
+              color: var(--white);
+              font-size: 0.875rem;
+              padding: 4px;
+              width: fit-content;
+              word-break: keep-all;
+
+              &>.input-style {
+                width: 140px;
+                height: auto;
+              }
+            }
+
+            &>.preview {
+              @include flexbox(row, center, flex-start);
+              width: 91px;
+
+              .img-preview,
+              .video-preview {
+                display: none;
+
+                &>img,
+                &>video {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                }
+              }
+            }
+          }
+
+          &>h4 {
+            @include flexbox-gap(row, center, flex-start, 16px);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--purple);
+          }
+
+          .list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            padding-bottom: 1px;
+            overflow: hidden;
+            @include mac-scrollbar-style;
+
+            @include for-pad {
+              grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include for-phone {
+              grid-template-columns: repeat(1, 1fr);
+            }
+
+            .option {
+              border-radius: 5px;
+              padding: 12px;
+              display: grid;
+              gap: 10px;
+              align-content: baseline;
+              border: 1px solid var(--purple);
+
+              &>.title {
+                @include flexbox-gap-wrap(row,
+                  center,
+                  space-between,
+                  6px,
+                  wrap);
+                border-bottom: 1px solid var(--purple);
+                padding-bottom: 12px;
+                color: var(--purple);
+
+                .tool-bar {
+                  @include flexbox(row, center, space-between);
+                  place-content: end;
+                  width: 100%;
+
+                  .del-bar {
+                    .icon {
+                      cursor: pointer;
+                      @include ease(0.2s);
+
+                      &:hover {
+                        color: var(--brown);
+                      }
+                    }
+                  }
+
+                  .remind {
+                    width: 100%;
+                    font-size: 0.75rem;
+                    color: var(--red);
+
+                    &>button {
+                      color: var(--red);
+                      padding: 0;
+                      text-decoration: underline;
+                      @include ease(0.2s);
+
+                      &:hover {
+                        color: var(--brown);
+                      }
+                    }
+
+                    .fail {
+                      color: var(--red);
+                    }
+
+                    .sucess {
+                      color: var(--purple);
+                    }
+                  }
+                }
+              }
+
+              &-list {
+                display: grid;
+                gap: 6px;
+
+                .item {
+                  display: grid;
+                  gap: 6px;
+                }
+              }
+
+              .preview {
+                @include grid(column, auto, 18px auto, unset, 4px);
+
+                &>.title {
+                  @include grid(column, auto 1fr, auto, unset, 12px);
+
+                  .edit-upload-item {
+                    .icon {
+                      cursor: pointer;
+                      @include ease(0.2s);
+
+                      &:hover {
+                        color: var(--brown);
+                      }
+                    }
+                  }
+
+                  .disable {
+                    pointer-events: none;
+                    color: var(--gray);
+                  }
+                }
+
+                .img-preview {
+                  position: relative;
+                  border: 1px solid var(--purple);
+                  border-radius: 5px;
+                  width: 100%;
+
+                  &>img {
+                    object-fit: contain;
+                  }
+
+                  &>i {
+                    position: absolute;
+                    right: 6px;
+                    top: 6px;
+                    background: var(--purple);
+                    border-radius: 50px;
+                    color: var(--white);
+                    cursor: pointer;
+                    padding: 6px;
+                    font-size: 1rem;
+                    @include ease(0.2s);
+
+                    &:hover {
+                      background: var(--brown);
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .pre-question {
+            background: var(--purple);
+            color: var(--white);
+            padding: 4px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.875rem;
+            cursor: pointer;
+            @include ease(0.2s);
+
+            &:hover {
+              background: var(--brown);
+            }
+          }
+        }
+      }
+
+      /* 問卷題庫題目共用樣式 */
+      .questionnaire-row {
+        &>h4 {
+          @include flexbox-gap(row, center, flex-start, 16px);
+        }
+
+        .upload-bar {
+          @include flexbox-gap(row, center, flex-end, 12px);
+
+          &>small {
+            color: var(--red);
+
+            &>i {
+              margin-left: 4px;
+            }
+          }
+
+          .upload-item {
+            @include flexbox-gap(row, center, flex-start, 12px);
+
+            .icon {
+              cursor: pointer;
+              @include ease(0.2s);
+
+              &:hover {
+                color: var(--brown);
+              }
+            }
+
+            .disable {
+              pointer-events: none;
+              color: var(--gray);
+            }
+          }
+        }
+
+        .preview {
+          @include flexbox(row, center, flex-start);
+          width: 100%;
+          padding: 6px;
+
+          @include for-pad {
+            width: 100%;
+          }
+
+          .img-preview,
+          .video-preview {
+            position: relative;
+            display: none;
+            width: 100%;
+
+            &>img,
+            &>video {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+
+            &>i {
+              position: absolute;
+              right: 6px;
+              top: 6px;
+              background: var(--purple);
+              border-radius: 50px;
+              color: var(--white);
+              cursor: pointer;
+              padding: 6px;
+              font-size: 1rem;
+              @include ease(0.2s);
+
+              &:hover {
+                background: var(--brown);
+              }
+            }
+          }
+        }
+      }
+
+      /* 問卷題庫設定項目共用樣式 */
+      .questionnaire-option-row {
+        grid-column: 1/4;
+        border-top: 2px solid var(--purple);
+        padding-top: 16px;
+
+        @include for-pad {
+          grid-column: unset;
+          border-top: none;
+          padding-top: 0;
+        }
+
+        &>h4 {
+          @include flexbox-gap(row, center, flex-start, 16px);
+
+          &>i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--purple);
+            @include ease(0.2s);
+
+            &:hover {
+              color: var(--brown);
+            }
+          }
+        }
+
+        .questionnaire-option-table {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+
+          @include for-pad {
+            grid-template-columns: auto;
+          }
+
+          .list {
+            display: grid;
+            gap: 10px;
+            align-content: baseline;
+            border: 1px solid var(--purple);
+
+            .title {
+              @include flexbox(row, center, space-between);
+              border-bottom: 1px solid var(--purple);
+              padding-bottom: 12px;
+
+              &>h4 {
+                color: var(--purple);
+              }
+
+              &>i {
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--purple);
+                @include ease(0.2s);
+
+                &:hover {
+                  color: var(--brown);
+                }
+              }
+            }
+
+            .item {
+              display: grid;
+              gap: 6px;
+            }
+
+            .upload-bar {
+              @include flexbox-gap(row, center, flex-end, 12px);
+
+              &>small {
+                color: var(--red);
+
+                &>i {
+                  margin-left: 4px;
+                }
+              }
+
+              .upload-item {
+                @include flexbox-gap(row, center, flex-start, 12px);
+
+                .icon {
+                  cursor: pointer;
+                  @include ease(0.2s);
+
+                  &:hover {
+                    color: var(--brown);
+                  }
+                }
+
+                .disable {
+                  pointer-events: none;
+                  color: var(--gray);
+                }
+              }
+            }
+
+            .preview {
+              @include flexbox(row, center, flex-start);
+              width: 100%;
+              padding: 6px;
+
+              @include for-pad {
+                width: 100%;
+              }
+
+              .img-preview,
+              .video-preview {
+                position: relative;
+                display: none;
+                width: 100%;
+
+                &>img,
+                &>video {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                }
+
+                &>i {
+                  position: absolute;
+                  right: 6px;
+                  top: 6px;
+                  background: var(--purple);
+                  border-radius: 50px;
+                  color: var(--white);
+                  cursor: pointer;
+                  padding: 6px;
+                  font-size: 1rem;
+                  @include ease(0.2s);
+
+                  &:hover {
+                    background: var(--brown);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /* 類型 */
+      .type-row {
+        .radio-bar {
+          @include flexbox-gap(row, center, flex-start, 24px);
+
+          .label--radio {
+            @include s-radio;
+          }
+        }
+      }
+
+      /* 上傳影音圖片共用樣式 */
+      .upload-item {
+        grid-column: 1/4;
+
+        @include for-pad {
+          grid-column: unset;
+        }
+
+        .upload {
+          @include grid(column, 200px 44px, auto, center, 6px);
+
+          &>span {
+            align-self: center;
+            width: 100%;
+            color: var(--purple);
+            border: 1px solid var(--purple);
+            border-radius: 5px;
+            padding: 6px;
+            text-align: center;
+          }
+
+          &>input[type="file"] {
+            display: none;
+          }
+
+          &>label {
+            @include flexbox(row, center, center);
+            font-size: 2rem;
+            border: 1px solid var(--purple);
+            border-radius: 5px;
+            color: var(--purple);
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            @include ease(0.2s);
+
+            &>i {
+              font-size: 1.25rem;
+            }
+
+            &:hover {
+              background: var(--purple);
+              color: var(--white);
+            }
+          }
+        }
+
+        &>small {
+          color: var(--red);
+        }
+
+        .preview {
+          margin-top: 12px;
+
+          &>h4 {
+            color: var(--fontColor);
+            margin-bottom: 6px;
+          }
+
+          &>video {
+            width: 322px;
+            height: 215px;
+
+            @include for-phone {
+              width: 100%;
+            }
+          }
+
+          .imagePreview {
+            background: url("/img/preview.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            border: 1px solid var(--purple);
+            border-radius: 5px;
+            width: 322px;
+            height: 182px;
+
+            @include for-phone {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      /* 選擇運動元件樣式 */
+      .select-motion-element {
+        grid-template-rows: 18px auto calc(100vh - 615px);
+        grid-column: 1/4;
+
+        @include for-phone {
+          grid-template-rows: 18px auto calc(100vh - 500px);
+        }
+
+        /* 進階篩選 */
+        .advanced-filter-bar {
+          @include grid(column, auto 120px, auto, initial, 12px);
+          position: relative;
+
+          .advanced-filter-btn {
+            @include flexbox-gap(row, center, center, 6px);
+            border: 1px solid var(--purple);
+            border-radius: 5px;
+            color: var(--purple);
+            cursor: pointer;
+            padding: 7.5px;
+            @include ease(0.2s);
+
+            &:hover,
+            &:active,
+            &:focus {
+              background: var(--purple);
+              color: var(--white);
+            }
+          }
+
+          .advanced-search-bar {
+            position: relative;
+
+            .input-style {
+              @include s-input-style(5px, 6px);
+              width: 100%;
+              padding-right: 44px;
+            }
+
+            .btn-style {
+              @include btn-common-style(transparent,
+                6px,
+                transparent,
+                var(--purple),
+                var(--purple),
+                var(--white));
+              position: absolute;
+              top: 2px;
+              right: 6px;
+            }
+          }
+
+          .advanced-filter-table {
+            @include grid(column,
+              repeat(auto-fit, minmax(115px, 1fr)),
+              max-content 44px,
+              inherit,
+              12px);
+            position: absolute;
+            background: var(--purple);
+            border-radius: 5px;
+            color: var(--white);
+            padding: 16px 24px;
+            padding-top: 56px;
+            width: 100%;
+            top: 54px;
+            right: -100%;
+            z-index: 10;
+            @include hide;
+            @include ease(0.2s);
+
+            @include for-desktop {
+              gap: 8px;
+            }
+
+            @include for-largepad {
+              @include grid(row,
+                repeat(2, auto),
+                max-content repeat(3, 44px),
+                inherit,
+                6px);
+              padding: 16px;
+              padding-top: 56px;
+            }
+
+            @include for-phone {
+              position: fixed;
+              width: 320px;
+              top: 11%;
+              left: 0;
+              right: 0;
+              margin: auto;
+            }
+
+            .close-btn {
+              @include advance-close-btn-style;
+            }
+
+            .filter-result {
+              @include flexbox-gap(row, center, flex-start, 16px);
+              @include grid-child(1, 7, 1, 1);
+
+              .filter-result-list {
+                @include flexbox-gap(row, flex-start, flex-start, 16px);
+
+                .filter-result-item {
+                  border: 1px solid var(--white);
+                  border-radius: 5px;
+                  padding: 6px;
+
+                  .filter-clear {
+                    cursor: pointer;
+                    margin-left: 6px;
+
+                    &:hover {
+                      color: var(--brown);
+                    }
+                  }
+                }
+              }
+
+              @include for-largepad {
+                @include grid-child(1, 4, 1, 1);
+              }
+
+              @include for-phone {
+                @include grid-child(1, 3, 1, 1);
+              }
+            }
+
+            .advanced-filter-item {
+              display: grid;
+              gap: 16px;
+              grid-row: 2;
+
+              @include for-largepad {
+                grid-row: unset;
+              }
+
+              .advanced-filter-dropdown-text {
+                @include flexbox-gap(row, center, center, 12px);
+                border: 1px solid var(--white);
+                border-radius: 5px;
+                color: var(--white);
+                font-size: 0.875rem;
+                cursor: pointer;
+                padding: 12px;
+                @include ease(0.2s);
+
+                @include for-desktop {
+                  gap: 8px;
+                }
+
+                @include for-phone {
+                  gap: 6px;
+                  padding: 6px;
+                }
+
+                &>i {
+                  @include rotate(180deg);
+                  @include ease(0.2s);
+                }
+
+                &:hover {
+                  background: var(--white);
+                  color: var(--purple);
+                }
+              }
+
+              .table {
+                display: none;
+                grid-template-rows: max-content;
+                gap: 16px;
+                @include grid-child(1, 7, 3, 5);
+                position: absolute;
+                background: var(--white);
+                border-radius: 5px;
+                color: var(--purple);
+                width: 100%;
+                height: calc(100% - 90px);
+                padding: 12px;
+                top: 16px;
+                left: 0;
+
+                @include for-largepad {
+                  @include grid-child(1, 4, 4, 7);
+                }
+
+                @include for-phone {
+                  @include grid-child(1, 3, 5, 7);
+                }
+
+                .filter-search-bar {
+                  position: relative;
+                  border-bottom: 1px solid var(--purple);
+                  color: var(--purple);
+                  padding-bottom: 16px;
+
+                  .icon {
+                    position: absolute;
+                    top: 8px;
+                    left: 8px;
+                  }
+
+                  .input-style {
+                    @include s-input-style(5px, 6px);
+                    padding-left: 32px;
+                  }
+                }
+
+                .list {
+                  @include grid(row, auto, auto, inherit, 16px);
+                  align-content: baseline;
+                  overflow: hidden;
+                  @include mac-scrollbar-style;
+
+                  .label--checkbox {
+                    @include s-checkbox;
+                    height: max-content;
+                  }
+                }
+              }
+            }
+
+            .btn-style {
+              @include btn-common-style(var(--brown),
+                12px,
+                var(--brown),
+                var(--purple),
+                var(--brown),
+                var(--black));
+              grid-row: 3;
+              place-self: flex-end;
+              @include ease(0.2s);
+
+              @include for-desktop {
+                gap: 8px;
+              }
+
+              @include for-largepad {
+                @include grid-child(1, 4, 5, 5);
+              }
+
+              @include for-phone {
+                @include grid-child(1, 3, 5, 5);
+              }
+            }
+
+            .drop {
+              .advanced-filter-dropdown-text {
+                background: var(--white);
+                color: var(--purple);
+
+                &>i {
+                  @include rotate(0deg);
+                }
+              }
+
+              .table {
+                display: grid;
+              }
+            }
+          }
+
+          .tableH {
+            height: 500px;
+
+            @include for-largepad {
+              height: 550px;
+            }
+          }
+
+          .open-table {
+            background: var(--purple);
+            color: var(--white);
+
+            &~.advanced-filter-table {
+              right: 0;
+              @include show;
+            }
+          }
+        }
+
+        /* 列表 */
+        &>.list {
+          @include grid(row, auto, auto, inherit, 12px);
+          align-content: baseline;
+          border: 1px solid var(--purple);
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          @include mac-scrollbar-style;
+
+          .item {
+            @include grid(column, 1fr 60px 36px, auto, center, 6px);
+            position: relative;
+            width: 100%;
+
+            .icon {
+              color: var(--purple);
+              cursor: pointer;
+              font-size: 1.5rem;
+              border-radius: 5px;
+              padding: 6px;
+              @include ease(0.2s);
+
+              &:hover {
+                background: var(--purple);
+                color: var(--white);
+              }
+            }
+
+            .text {
+              word-break: keep-all;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            &>img {
+              cursor: pointer;
+              @include ease(0.2s);
+
+              &:hover {
+                @include scale(1.1);
+              }
+            }
+          }
+
+          .added {
+            color: var(--gray);
+            pointer-events: none;
+
+            .text {
+              &::before {
+                background: var(--gray);
+              }
+            }
+
+            .icon {
+              color: var(--gray);
+              cursor: text;
+
+              &:hover {
+                background: transparent;
+                color: var(--gray);
+              }
+            }
+
+            &>img {
+              @include filter-opacity(0.3);
+            }
+
+            &::before {
+              background: var(--gray);
+            }
+          }
+        }
+      }
+
+      /* 運動模組 */
+      .motion-module {
+        grid-column: 1/4;
+
+        .table {
+          @include grid(column, auto 40px 1fr, auto, center, 8px);
+          align-content: baseline;
+          border: 1px solid var(--purple);
+
+          @include for-phone {
+            grid-auto-flow: row;
+            grid-template-columns: auto;
+          }
+
+          .list {
+            @include grid(column, auto, auto 163px, initial, 12px);
+            width: 100%;
+
+            &>h5 {
+              font-size: 0.875rem;
+              font-weight: normal;
+              margin: 0;
+            }
+
+            .overflow {
+              @include grid(row, auto, auto, inherit, 12px);
+              align-content: baseline;
+              width: 100%;
+              height: 100%;
+              padding-top: 6px;
+              overflow: hidden;
+              @include mac-scrollbar-style;
+
+              .item {
+                @include grid(column,
+                  16px 1fr 60px repeat(2, 36px),
+                  auto,
+                  center,
+                  6px);
+                position: relative;
+                width: 100%;
+
+                .icon {
+                  color: var(--purple);
+                  cursor: pointer;
+                  font-size: 1.5rem;
+                  border-radius: 5px;
+                  padding: 6px;
+                  @include ease(0.2s);
+
+                  &:hover {
+                    background: var(--purple);
+                    color: var(--white);
+                  }
+                }
+
+                .text {
+                  word-break: keep-all;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                }
+
+                &>img {
+                  cursor: pointer;
+                  @include ease(0.2s);
+
+                  &:hover {
+                    @include scale(1.1);
+                  }
+                }
+              }
+
+              .input-item {
+                display: grid;
+                gap: 6px;
+
+                .input-style {
+                  @include s-input-style(5px, 6px);
+                }
+              }
+            }
+          }
+
+          .line {
+            @include flexbox(row, center, center);
+            background: var(--purple);
+            width: 1px;
+            height: 100%;
+
+            @include for-phone {
+              width: 100%;
+              height: 1px;
+            }
+          }
+        }
+      }
+
+      /* 動作劑量 */
+      .action-dose {
+        .select-action-dose-bar {
+          @include flexbox-gap(row, center, flex-start, 24px);
+
+          &>.item {
+            .input-style {
+              width: 90px;
+            }
+
+            &>small {
+              margin-left: 6px;
+            }
+          }
+        }
+      }
+
+      /* 下拉清單共用樣式 */
+      .select-row {
+        &>h4 {
+          @include flexbox-gap(row, center, flex-start, 16px);
+
+          &>i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--purple);
+            @include ease(0.2s);
+
+            &:hover {
+              color: var(--brown);
+            }
+          }
+        }
+
+        .select-item {
+          display: grid;
+          grid-template-columns: 1fr 36px;
+
+          .select-style {
+            cursor: pointer;
+            width: 100%;
+          }
+
+          .btn-style {
+            font-size: 1.5rem;
+            color: var(--purple);
+            @include ease(0.2s);
+
+            &:hover {
+              color: var(--brown);
+            }
+          }
+        }
+      }
+
+      /* 封面圖片上傳樣式 */
+      .cover-img-upload {
+        border-bottom: 2px solid var(--purple);
+        padding-bottom: 16px;
+      }
+
+      /* 預覽影音上傳樣式 */
+      .preview-file-upload {
+        display: grid;
+        grid-auto-flow: column;
+        grid-column: 1/4;
+        border-top: 2px solid var(--purple);
+        border-bottom: 2px solid var(--purple);
+        padding: 16px 0;
+
+        @include for-pad {
+          grid-auto-flow: row;
+          grid-column: unset;
+          border: 0;
+          padding: 0;
+        }
+
+        .upload-item {
+          grid-column: unset;
+        }
+      }
+
+      /* 起始 中間影音上傳樣式 */
+      .start-file-upload,
+      .middle-file-upload {
+        @extend .preview-file-upload;
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      /* 結束影音上傳樣式 */
+      .end-file-upload {
+        @extend .preview-file-upload;
+        border: 0;
+        padding: 0;
+      }
+
+      /* 權限設定 */
+      .permissions-row {
+        @include grid-child(1, 4, 2, 2);
+
+        @include for-pad {
+          @include grid-child(auto, auto, 3, 3);
+        }
+
+        .permissions-table {
+          display: grid;
+          grid-template-columns: repeat(3, auto);
+          gap: 16px;
+
+          @include for-pad {
+            grid-template-columns: auto;
+          }
+
+          .list {
+            display: grid;
+            gap: 8px;
+            align-content: baseline;
+            border: 1px solid var(--purple);
+
+            .title {
+              @include flexbox(row, center, space-between);
+              border-bottom: 1px solid var(--purple);
+              padding-bottom: 12px;
+
+              &>h4 {
+                color: var(--purple);
+              }
+            }
+
+            .label--checkbox {
+              @include s-checkbox;
+            }
+          }
+        }
+      }
+
+      /* 運動叮嚀textarea */
+      .remind-textarea-style {
+        grid-column: 1/4;
+        height: -webkit-fill-available;
+        resize: none;
+        border: 0;
+      }
+    }
+
+    /* for 運動叮嚀 */
+    .pt-exercise-remind-list {
+      align-content: unset;
+    }
+  }
+
+  /* for 處方紀錄 */
+  .pt_prescription_record_table {
+    height: inherit;
+  }
+
+  /* for 預約表單 */
+  .app-appointment-table {
+    height: inherit;
+
+    @include for-largepad {
+      height: calc(100vh - 402px);
+    }
+
+    .table-header {
+      grid-template-columns: repeat(2, 120px) repeat(6, 1fr);
+
+      .text {
+        @include text-ellipse;
+      }
+
+      @include for-pad {
+        display: none;
+      }
+    }
+
+    .table-list {
+      .table-row {
+        grid-template-columns: repeat(2, 120px) repeat(6, 1fr);
+
+        @include for-pad {
+          @include table-row-mobile;
+        }
+
+        .text {
+          &>span {
+            display: inline-flex;
+            width: 64px;
+          }
+        }
+
+        .sucess,
+        .myself {
+          color: var(--green);
+        }
+
+        .another,
+        .cancel {
+          color: var(--red);
+        }
+
+        .cancel-reservation-btn {
+          color: var(--purple);
+          margin-left: 12px;
+          @include ease(0.2s);
+
+          &:hover {
+            color: var(--brown);
+          }
+        }
+
+        .disable {
+          display: none;
+        }
+
+        @include for-pad {
+          grid-auto-flow: row;
+          grid-template-columns: auto;
+        }
+      }
+    }
+  }
+
+  /* 各分院未處理總數 */
+  .processed {
+    display: grid;
+    grid-template-rows: 18px auto;
+    font-size: 0.875rem;
+    margin-left: 12px;
+    gap: 6px;
+    height: inherit;
+
+    @include for-largepad {
+      grid-row: 1;
+      grid-template-rows: 18px 108px;
+      height: auto;
+      margin: 0;
+      margin-bottom: 12px;
+    }
+
+    .text {
+      color: var(--purple);
+      border-bottom: 1px solid var(--purple);
+    }
+
+    .list {
+      display: grid;
+      grid-template-rows: repeat(auto-fill, 18px);
+      gap: 12px;
+      color: var(--red);
+      overflow: hidden;
+      @include mac-scrollbar-style;
+
+      @include for-largepad {
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: repeat(auto-fill, 130px);
+      }
+
+      @include for-phone {
+        grid-template-columns: repeat(auto-fill, 150px);
+      }
+    }
+  }
+
+  /* for 會員資料表單 */
+  .member-data-table {
+    height: inherit;
+
+    .table-header {
+      grid-template-columns:repeat(4, 120px) 120px 50px 120px 50px 1fr 220px 120px;
+
+      @include for-pad {
+        display: none;
+      }
+    }
+
+    .table-list {
+      .table-row {
+        grid-template-columns: repeat(4, 120px) 120px 50px 120px 50px 1fr 220px 120px;
+
+        @include for-pad {
+          grid-auto-flow: row;
+          grid-template-columns: auto;
+        }
+      }
+    }
+  }
+
+  /* for 問卷管理表單 */
+  .questionnaire-table {
+    height: inherit;
+
+    /* 問卷列表標題欄位寬度 */
+    .questionaire-list-header {
+      grid-template-columns: 50px 1fr 100px 150px 220px;
+    }
+
+    /* 問卷題庫標題欄位寬度 */
+    .questionaire-bank-header {
+      grid-template-columns: 50px repeat(2, 1fr) 100px 112px;
+    }
+
+    /* 結果題庫標題欄位寬度 */
+    .questionaire-result-bank-header {
+      grid-template-columns: 50px 14% 1fr 20% repeat(2, 120px);
+    }
+
+    .table-list {
+
+      /* 問卷列表內容欄位寬度 */
+      .questionaire-list-row {
+        grid-template-columns: 50px 1fr 100px 150px 220px;
+
+        @include for-pad {
+          grid-template-columns: auto;
+        }
+      }
+
+      /* 問卷題庫內容欄位寬度 */
+      .questionaire-bank-row {
+        grid-template-columns: 50px repeat(2, 1fr) 100px auto;
+
+        @include for-pad {
+          grid-template-columns: auto;
+        }
+      }
+
+      /* 結果題庫內容欄位寬度 */
+      .questionaire-result-bank-row {
+        grid-template-columns: 50px 14% 1fr 20% repeat(2, 120px);
+
+        @include for-pad {
+          grid-template-columns: auto;
+        }
+      }
+    }
+  }
+}
+
+/* PT 運動模組叮嚀 width form content */
+.pt-exercise-module-content{
+  grid-template-rows: auto;
+ 
+  &>form {
+    display: grid;
+    gap: 24px;
+    grid-template-rows: auto calc(100vh - 240px);
+
+    @include for-phone {
+      align-content: baseline;
+      gap: 12px;
+    }
+  }
+}

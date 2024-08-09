@@ -1,0 +1,24 @@
+/* 工具列 */
+.tool-list {
+  @include flexbox-gap-wrap(row,center,flex-start,12px,wrap);
+
+  @include for-phone {
+    grid-column: 1/3;
+    @include flexbox-gap-wrap(row,center,flex-end,12px,wrap);
+  }
+
+  .btn-style {
+    @include btn-common-style(transparent, 7.5px, var(--purple), var(--purple), var(--purple), var(--white));
+
+    @include for-desktop {
+      font-size: 0.875rem;
+      gap: 3px;
+      padding: 6px;
+    }
+  }
+
+  .active {
+    background: var(--purple);
+    color: var(--white);
+  }
+}

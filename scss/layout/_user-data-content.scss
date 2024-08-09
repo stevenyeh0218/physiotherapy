@@ -1,0 +1,133 @@
+/* 客戶資訊區塊 */
+.user-data-content {
+  @include grid(row, auto, auto, center, 12px);
+  width: 100%;
+  color: var(--fontColor);
+
+  @include for-desktop {
+    height: max-content;
+  }
+
+  .info {
+    @include grid(row, max-content auto, auto, unset, 6px);
+    width: 100%;
+
+    .icon {
+      font-size: 2.25rem;
+      grid-row: 1/3;
+    }
+
+    .name {
+      font-size: 0.875rem;
+    }
+
+    .monitor {
+      color: var(--red);
+      font-size: 0.75rem;
+      grid-column: 2;
+    }
+  }
+
+  .data-list {
+    @include grid(row, auto, auto, center, 6px);
+    width: 100%;
+    border-top: 1px solid var(--lightgray);
+    border-bottom: 1px solid var(--lightgray);
+    padding: 6px 0;
+
+    .item {
+      @include grid(column, 64px auto, auto, start, 6px);
+      width: 100%;
+      font-size: 0.875rem;
+      color: var(--purple);
+
+      .value {
+        color: var(--fontColor);
+      }
+    }
+  }
+
+  .percent-status {
+    @include grid(row, auto, auto, unset, 3px);
+    width: 100%;
+    font-size: 0.875rem;
+
+    @include for-phone{
+      grid-row: 3;  
+    }
+
+    .title {
+      @include flexbox-gap(row,center,flex-start,6px);
+      color: var(--purple);
+
+      .data-btn {
+        font-size: 0.875rem;
+        @include ease(.2s);
+
+        &:hover {
+          color: var(--brown);
+        }
+      }
+    }
+
+    .status-list {
+      display: grid;
+      gap: 3px;
+      font-size: 0.75rem;
+
+      .item {
+        display: grid;
+        grid-template-rows: auto 3px;
+
+        .status-name {
+          color: var(--green);
+        }
+
+        .bar {
+          background: var(--lightgray);
+          border-radius: 50px;
+
+          .progress-bar {
+            background: var(--green);
+            max-width: 100%;
+            height: 100%;
+            border-radius: 50px
+          }
+        }
+
+        &:nth-child(2) {
+          .status-name{
+            color: var(--blue);
+          }
+          .bar{  
+            .progress-bar{
+              background: var(--blue);
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          .status-name{
+            color: var(--purple);
+          }
+          .bar{  
+            .progress-bar{
+              background: var(--purple);
+            }
+          }
+        }
+
+        &:last-child {
+          .status-name{
+            color: var(--brown);
+          }
+          .bar{  
+            .progress-bar{
+              background: var(--brown);
+            }
+          }
+        }
+      }
+    }
+  }
+}

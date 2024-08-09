@@ -1,0 +1,36 @@
+/* 分頁樣式 */
+.pagination-container {
+  grid-row: 2;
+  .pagination {
+    margin: 0;
+    margin-top: 16px;
+
+    @include for-phone{
+      font-size: 0.813rem;
+    }
+
+    &>li>a,
+    &>li>span {
+      background-color: transparent;
+      border: 1px solid var(--gray);
+      color: var(--purple);
+      @include for-phone{
+        padding: 6px;
+      }
+    }
+
+    &>li>a {
+      &:hover {
+        background-color: var(--purple);
+        border-color: var(--purple);
+        color: var(--white);
+      }
+    }
+
+    .active>span {
+      background-color: var(--purple);
+      border-color: var(--purple);
+      color: var(--white);
+    }
+  }
+}

@@ -1,0 +1,112 @@
+/* 會員同步樣式 */
+.synchronization-content {
+  display: grid;
+  gap: 24px;
+  grid-column: 1/3;
+  align-content: baseline;
+
+  &>h4 {
+    color: var(--red);
+  }
+
+  /* 同步會員按鈕 */
+  .syn-search-bar {
+    @include grid(column, auto 120px, auto, initial, 16px);
+
+    .input-style {
+      @include s-input-style(5px, 6px);
+    }
+
+    .btn-style {
+      @include btn-common-style(transparent, 12px, var(--purple), var(--purple), var(--purple), var(--white));
+
+      @include for-desktop {
+        padding: 6px;
+      }
+    }
+  }
+
+  /* 會員比對結果顯示 */
+  .result-table {
+    .result {
+      @include flexbox-gap(row, center, flex-start, 24px);
+      background: var(--purple);
+      padding: 12px;
+      border-radius: 5px;
+      margin-bottom: 16px;
+      color: var(--white);
+
+      &-amount {
+        @include flexbox(row, center, flex-start);
+      }
+    }
+
+    .table-header {
+      @include grid(column, repeat(auto-fit, minmax(120px, 1fr)), auto, initial, 16px);
+      align-items: center;
+      color: var(--purple);
+      font-size: 1.125rem;
+      margin-bottom: 12px;
+
+      @include for-pad {
+        display: none;
+      }
+    }
+
+    /* for 列表 */
+    .table-list {
+      @include grid(row, auto, auto, unset, 12px);
+      border-top: 2px solid var(--gray);
+      padding-top: 12px;
+      align-content: baseline;
+      height: calc(100vh - 356px);
+      overflow: hidden;
+      @include mac-scrollbar-style;
+
+      @include for-pad {
+        grid-template-rows: auto;
+        padding: 0;
+        border: 0;
+      }
+
+      .table-row {
+        @include grid(column, repeat(auto-fit, minmax(115px, 1fr)), auto, unset, 16px);
+        align-items: center;
+        color: var(--fontColor);
+
+        @include for-pad {
+          @include table-row-mobile;
+        }
+
+        .text {
+          position: relative;
+          width: 100%;
+          height: 24px;
+          @include text-ellipse;
+
+          @include for-pad {
+            height: auto;
+            word-break: break-word;
+            overflow: visible;
+
+            &::before {
+              content: attr(data-title);
+              display: flex;
+              color: var(--purple);
+              font-size: 0.675rem;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      /* 運動叮嚀textarea */
+      .remind-textarea-style {
+        grid-column: 1/4;
+        height: -webkit-fill-available;
+        resize: none;
+        border: 0;
+      }
+    }
+  }
+}

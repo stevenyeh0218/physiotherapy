@@ -1,0 +1,137 @@
+/* 側邊攔 */
+#sidebar {
+  background: linear-gradient(174.98deg, var(--brown) 0.99%, var(--purple) 81.78%);
+  color: var(--white);
+  height: initial;
+  border-radius: 24px 0px 0px 24px;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  grid-row: 1/3;
+
+  @include for-desktop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    border-radius: 0;
+    z-index: 1;
+    @include ease(.2s);
+  }
+
+  .backstage-name {
+    @include flexbox-gap(row, center, center, 6px);
+    margin-bottom: 6px;
+
+    .aicare-ci {
+      z-index: 2;
+
+      .logo {
+        @include flexbox(row, center, center);
+        @include opacity-bg(1, 1, 0%, 100%, 50%);
+        border: 2px solid transparent; // 側邊欄專屬
+        position: relative;
+        width: 40px;
+        height: 40px;
+        margin: auto;
+
+        &>img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+
+    &>h3 {
+      font-size: 1.25rem;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .open-mobile-nav-btn {
+      @include flexbox(row, center, center);
+      display: none;
+      width: 32px;
+      height: 32px;
+      top: 36px;
+      left: 12px;
+      cursor: pointer;
+      @include ease(.2s);
+
+      &:hover {
+        color: var(--purple);
+      }
+
+      @include for-desktop {
+        background: var(--white);
+        position: fixed;
+        display: flex;
+        color: var(--black);
+      }
+    }
+  }
+
+  nav {
+    @include grid(row, auto, auto, inherit, 6px);
+
+    .title {
+      @include flexbox-gap(row, center, center, 12px);
+      cursor: pointer;
+      font-size: 1.25rem;
+      word-break: keep-all;
+      margin-top: 4px;
+      @include ease(.2s);
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .line {
+        background: var(--white);
+        width: 100%;
+        height: 1px;
+        @include ease(.2s);
+      }
+
+      .icon {
+        font-size: 1rem;
+      }
+
+      &:hover {
+        color: var(--black);
+
+        .line {
+          background: var(--black);
+        }
+      }
+    }
+
+    .item {
+      @include grid(column, min-content, auto, inherit, 12px);
+      align-items: center;
+      color: var(--white);
+      margin: 0 24px;
+
+      .micon-two-arrow {
+        place-self: end;
+        @include hide;
+      }
+
+      &:hover {
+        color: var(--black);
+
+        .micon-two-arrow {
+          @include show;
+        }
+      }
+    }
+
+    .active {
+      color: var(--black);
+
+      .micon-two-arrow {
+        @include show;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <form action="" method="post">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <a href="clinic_setting.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增門市</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <div class="table-row upload-item">
+                            <h4>門市照片上傳</h4>
+                            <div class="upload">
+                                <span id="file-chosen">點擊右方按鈕上傳圖片</span>
+                                <input type="file" accept=".png, .jpg, .jpeg" id="imageUpload" class="">
+                                <label for="imageUpload"><i class="micon-folder-open"></i></label>
+                            </div>
+                            <small>※格式：jpg、png，容量大小1MB以內(包含1MB)</small>
+                            <div class="preview">
+                                <div class="imagePreview"></div>
+                            </div>
+                        </div> 
+                        <div class="table-row">
+                            <h4>*門市名稱</h4>
+                            <input type="text" class="input-style" placeholder="請輸入門市名稱">      
+                        </div>  
+                        <div class="table-row">
+                            <h4>*電話</h4>
+                            <input type="number" class="input-style" placeholder="請輸入門市電話">      
+                        </div>    
+                        <div class="table-row">
+                            <h4>*Line ID</h4>
+                            <input type="email" class="input-style" placeholder="請輸入門市 Line ID">      
+                        </div>  
+                        <div class="table-row">
+                            <h4>*Email</h4>
+                            <input type="email" class="input-style" placeholder="請輸入門市 Email">      
+                        </div>    
+                        <div class="table-row addr-row">
+                            <h4>*地址</h4>
+                            <div class="addr-bar">
+                                <select class="select-style">
+                                    <option value="台北市">台北市</option>
+                                    <option value="台北市">台北市</option>
+                                    <option value="台北市">台北市</option>
+                                    <option value="台北市">台北市</option>
+                                    <option value="台北市">台北市</option>
+                                </select>
+                                <select class="select-style">
+                                    <option value="大安區">大安區</option>
+                                    <option value="大安區">大安區</option>
+                                    <option value="大安區">大安區</option>
+                                    <option value="大安區">大安區</option>
+                                    <option value="大安區">大安區</option>
+                                </select>
+                                <input type="text" class="input-style" placeholder="請輸入門市地址">     
+                                <input type="text" class="input-style" placeholder="請輸入經度">       
+                                <input type="text" class="input-style" placeholder="請輸入緯度">   
+                            </div> 
+                        </div> 
+                        <div class="table-row business-row">
+                            <h4>營業時間</h4>
+                            <textarea class="textarea-style" placeholder="請輸入營業時間( ex：上午09:00~12:30 )"></textarea>
+                        </div>
+                        <div class="table-row doctor-list-row">
+                            <h4>
+                                *治療師名單
+                                <button type="button" class="btn-style doctor-list-btn">
+                                    <i class="micon-data icon"></i>資料匯入
+                                </button>
+                            </h4>
+                            <div class="list">
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="name">林醫師</div>
+                                    <i class="micon-trash icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!--會員資料匯入彈出視窗-->
+<div class="doctor-data-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="table">
+            <div class="search-bar">
+                <i class="micon-search icon"></i>
+                <input type="text" class="input-style" id="doctor-search" placeholder="請搜尋關鍵字">
+            </div>
+            <h4>治療師列表</h4>
+            <div class="list doctor-list">
+                <label class="label--checkbox disable">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox disable">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+                <label class="label--checkbox">
+                    <input type="checkbox" class="checkbox" value="林醫師">林醫師
+                </label>
+            </div>
+            <button type="button" class="btn-style save-btn">新增至名單</button>
+        </div>
+    </div>
+</div> 
+
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- popup window 功能  -->
+<script src="js/popup.js"></script>
+
+<!-- 門市照片上傳 -->
+<script>
+    const actualBtn = document.getElementById('imageUpload');
+    const fileChosen = document.getElementById('file-chosen');
+
+    // 上傳圖片檔明顯示
+    actualBtn.addEventListener('change', function(){
+        fileChosen.textContent = this.files[0].name
+    })
+
+    // 預覽圖片
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('.imagePreview').css('background-image', 'url('+e.target.result +')');
+                $('.imagePreview').hide();
+                $('.imagePreview').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imageUpload").change(function() {
+        readURL(this);
+    });
+</script>
+
+</html>

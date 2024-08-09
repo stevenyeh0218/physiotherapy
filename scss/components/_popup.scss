@@ -1,0 +1,1555 @@
+/* 彈出視窗共用樣式 */
+.popup-themes {
+  @include grid(row, auto, auto, center, 24px);
+  background: rgba(0, 0, 0, 0.5);
+  @include background-blur(10px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  top: 0;
+  left: 0;
+  @include hide;
+  @include ease(0.2s);
+  z-index: 101;
+}
+
+.popup-content-themes {
+  @include grid(row, auto, auto, normal, 24px);
+  position: relative;
+}
+
+.popup-table-themes {
+  @include grid(row, 343px, auto, inherit, 16px);
+  background: var(--purple);
+  border-radius: 5px;
+  padding: 16px;
+}
+
+.popup-table-h4 {
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.popup-list-themes {
+  @include grid(row, auto, auto, auto, 24px);
+  background: var(--white);
+  border-radius: 5px;
+  color: var(--purple);
+  max-height: 368px;
+  padding: 16px;
+  overflow: hidden;
+  @include mac-scrollbar-style;
+
+  @include for-phone {
+    max-height: 260px;
+  }
+}
+
+.close-btn-style {
+  @include flexbox(row, center, center);
+  position: absolute;
+  background: var(--purple);
+  border: none;
+  border-radius: 50%;
+  height: 32px;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 8px;
+  top: -44px;
+  right: 0;
+  @include ease(0.2s);
+
+  &:hover {
+    background: var(--brown);
+  }
+}
+
+.search-bar-themes {
+  @include flexbox(row, center, flex-start);
+  position: relative;
+  color: var(--purple);
+
+  .input-style {
+    @include s-input-style(5px, 13px);
+    padding-right: 44px;
+
+    @include for-desktop {
+      padding: 7px;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    right: 12px;
+    @include ease(0.2s);
+
+    &:hover {
+      background: var(--purple);
+      color: var(--white);
+    }
+  }
+}
+
+/* 彈出視窗共用樣式 end */
+
+/* 會員資料匯入彈出視窗 */
+.imoprt-data-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+      grid-template-columns: max-content;
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      .search-bar {
+        @extend .search-bar-themes;
+      }
+
+      &>h4 {
+        @extend .popup-table-h4;
+      }
+
+      .list {
+        @extend .popup-list-themes;
+
+        .label--checkbox {
+          @include s-checkbox;
+
+          &>.name {
+            color: var(--green);
+          }
+        }
+
+        .disable {
+          color: var(--gray);
+          pointer-events: none;
+
+          .checkbox {
+            &::before {
+              border: 1px solid var(--gray);
+            }
+          }
+
+          .name {
+            color: var(--gray);
+          }
+
+          &:hover {
+            color: var(--gray);
+          }
+        }
+      }
+
+      .btn-style {
+        @include btn-common-style(var(--brown),
+          12px,
+          var(--purple),
+          var(--white),
+          var(--brown),
+          var(--black));
+
+        .icon {
+          font-size: 1.25rem;
+
+          @include for-desktop {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 會員資料匯入彈出視窗 end */
+
+/* 處方記錄詳記資料彈出視窗 */
+.record-data-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+      grid-template-columns: 768px;
+      grid-template-rows: 16px auto;
+
+      @include for-pad {
+        grid-template-columns: 669px;
+      }
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      .date {
+        color: var(--white);
+        font-size: 0.875rem;
+        font-weight: normal;
+        margin: 0;
+      }
+
+      .overflow {
+        display: grid;
+        gap: 24px;
+        height: 75vh;
+        overflow: hidden;
+        @include mac-scrollbar-style;
+
+        @include for-phone {
+          height: 60vh;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--brown);
+        }
+
+        .form {
+          @include grid(column, auto, 44px auto, inherit, 0);
+          align-items: center;
+          background: var(--white);
+          border-radius: 5px;
+          padding: 12px;
+
+          &>header {
+            color: var(--purple);
+
+            @include for-phone {
+              word-break: keep-all;
+            }
+          }
+
+          .list {
+            @include grid(row, auto, repeat(auto-fit, 20px), baseline, 12px);
+            border-top: 2px solid var(--gray);
+            color: var(--fontColor);
+            font-size: 0.875rem;
+            padding-top: 12px;
+            overflow: hidden;
+            @include mac-scrollbar-style;
+
+            .item {
+              .text {
+                position: relative;
+                padding-left: 16px;
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  background: var(--fontColor);
+                  width: 7px;
+                  height: 7px;
+                  border-radius: 50%;
+                  top: 7px;
+                  left: 4px;
+                  @include ease(0.2s);
+                }
+              }
+            }
+
+            .achievement-rate-item {
+              width: 100%;
+
+              &>.text {
+                margin-bottom: 3px;
+              }
+
+              .progress-bar {
+                position: relative;
+                height: 100%;
+                overflow: hidden;
+
+                .progress-line {
+                  position: relative;
+                  background: var(--gray);
+                  border-radius: 50px;
+                  height: 8px;
+                }
+
+                .sucess {
+                  position: absolute;
+                  background: var(--green);
+                  z-index: 1;
+                }
+              }
+
+              &:nth-child(2) {
+                .progress-bar {
+                  .sucess {
+                    background: var(--blue);
+                  }
+                }
+              }
+
+              &:nth-child(3) {
+                .progress-bar {
+                  .sucess {
+                    background: var(--purple);
+                  }
+                }
+              }
+
+              &:nth-child(4) {
+                .progress-bar {
+                  .sucess {
+                    background: var(--brown);
+                  }
+                }
+              }
+            }
+
+            .record-more-btn {
+              position: relative;
+              place-self: center;
+              border-radius: 0;
+            }
+
+            .more-list {
+              display: none;
+              width: 100%;
+              color: var(--fontColor);
+              @include ease(0.2s);
+
+              &>h4 {
+                font-size: 0.875rem;
+                color: var(--purple);
+                border-bottom: 1px solid var(--purple);
+                padding-bottom: 6px;
+              }
+
+              .item {
+                display: grid;
+                grid-auto-flow: column;
+                grid-template-columns: 125px auto;
+                gap: 6px;
+
+                @include for-phone {
+                  grid-auto-flow: row;
+                  grid-template-columns: auto;
+                }
+
+                .text {
+                  color: var(--purple);
+
+                  &::before {
+                    background: var(--purple);
+                  }
+                }
+
+                .cell {
+                  display: grid;
+                  gap: 6px;
+                }
+              }
+            }
+
+            .more-list-open {
+              @include grid(row, auto, auto, unset, 12px);
+            }
+          }
+
+          .textarea-style {
+            width: 100%;
+            height: 100px;
+            color: var(--fontColor);
+            font-size: 0.875rem;
+            border: 2px solid var(--gray);
+            border-radius: 5px;
+            margin-bottom: 12px;
+            padding: 12px;
+            resize: none;
+            @include mac-scrollbar-style;
+          }
+        }
+
+        .medical-prescription-form {
+          &>header {
+            grid-column: 1/3;
+          }
+
+          .list {
+            grid-template-rows: 16px repeat(auto-fill, 20px);
+            height: 200px;
+
+            &>h5 {
+              font-size: 0.875rem;
+              font-weight: normal;
+              margin: 0;
+            }
+
+            &:last-child {
+              border-left: 2px solid var(--gray);
+              padding-left: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 處方記錄詳記資料彈出視窗 end */
+
+/* 匯入權限彈出視窗 */
+.imoprt-employee-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      .search-bar {
+        @extend .search-bar-themes;
+      }
+
+      &>h4 {
+        @extend .popup-table-h4;
+      }
+
+      .list {
+        @extend .popup-list-themes;
+
+        .label--radio {
+          @include s-radio;
+        }
+      }
+
+      .btn-style {
+        @include btn-common-style(var(--brown),
+          12px,
+          var(--purple),
+          var(--white),
+          var(--brown),
+          var(--black));
+
+        .icon {
+          font-size: 1.25rem;
+
+          @include for-desktop {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 匯入權限彈出視窗 end*/
+
+/* lightbox */
+.lightbox-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+    background: var(--purple);
+    border-radius: 10px;
+    max-width: 60%;
+    padding: 12px;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    &>img {
+      object-fit: contain;
+    }
+  }
+}
+
+/* lightbox end*/
+
+/* 線上評估彈出視窗 */
+.assessment-record-data-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+      grid-template-columns: 510px;
+
+      @include for-largepad {
+        grid-template-columns: 480px;
+      }
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      &>h4 {
+        @extend .popup-table-h4;
+      }
+
+      .list {
+        @include grid(row, auto, auto, unset, 12px);
+        background: var(--white);
+        border-radius: 5px;
+        color: var(--purple);
+        padding: 16px;
+
+        .item {
+          @include flexbox-gap(row, baseline, flex-start, 6px);
+
+          .text {
+            position: relative;
+            width: 85px;
+            word-break: keep-all;
+            padding-left: 16px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              background: var(--purple);
+              width: 7px;
+              height: 7px;
+              border-radius: 50%;
+              top: 7px;
+              left: 4px;
+              @include ease(0.2s);
+            }
+          }
+
+          .text-value {
+            color: var(--fontColor);
+            counter-reset: num;
+            line-height: 1.3em;
+
+            &-cell {
+              &:before {
+                counter-increment: num;
+                content: counter(num) ". ";
+              }
+            }
+          }
+
+          .text-value-tree {
+            display: grid;
+            gap: 12px;
+            color: var(--fontColor);
+            counter-reset: num;
+            line-height: 1.3em;
+
+            .node {
+              &-child {
+                position: relative;
+                font-size: 0.875rem;
+                padding-left: 16px;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  background: var(--fontColor);
+                  width: 7px;
+                  height: 7px;
+                  border-radius: 50%;
+                  top: 7px;
+                  left: 4px;
+                  @include ease(0.2s);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .btn-style {
+        @include btn-common-style(var(--brown),
+          12px,
+          var(--purple),
+          var(--white),
+          var(--brown),
+          var(--black));
+
+        .icon {
+          font-size: 1.25rem;
+
+          @include for-desktop {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 線上評估彈出視窗 */
+
+/* 近七日運動數據彈出視窗 */
+.progress-data-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+      grid-template-columns: auto;
+      grid-template-rows: 16px auto;
+      max-height: 75vh;
+
+      @include for-largepad {
+        grid-template-columns: 480px;
+      }
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      &>h4 {
+        @extend .popup-table-h4;
+      }
+
+      .list {
+        @include grid(row, auto, auto, unset, 12px);
+        background: var(--white);
+        border-radius: 5px;
+        color: var(--fontColor);
+        padding: 16px;
+        overflow: hidden;
+        @include mac-scrollbar-style;
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--brown);
+        }
+
+        .item {
+          display: grid;
+          grid-auto-flow: column;
+          grid-template-columns: 125px auto;
+          gap: 6px;
+
+          .text {
+            position: relative;
+            color: var(--purple);
+            padding-left: 16px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              background: var(--purple);
+              width: 7px;
+              height: 7px;
+              border-radius: 50%;
+              top: 7px;
+              left: 4px;
+              @include ease(0.2s);
+            }
+          }
+
+          .cell {
+            display: grid;
+            gap: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 近七日運動數據彈出視窗 */
+
+/* 治療師名單彈出視窗 */
+.doctor-data-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      .search-bar {
+        @extend .search-bar-themes;
+      }
+
+      &>h4 {
+        @extend .popup-table-h4;
+      }
+
+      .list {
+        @extend .popup-list-themes;
+
+        .label--checkbox {
+          @include s-checkbox;
+        }
+
+        .disable {
+          color: var(--gray);
+          pointer-events: none;
+
+          .checkbox {
+            &::before {
+              border: 1px solid var(--gray);
+            }
+          }
+
+          &:hover {
+            color: var(--gray);
+          }
+        }
+      }
+
+      .btn-style {
+        @include btn-common-style(var(--brown),
+          12px,
+          var(--purple),
+          var(--white),
+          var(--brown),
+          var(--black));
+
+        .icon {
+          font-size: 1.25rem;
+
+          @include for-desktop {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 治療師名單彈出視窗 end */
+
+/* App預約詳細資料彈出視窗 */
+.app-appointment-detail-data-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+      grid-template-columns: 510px;
+
+      @include for-largepad {
+        grid-template-columns: 480px;
+      }
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      .info-list {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 16px;
+
+        &>h4 {
+          @extend .popup-table-h4;
+        }
+
+        .list {
+          @include grid(row, auto, auto, unset, 12px);
+          background: var(--white);
+          border-radius: 5px;
+          color: var(--purple);
+          padding: 16px;
+
+          .item {
+            @include flexbox-gap(row, baseline, flex-start, 6px);
+
+            .text {
+              position: relative;
+              width: 120px;
+              word-break: keep-all;
+              padding-left: 16px;
+
+              &::before {
+                content: "";
+                position: absolute;
+                background: var(--purple);
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                top: 7px;
+                left: 4px;
+                @include ease(0.2s);
+              }
+            }
+
+            .text-value {
+              color: var(--fontColor);
+              counter-reset: num;
+              line-height: 1.3em;
+
+              &-cell {
+                &:before {
+                  counter-increment: num;
+                  content: counter(num) ". ";
+                }
+              }
+            }
+
+            .myself,
+            .sucess {
+              color: var(--green);
+            }
+
+            .another,
+            .cancel {
+              color: var(--red);
+            }
+          }
+        }
+
+        .btn-style {
+          @include btn-common-style(var(--brown),
+            12px,
+            var(--purple),
+            var(--white),
+            var(--brown),
+            var(--black));
+
+          .icon {
+            font-size: 1.25rem;
+
+            @include for-desktop {
+              font-size: 1.125rem;
+            }
+          }
+        }
+
+        .disapear {
+          display: none;
+        }
+      }
+
+      .line {
+        @include flexbox(row, center, center);
+        background: var(--gray);
+        width: 2px;
+        height: 100%;
+
+        .icon {
+          font-size: 0.875rem;
+          padding: 6px;
+          background: var(--white);
+          border: 2px solid var(--purple);
+          border-radius: 50%;
+
+          @include for-pad {
+            @include rotate(90deg);
+          }
+        }
+
+        @include for-pad {
+          width: 100%;
+          height: 2px;
+        }
+      }
+
+      .sync-list {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 16px;
+
+        @include for-phone {
+          gap: 8px;
+        }
+
+        &>h4 {
+          @extend .popup-table-h4;
+        }
+
+        .search-bar {
+          @extend .search-bar-themes;
+        }
+
+        .list {
+          @include grid(row, auto, 46px auto, unset, 12px);
+          background: var(--white);
+          border-radius: 5px;
+          color: var(--purple);
+          padding: 16px;
+
+          @include for-phone {
+            grid-template-rows: auto;
+          }
+
+          &>header {
+            @include grid(column,
+              24px 60px repeat(2, auto) 170px auto,
+              auto,
+              center,
+              16px);
+            border-bottom: 1px solid var(--purple);
+
+            @include for-phone {
+              display: none;
+            }
+          }
+
+          .tbody {
+            display: grid;
+            grid-template-rows: repeat(auto-fit, 24px);
+            gap: 6px;
+            height: 227px;
+            overflow: hidden;
+            @include mac-scrollbar-style;
+
+            @include for-pad {
+              height: 130px;
+            }
+
+            @include for-phone {
+              grid-template-rows: auto;
+              height: 200px;
+            }
+
+            .label--radio {
+              @include s-radio;
+              @include grid(column,
+                24px 60px repeat(2, auto) 170px auto,
+                auto,
+                unset,
+                16px);
+
+              .text {
+                cursor: pointer;
+                white-space: nowrap;
+                word-break: keep-all;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+
+              @include for-phone {
+                grid-auto-flow: row;
+                grid-template-columns: auto;
+                gap: 3px;
+                padding-bottom: 6px;
+                border-bottom: 1px solid var(--purple);
+
+                &:last-child {
+                  border: 0;
+                }
+              }
+            }
+          }
+        }
+
+        .btn-style {
+          @include btn-common-style(var(--brown),
+            12px,
+            var(--purple),
+            var(--white),
+            var(--brown),
+            var(--black));
+
+          .icon {
+            font-size: 1.25rem;
+
+            @include for-desktop {
+              font-size: 1.125rem;
+            }
+          }
+        }
+      }
+
+      .disapear {
+        display: none;
+      }
+    }
+
+    .expand {
+      grid-template-columns: 1fr repeat(2, auto);
+
+      @include for-pad {
+        grid-template-columns: auto;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      .info-list {
+        @include for-phone {
+          gap: 8px;
+        }
+
+        .list {
+          @include for-phone {
+            height: 200px;
+            overflow: hidden;
+            @include mac-scrollbar-style;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* App預約詳細資料彈出視窗 end */
+
+/* 運動處方名單彈出視窗 */
+.exercise-prescription-data-popupwindow {
+  @extend .medical-prescription-data-popupwindow;
+}
+
+/* 運動處方單彈出視窗 end */
+
+/* PT運動處方列表匯入彈出視窗 */
+.medical-prescription-data-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+      grid-template-columns: 560px;
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      .search-bar {
+        @extend .search-bar-themes;
+      }
+
+      &>h4 {
+        @extend .popup-table-h4;
+      }
+
+      .list {
+        @extend .popup-list-themes;
+
+        .label--checkbox {
+          @include s-checkbox;
+          width: 100%;
+
+          &>label {
+            cursor: pointer;
+            width: 100%;
+          }
+
+          &>img {
+            width: 50px;
+            @include ease(0.2s);
+
+            &:hover {
+              @include scale(1.1);
+            }
+          }
+        }
+
+        .disable {
+          color: var(--gray);
+          pointer-events: none;
+
+          .checkbox {
+            &::before {
+              border: 1px solid var(--gray);
+            }
+          }
+
+          &>img {
+            @include filter-opacity(0.1);
+          }
+
+          &:hover {
+            color: var(--gray);
+          }
+        }
+      }
+
+      .btn-style {
+        @include btn-common-style(var(--brown),
+          12px,
+          var(--purple),
+          var(--white),
+          var(--brown),
+          var(--black));
+
+        .icon {
+          font-size: 1.25rem;
+
+          @include for-desktop {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* PT運動處方列表匯入彈出視窗 end */
+
+/* 題目匯入彈出視窗 */
+.question-data-popupwindow,
+.question-result-data-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .table {
+      @extend .popup-table-themes;
+      grid-template-columns: 1024px;
+
+      @include for-desktop {
+        grid-template-columns: 768px;
+      }
+
+      @include for-pad {
+        grid-template-columns: 480px;
+      }
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+      }
+
+      .search-bar {
+        @extend .search-bar-themes;
+      }
+
+      &>h4 {
+        @extend .popup-table-h4;
+      }
+
+      .list {
+        @extend .popup-list-themes;
+
+        &>header {
+          @include grid(column,
+            24px repeat(2, 1fr) repeat(2, 35px),
+            auto,
+            unset,
+            16px);
+          border-bottom: 1px solid var(--purple);
+          padding-bottom: 12px;
+        }
+
+        .label--radio {
+          @include s-radio;
+          @include grid(column,
+            24px repeat(2, 1fr) repeat(2, 35px),
+            auto,
+            unset,
+            16px);
+
+          .text {
+            cursor: pointer;
+            white-space: nowrap;
+            word-break: keep-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .btn-style {
+        @include btn-common-style(var(--brown),
+          12px,
+          var(--purple),
+          var(--white),
+          var(--brown),
+          var(--black));
+
+        .icon {
+          font-size: 1.25rem;
+
+          @include for-desktop {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.question-result-data-popupwindow {
+  .content {
+    .table {
+      .list {
+        &>header {
+          grid-template-columns: 24px repeat(2, 1fr) 150px;
+
+          @include for-phone {
+            grid-template-columns: 24px repeat(3, 1fr);
+            gap: 10px;
+          }
+        }
+
+        .label--radio {
+          grid-template-columns: 24px repeat(2, 1fr) 150px;
+
+          @include for-phone {
+            grid-template-columns: 24px repeat(3, 1fr);
+            gap: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 題目匯入彈出視窗 end*/
+
+/* 預覽彈出視窗 */
+.preview-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .tree {
+      position: relative;
+      @include grid(row, 1024px, 36px auto, unset, 16px);
+      align-items: baseline;
+      background: var(--purple);
+      border-radius: 5px;
+      padding: 16px;
+      height: 680px;
+
+      @include for-desktop {
+        grid-template-columns: 768px;
+      }
+
+      @include for-pad {
+        grid-template-columns: 480px;
+      }
+
+      @include for-phone {
+        grid-template-columns: 88vw;
+        height: 544px;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+
+      /* tree common style */
+      .common-style {
+        background: var(--white);
+        border-radius: 5px;
+        padding: 6px;
+      }
+
+      &>h2 {
+        width: 100%;
+        border-bottom: 1px solid var(--white);
+        color: var(--white);
+        font-size: 1.25rem;
+        padding-bottom: 12px;
+      }
+
+      .tree-content {
+        height: 100%;
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow: scroll;
+        @include mac-scrollbar-style;
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--white);
+        }
+
+        .is-expandable {
+          position: relative;
+          width: fit-content;
+          padding-left: 24px;
+
+          &:before {
+            position: absolute;
+            content: "";
+            border-left: 1px solid var(--white);
+            height: calc(100% - 36px);
+            top: 28px;
+            left: 7px;
+          }
+
+          .tree-title {
+            @extend .common-style;
+            @include flexbox-gap(row, center, flex-start, 12px);
+            position: relative;
+            width: fit-content;
+            cursor: pointer;
+            margin-bottom: 24px;
+
+            &>a {
+              color: var(--fontColor);
+              @include ease(0.2s);
+
+              &:hover {
+                color: var(--brown);
+              }
+            }
+
+            &::before {
+              font-family: "icomoon";
+              content: "\e91e";
+              position: absolute;
+              color: var(--white);
+              top: 6px;
+              left: -24px;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              border: 1px solid var(--white);
+              width: 12px;
+              top: 14px;
+              left: -40px;
+            }
+
+            &::marker {
+              content: "";
+            }
+
+            &::-webkit-details-marker {
+              display: none;
+            }
+
+            &:hover {
+              color: var(--purple);
+            }
+          }
+
+          .no-line {
+            &::after {
+              content: "";
+              border: none;
+            }
+          }
+
+          .tree-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 12px;
+          }
+
+          .tree-node {
+            color: var(--white);
+            position: relative;
+            margin-bottom: 24px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              border: 1px solid var(--white);
+              width: 12px;
+              top: 8px;
+              left: -16px;
+            }
+          }
+
+          &[open] {
+            &>.tree-title {
+              &::before {
+                content: "\e90f";
+              }
+            }
+          }
+
+          .tree-node-import {
+            position: relative;
+            background: var(--white);
+            border-radius: 5px;
+            padding: 6px;
+            margin-left: 24px;
+            margin-bottom: 12px;
+
+            &::before {
+              font-family: "icomoon";
+              content: "\e91e";
+              position: absolute;
+              color: var(--white);
+              top: 6px;
+              left: -24px;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              border: 1px solid var(--white);
+              width: 12px;
+              top: 14px;
+              left: -40px;
+            }
+
+            &:hover {
+              color: var(--purple);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 預覽彈出視窗 end */
+
+/* 帶入前次處方確認視窗 */
+.imoprt-prescription-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+    gap: 12px;
+    background: var(--gray);
+    border-radius: 10px;
+    font-size: 1.125rem;
+    padding: 12px;
+
+    .waring-text {
+      display: grid;
+      place-items: center;
+      gap: 6px;
+      color: var(--black);
+      font-size: 1.25rem;
+
+      .establish {
+        display: grid;
+        gap: 6px;
+        font-size: 1rem;
+        color: var(--purple);
+        padding-top: 12px;
+        border-top: 1px solid var(--disableColor);
+
+        .item {
+          display: grid;
+          grid-template-columns: 130px auto;
+
+          .pt-name,
+          &>time {
+            color: var(--fontColor);
+          }
+        }
+      }
+
+      .question-text {}
+    }
+
+    &>footer {
+      @include flexbox(row, center, center);
+      border-top: 1px solid var(--disableColor);
+
+      &>.btn-style {
+        flex: 1;
+        padding: 6px;
+        color: var(--fontColor);
+        @include ease(0.2s);
+
+        &:hover {
+          background: var(--purple);
+          color: var(--white);
+        }
+
+        &:first-child {
+          border-right: 1px solid var(--disableColor);
+          border-radius: 0 0 0 5px;
+        }
+
+        &:last-child {
+          border-radius: 0 0 5px 0;
+        }
+      }
+    }
+  }
+}
+
+/* 帶入前次處方確認視窗 end */
+
+/* 無處方紀錄確認視窗 */
+.no-prescription-popupwindow {
+  @extend .popup-themes;
+
+  .content {
+    @extend .popup-content-themes;
+    gap: 12px;
+    background: var(--gray);
+    border-radius: 10px;
+    font-size: 1.125rem;
+    padding: 12px;
+    min-height: 80px;
+
+    .close-btn {
+      @extend .close-btn-style;
+    }
+
+    .waring-text {
+      display: grid;
+      place-items: center;
+      gap: 6px;
+      color: var(--red);
+      .member{
+        color: var(--green);
+      }
+    }
+  }
+}
+
+/* 無處方紀錄確認視窗 end */
+
+/*開關*/
+.popup-open {
+  @include show;
+}
+
+/*開關 end*/

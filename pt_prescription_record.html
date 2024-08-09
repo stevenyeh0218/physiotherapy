@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <!-- 工具列 -->
+            <nav class="tool-list">         
+                <div class="amount">
+                     <div class="text">處方總數：</div>
+                     <div class="amount-number">33</div>
+                </div>    
+                <div class="search-bar">
+                    <i class="micon-search icon"></i>
+                    <input type="text" class="input-style" id="pt_assessment_record-search" placeholder="搜輸入關鍵字">
+                </div>
+                <button type="button" class="btn-style active">
+                    <i class="micon-filter icon"></i>
+                    只顯示我的會員
+                </button>
+            </nav>
+            <div class="default-table pt_prescription_record_table border-style">
+                <div class="table-header pt-prescription-record-header">
+                    <div class="text">開始日期</div>
+                    <div class="text">會員姓名</div>
+                    <div class="text">運動處方</div>
+                    <div class="text">處方建立者</div>
+                    <div class="setting-item"></div>
+                </div>
+                <div class="table-list">
+                    <div class="table-row pt-prescription-record-row">
+                        <div class="text" data-title="開始日期">2022.10.10</div>
+                        <div class="text" data-title="會員姓名">王曉明</div>
+                        <div class="text" data-title="運動處方">0988888888</div>
+                        <div class="text" data-title="處方建立者">王XX醫師</div>
+                        <div class="setting-item">
+                            <button type="button" class="record-detail-btn">詳細資料 <i class="micon-two-arrow icon"></i></button>
+                            <button type="button" class="micon-edit icon btn-style edit-btn"></button>
+                        </div>
+                    </div>      
+                    <div class="table-row pt-prescription-record-row">
+                        <div class="text" data-title="開始日期">2022.10.10</div>
+                        <div class="text" data-title="會員姓名">王曉明</div>
+                        <div class="text" data-title="運動處方">0988888888</div>
+                        <div class="text" data-title="處方建立者">王XX醫師</div>
+                        <div class="setting-item">
+                            <button type="button" class="record-detail-btn">詳細資料 <i class="micon-two-arrow icon"></i></button>
+                            <button type="button" class="micon-edit icon btn-style edit-btn disable-btn-no-border"></button>
+                        </div>
+                    </div>                         
+                </div> 
+            </div>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+
+<!--處方記錄詳記資料彈出視窗-->
+<div class="record-data-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="table">
+            <div class="date">開始日期：2022.10.10 00:00:00</div>
+            <div class="overflow">
+                <!-- 運動回饋 -->
+                <div class="form">
+                    <header>運動回饋</header>
+                    <div class="list"> 
+                        <div class="achievement-rate-item">
+                            <div class="text">處方完成度 90%</div>
+                            <div class="progress-bar">
+                                <div class="progress-line sucess" style="width:90%"></div>
+                                <div class="progress-line"></div>
+                            </div>
+                        </div>
+                        <div class="achievement-rate-item">
+                            <div class="text">運動前平均疼痛分數 4.5</div>
+                            <div class="progress-bar">
+                                <div class="progress-line sucess" style="width:45%"></div>
+                                <div class="progress-line"></div>
+                            </div>
+                        </div>
+                        <div class="achievement-rate-item">
+                            <div class="text">運動前平均疼痛分數 4.0</div>
+                            <div class="progress-bar">
+                                <div class="progress-line sucess" style="width:40%"></div>
+                                <div class="progress-line"></div>
+                            </div>
+                        </div>
+                        <div class="achievement-rate-item">
+                            <div class="text">平均難易度 3.5</div>
+                            <div class="progress-bar">
+                                <div class="progress-line sucess" style="width:35%"></div>
+                                <div class="progress-line"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="micon-more record-more-btn"></button>
+                        <div class="more-list">
+                            <h4>運動中動作回饋</h4>
+                            <div class="item">
+                                <div class="text">疼痛不適</div>
+                                <div class="cell">
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="text">動作較困難</div>
+                                <div class="cell">
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="text">動作較簡單</div>
+                                <div class="cell">
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="text">無輔具</div>
+                                <div class="cell">
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                    <div class="cell-value">坐姿自主下頸部向左旋轉小面關節鬆動術</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <!-- 主要診斷 -->
+                <div class="form">
+                    <header>主要診斷</header>
+                    <div class="list"> 
+                        <div class="item">
+                            <div class="text">腰部穩定性訓練套組</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">腰部穩定性訓練套組</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">腰部穩定性訓練套組</div>
+                        </div>
+                    </div>
+                </div>        
+                <!-- 功能性診斷 -->
+                <div class="form">
+                    <header>功能性診斷</header>
+                    <div class="list"> 
+                        <div class="item">
+                            <div class="text">腰部穩定性訓練套組</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">腰部穩定性訓練套組</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">腰部穩定性訓練套組</div>
+                        </div>
+                    </div>
+                </div>           
+                <!-- 運動處方 -->
+                <div class="form medical-prescription-form">
+                    <header>運動處方</header>
+                    <div class="list">   
+                        <h5>時段</h5>   
+                        <div class="item">
+                            <div class="text">運動名稱</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">運動名稱</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">運動名稱</div>
+                        </div>
+                    </div>
+                    <div class="list">        
+                        <h5>相關運動處方搜尋結果列表</h5>   
+                        <div class="item">
+                            <div class="text">運動名稱</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">運動名稱</div>
+                        </div>
+                        <div class="item">
+                            <div class="text">運動名稱</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 安全提醒 -->
+                <div class="form">
+                    <header>安全提醒</header>
+                    <textarea class="textarea-style"></textarea>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>  
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 處方紀錄更多按鈕功能  -->
+<script src="js/prescriptionRecord.js"></script>
+
+<!-- popup window 功能  -->
+<script src="js/popup.js"></script>
+
+</html>

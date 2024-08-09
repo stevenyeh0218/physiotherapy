@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <!-- 工具列 -->
+            <nav class="tool-list">         
+                <div class="amount">
+                     <div class="text">會員資料總數：</div>
+                     <div class="amount-number">0</div>
+                </div>    
+                <div class="search-bar">
+                    <i class="micon-search icon"></i>
+                    <input type="text" class="input-style" id="member-data-search" placeholder="搜輸入姓名和手機號">
+                </div>
+            </nav>
+            <div id="gridcontainer">
+                <div class="default-table member-data-table border-style">
+                    <div class="table-header">
+                        <div class="text">會員成立時間</div>
+                        <div class="text">App註冊時間</div>
+                        <div class="text">App會員號</div>
+                        <div class="text">手機</div>
+                        <div class="text">姓名</div>
+                        <div class="text">性別</div>
+                        <div class="text">生日</div>
+                        <div class="text">年齡</div>
+                        <div class="text">地址</div>
+                        <div class="text">email</div>
+                    </div>
+                    <div class="table-list">
+                        <div class="table-row">
+                            <div class="text" data-title="會員成立時間">2022-07-25</div>
+                            <div class="text" data-title="App註冊時間">2022-07-25</div>
+                            <div class="text" data-title="App會員號">3133</div>
+                            <div class="text" data-title="手機">0909624612</div>
+                            <div class="text" data-title="姓名">JW</div>
+                            <div class="text" data-title="性別">女</div>
+                            <div class="text" data-title="生日">1987-07-16</div>
+                            <div class="text" data-title="年齡">35</div>
+                            <div class="text" data-title="地址">新北市板橋區文化路一段142號</div>
+                            <div class="text" data-title="email">jiawen@neurobonic.com</div>
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+</html>

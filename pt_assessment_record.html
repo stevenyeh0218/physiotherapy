@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <!-- 工具列 -->
+            <nav class="tool-list">         
+                <div class="amount">
+                     <div class="text">評估總數：</div>
+                     <div class="amount-number">33</div>
+                </div>    
+                <div class="search-bar">
+                    <i class="micon-search icon"></i>
+                    <input type="text" class="input-style" id="pt_assessment_record-search" placeholder="搜輸入關鍵字">
+                </div>
+                <button type="button" class="btn-style active">
+                    <i class="micon-filter icon"></i>
+                    只顯示我的會員
+                </button>
+            </nav>
+            <div class="default-table border-style">
+                <div class="table-header">
+                    <div class="text">評估日期</div>
+                    <div class="text">用戶名稱</div>
+                    <div class="text">手機</div>
+                    <div class="text">治療師</div>
+                    <div class="setting-item"></div>
+                </div>
+                <div class="table-list">
+                    <div class="table-row">
+                        <div class="text" data-title="評估日期">2022.10.10 10:10:10</div>
+                        <div class="text" data-title="用戶名稱">王曉明</div>
+                        <div class="text" data-title="手機">0988888888</div>
+                        <div class="text" data-title="治療師">王XX醫師</div>
+                        <button type="button" class="assessment-detail-btn">詳細資料 <i class="micon-two-arrow icon"></i></button>
+                    </div>                             
+                </div> 
+            </div>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+
+<!--線上評估詳細資料彈出視窗-->
+<div class="assessment-record-data-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="table">
+            <h4>評估日期：2022.10.10 00:00:00</h4>
+            <div class="list">
+                <div class="item">
+                    <div class="text">疼痛部位</div>
+                    <div class="text-value">[問題1 疼痛部位]</div>
+                </div>
+                <div class="item">
+                    <div class="text">分數</div>
+                    <div class="text-value">[問題4  疼痛分數]</div>
+                </div>
+                <div class="item">
+                    <div class="text">檢測部位</div>
+                    <div class="text-value-tree">
+                       <div class="node">
+                            <div class="node-name">軀幹</div>
+                            <div class="node-child">頸部 [問題3 疼痛分數]</div>
+                            <div class="node-child">腰部 [問題5 疼痛分數]</div>
+                        </div>
+                        <div class="node">
+                             <div class="node-name">上肢</div>
+                             <div class="node-child">肩部 [問題7 疼痛分數] [問題6 來自於題目定義]</div>
+                             <div class="node-child">肩部 [問題8 疼痛分數] [問題9 來自於題目定義]</div>
+                         </div>
+                         <div class="node">
+                              <div class="node-name">下肢</div>
+                              <div class="node-child">髖部/膝部/足踝 [問題11 疼痛分數] [問題10 來自於題目定義]</div>
+                          </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="text">推薦運動</div>
+                    <div class="text-value">
+                        <div class="text-value-cell">來自問卷結果</div>
+                        <div class="text-value-cell">來自問卷結果</div>
+                        <div class="text-value-cell">來自問卷結果</div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn-style save-btn">帶入至開立處方</button>
+        </div>
+    </div>
+</div>   
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- popup window 功能  -->
+<script src="js/popup.js"></script>
+
+</html>

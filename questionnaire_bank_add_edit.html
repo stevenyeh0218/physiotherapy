@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <form action="" method="post">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <a href="questionnaire_bank.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增問卷題庫</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <div class="table-row questionnaire-row">
+                            <h4>*題目名稱</h4>
+                            <input type="text" class="input-style" placeholder="請輸入問卷題目名稱">      
+                            <div class="upload-bar">
+                                <small>※圖片影片擇一上傳<i class="micon-two-arrow"></i></small>
+                                <div class="upload-item">
+                                    <input type="file" accept=".png, .jpg, .jpeg" id="imageUpload" class="" hidden>
+                                    <label for="imageUpload"><i class="micon-image icon"></i></label>
+                                    <input type="file" accept=".mp3" id="previewSoundUpload" class="" hidden>
+                                    <label for="previewSoundUpload" class="disable"><i class="micon-video icon "></i></label>
+                                </div>
+                            </div>
+                            <div class="preview">
+                                <div class="img-preview">
+                                    <img src="img/test.png"> 
+                                    <i class="micon-trash"></i>
+                                </div>
+                                <div class="video-preview">
+                                    <video controls class="endVideo"></video> 
+                                    <i class="micon-trash"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-row type-row">
+                            <h4>*題目類型</h4>
+                            <div class="radio-bar">
+                                <label class="label--radio">
+                                    <input type="radio" class="radio" value="單選" name="question-type">單選
+                                </label>
+                                <label class="label--radio">
+                                    <input type="radio" class="radio" value="單選" name="question-type">多選
+                                </label>
+                            </div>
+                        </div>
+                        <div class="table-row textarea-row">
+                            <h4>備註</h4>
+                            <textarea class="textarea-style" placeholder="請輸入約20個字的說明"></textarea>
+                        </div>
+                        <div class="table-row questionnaire-option-row">
+                            <h4>*設定項目 <i class="micon-plus"></i></h4>
+                            <div class="questionnaire-option-table">
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>選項一</h4>                                
+                                        <i class="micon-minus"></i>   
+                                    </div>        
+                                    <div class="item">
+                                        <h4>選項名稱</h4>
+                                        <input type="text" class="input-style" placeholder="請輸入選項 ex:肩部活動度">    
+                                    </div>
+                                    <div class="item">
+                                        <h4>*定義</h4>
+                                        <input type="text" class="input-style" placeholder="請輸入選項定義 ex:角度不足" required>
+                                    </div> 
+                                    <div class="upload-bar">
+                                        <small>※填寫選項名稱後即無法上傳圖片<i class="micon-two-arrow"></i></small>
+                                        <div class="upload-item">
+                                            <input type="file" accept=".png, .jpg, .jpeg" id="optionimageUpload" class="" hidden>
+                                            <label for="optionimageUpload"><i class="micon-image icon"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="preview">
+                                        <div class="img-preview">
+                                            <img src="img/test.png">      
+                                            <i class="micon-trash"></i>    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>選項二</h4>                          
+                                        <i class="micon-minus"></i>   
+                                    </div>
+                                    <div class="item">
+                                        <h4>選項名稱</h4>
+                                        <input type="text" class="input-style" placeholder="請輸入選項 ex:肩部活動度">    
+                                    </div>
+                                    <div class="item">
+                                        <h4>*定義</h4>
+                                        <input type="text" class="input-style" placeholder="請輸入選項定義 ex:角度不足" required>
+                                    </div> 
+                                    <div class="upload-bar">
+                                        <small>※填寫選項名稱後即無法上傳圖片<i class="micon-two-arrow"></i></small>
+                                        <div class="upload-item">
+                                            <input type="file" accept=".png, .jpg, .jpeg" id="optionimageUpload" class="" hidden>
+                                            <label for="optionimageUpload"><i class="micon-image icon"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="preview">
+                                        <div class="img-preview">
+                                            <img src="img/test.png"> 
+                                            <i class="micon-trash"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>選項三</h4>                                              
+                                        <i class="micon-minus"></i>
+                                    </div>
+                                    <div class="item">
+                                        <h4>選項名稱</h4>
+                                        <input type="text" class="input-style" placeholder="請輸入選項 ex:肩部活動度">    
+                                    </div>
+                                    <div class="item">
+                                        <h4>*定義</h4>
+                                        <input type="text" class="input-style" placeholder="請輸入選項定義 ex:角度不足" required>
+                                    </div>  
+                                    <div class="upload-bar">
+                                        <small>※填寫選項名稱後即無法上傳圖片<i class="micon-two-arrow"></i></small>
+                                        <div class="upload-item">
+                                            <input type="file" accept=".png, .jpg, .jpeg" id="optionimageUpload" class="" hidden>
+                                            <label for="optionimageUpload"><i class="micon-image icon"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="preview">
+                                        <div class="img-preview">
+                                            <img src="img/test.png"> 
+                                            <i class="micon-trash"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+</html>

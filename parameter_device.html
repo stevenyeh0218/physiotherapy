@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <!-- 工具列 -->
+            <nav class="tool-list">
+                <div class="search-bar">
+                    <i class="micon-search icon"></i>
+                    <input type="text" class="input-style" id="parameter-device-search" placeholder="請輸入關鍵字">
+                </div>
+                <a href="parameter_device_add_edit.html" class="btn-style">
+                    <i class="micon-plus icon"></i>新增
+                </a>
+            </nav>
+            <div class="default-table border-style">
+                <div class="table-header">
+                    <div class="text">輔具</div>
+                    <div class="text">圖片預覽</div>
+                    <div class="setting-item"></div>
+                </div>
+                <div class="table-list">
+                    <div class="table-row">
+                        <div class="text" data-title="輔具">輔具1</div>
+                        <div class="text" data-title="圖片預覽">
+                            <img src="/img/yoga-mat.jpg">
+                        </div>
+                        <div class="setting-item">
+                            <button type="button" class="micon-edit icon btn-style edit-btn"></button>
+                            <div title="test">
+                                <button type="button" class="micon-trash icon btn-style del-btn disable-del-btn"></button>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="table-row">
+                        <div class="text" data-title="輔具">輔具1</div>
+                        <div class="text" data-title="圖片預覽">
+                            <img src="/img/yoga-mat.jpg">
+                        </div>
+                        <div class="setting-item">
+                            <button type="button" class="micon-edit icon btn-style edit-btn"></button>
+                            <button type="button" class="micon-trash icon btn-style del-btn"></button>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+</html>

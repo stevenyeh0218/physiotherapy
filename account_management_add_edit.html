@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>居家物理治療後台</title>
+        <meta property="og:title" content="居家物理治療後台" />
+        <meta property="og:type" content="website" />
+        <meta itemprop="name" content="居家物理治療後台">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- 客製化 icon fonts -->
+        <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+        <!-- 主畫面樣式 -->
+        <link rel="stylesheet" href="css/backstage.css">
+    </head>
+
+    <body>
+        <!-- 側邊攔(menu) -->
+        <aside id="sidebar"></aside>
+        <!-- 會員名稱&登出按鈕 -->
+        <section id="member"></section>
+        <!-- 變動區 -->
+        <article id="contain">
+            <div class="parameter-content">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <a href="account_management.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style import-employee-btn">
+                        <i class="micon-import-data icon"></i>匯入權限
+                    </button>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增帳號</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <div class="table-row">
+                            <h4>*姓名</h4>
+                            <input type="text" class="input-style"
+                                placeholder="請輸入姓名" required>
+                        </div>
+                        <div class="table-row">
+                            <h4>*帳號</h4>
+                            <input type="text" class="input-style"
+                                placeholder="請輸入帳號" required>
+                        </div>
+                        <div class="table-row">
+                            <h4>*信箱</h4>
+                            <input type="text" class="input-style"
+                                placeholder="請輸入信箱" required>
+                        </div>
+                        <div class="table-row permissions-row">
+                            <h4>權限設定</h4>
+                            <div class="permissions-table">
+                                <!--PT -->
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>PT</h4>
+                                        <label class="label--checkbox">
+                                            <input type="checkbox"
+                                                class="checkbox" value="全選">全選
+                                        </label>
+                                    </div>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="運動處方">運動處方
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="運動處方">處方紀錄
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="運動模組">運動模組
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="運動叮嚀">運動叮嚀
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="運動叮嚀">線上評估紀錄
+                                    </label>
+                                </div>
+                                <!--動作庫 -->
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>動作庫</h4>
+                                        <label class="label--checkbox">
+                                            <input type="checkbox"
+                                                class="checkbox" value="全選">全選
+                                        </label>
+                                    </div>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="動作元件">動作元件
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="動作模組">動作模組
+                                    </label>
+                                </div>
+                                <!--參數管理 -->
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>參數管理</h4>
+                                        <label class="label--checkbox">
+                                            <input type="checkbox"
+                                                class="checkbox" value="全選">全選
+                                        </label>
+                                    </div>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="動作側">動作側
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="動作部位">動作部位
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="動作類別">動作類別
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="姿勢擺位">姿勢擺位
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="輔具">輔具
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="主要診斷">主要診斷
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="功能性診斷">功能性診斷
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="動作類別">動作時段
+                                    </label>
+                                </div>
+                                <!--營運管理 -->
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>營運管理</h4>
+                                        <label class="label--checkbox">
+                                            <input type="checkbox"
+                                                class="checkbox" value="全選">全選
+                                        </label>
+                                    </div>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="門診預約">門診預約
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="診所設定">診所設定
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="治療師管理">治療師管理
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="會員資料">會員資料
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="會員同步">會員同步
+                                    </label>
+                                </div>
+                                <!--問卷管理 -->
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>問卷管理</h4>
+                                        <label class="label--checkbox">
+                                            <input type="checkbox"
+                                                class="checkbox" value="全選">全選
+                                        </label>
+                                    </div>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="問卷列表">問卷列表
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="結果題庫">結果題庫
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="問卷題庫">問卷題庫
+                                    </label>
+                                </div>
+                                <!--帳號權限 -->
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>帳號權限</h4>
+                                        <label class="label--checkbox">
+                                            <input type="checkbox"
+                                                class="checkbox" value="全選">全選
+                                        </label>
+                                    </div>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="帳號管理">帳號管理
+                                    </label>
+                                </div>
+                                <!--操作日誌 -->
+                                <div class="list border-style">
+                                    <div class="title">
+                                        <h4>操作日誌</h4>
+                                        <label class="label--checkbox">
+                                            <input type="checkbox"
+                                                class="checkbox" value="全選">全選
+                                        </label>
+                                    </div>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="處方操作日誌">處方操作日誌
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="預約操作日誌">預約操作日誌
+                                    </label>
+                                    <label class="label--checkbox">
+                                        <input type="checkbox" class="checkbox"
+                                            value="後台操作日誌">後台操作日誌
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- 變動區 end -->
+        <!--匯入權限彈出視窗-->
+        <div class="imoprt-employee-popupwindow">
+            <div class="content">
+                <button type="button" class="close-btn">
+                    <i class="micon-close"></i>
+                </button>
+                <div class="table">
+                    <div class="search-bar">
+                        <i class="micon-search icon"></i>
+                        <input type="text" class="input-style"
+                            placeholder="搜尋姓名/電話">
+                    </div>
+                    <h4>會員列表</h4>
+                    <div class="list member-list">
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="王先生"
+                                name="employee">王先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="黃先生"
+                                name="employee">黃先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="王先生"
+                                name="employee">王先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="黃先生"
+                                name="employee">黃先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="王先生"
+                                name="employee">王先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="黃先生"
+                                name="employee">黃先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="王先生"
+                                name="employee">王先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="黃先生"
+                                name="employee">黃先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="王先生"
+                                name="employee">王先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="黃先生"
+                                name="employee">黃先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="王先生"
+                                name="employee">王先生 0912345678
+                        </label>
+                        <label class="label--radio">
+                            <input type="radio" class="radio" value="黃先生"
+                                name="employee">黃先生 0912345678
+                        </label>
+                    </div>
+                    <button type="button" class="btn-style save-btn">匯入資料</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <!-- 引用 jquery 3.6.1 -->
+    <script src="vendor/jquery-3.6.1.min.js"></script>
+
+    <!-- 共同頁面讀取  -->
+    <script src="js/loading.js"></script>
+
+    <!-- popup window 功能  -->
+    <script src="js/popup.js"></script>
+
+</html>

@@ -1,0 +1,234 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?yoew5');
+  src:  url('fonts/icomoon.eot?yoew5#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?yoew5') format('truetype'),
+    url('fonts/icomoon.woff?yoew5') format('woff'),
+    url('fonts/icomoon.svg?yoew5#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="micon-"], [class*=" micon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.micon-export:before {
+  content: "\e942";
+}
+.micon-log:before {
+  content: "\e941";
+}
+.micon-cancel-calendar:before {
+  content: "\e940";
+}
+.micon-forget-pswd:before {
+  content: "\e93f";
+}
+.micon-more:before {
+  content: "\e93e";
+}
+.micon-verification:before {
+  content: "\e93d";
+}
+.micon-mail:before {
+  content: "\e93a";
+}
+.micon-notification:before {
+  content: "\e93b";
+}
+.micon-record:before {
+  content: "\e93c";
+}
+.micon-drag:before {
+  content: "\e930";
+}
+.micon-folder-open:before {
+  content: "\e939";
+}
+.micon-scale-up:before {
+  content: "\e932";
+}
+.micon-scale-down:before {
+  content: "\e933";
+}
+.micon-ending:before {
+  content: "\e938";
+}
+.micon-link:before {
+  content: "\e937";
+}
+.micon-navigation:before {
+  content: "\e936";
+}
+.micon-video:before {
+  content: "\e934";
+}
+.micon-image:before {
+  content: "\e935";
+}
+.micon-copy:before {
+  content: "\e92c";
+}
+.micon-preview:before {
+  content: "\e92b";
+}
+.micon-suggestion:before {
+  content: "\e92f";
+}
+.micon-verified:before {
+  content: "\e931";
+}
+.micon-doctor:before {
+  content: "\e92e";
+}
+.micon-medical-settings:before {
+  content: "\e929";
+}
+.micon-medical-reserve:before {
+  content: "\e92a";
+}
+.micon-checklist:before {
+  content: "\e92d";
+}
+.micon-info:before {
+  content: "\e928";
+}
+.micon-import-data:before {
+  content: "\e927";
+}
+.micon-upload:before {
+  content: "\e923";
+}
+.micon-pause:before {
+  content: "\e91f";
+}
+.micon-trash:before {
+  content: "\e920";
+}
+.micon-down-arrow:before {
+  content: "\e921";
+}
+.micon-filter:before {
+  content: "\e922";
+}
+.micon-management:before {
+  content: "\e924";
+}
+.micon-time:before {
+  content: "\e925";
+}
+.micon-back-arrow:before {
+  content: "\e926";
+}
+.micon-temporary-files:before {
+  content: "\e900";
+}
+.micon-two-arrow:before {
+  content: "\e901";
+}
+.micon-reserve:before {
+  content: "\e902";
+}
+.micon-blockchain:before {
+  content: "\e903";
+}
+.micon-reminders:before {
+  content: "\e904";
+}
+.micon-elements:before {
+  content: "\e905";
+}
+.micon-module:before {
+  content: "\e906";
+}
+.micon-endocrine-system:before {
+  content: "\e907";
+}
+.micon-directions:before {
+  content: "\e90d";
+}
+.micon-folder-management:before {
+  content: "\e90e";
+}
+.micon-medical-prescription:before {
+  content: "\e911";
+}
+.micon-pilates:before {
+  content: "\e912";
+}
+.micon-symptom:before {
+  content: "\e913";
+}
+.micon-specification:before {
+  content: "\e914";
+}
+.micon-data-synchronization:before {
+  content: "\e91a";
+}
+.micon-membership:before {
+  content: "\e91b";
+}
+.micon-pilates-ball:before {
+  content: "\e91c";
+}
+.micon-data:before {
+  content: "\e91d";
+}
+.micon-plus:before {
+  content: "\e91e";
+}
+.micon-clock:before {
+  content: "\e919";
+}
+.micon-eye-close:before {
+  content: "\e918";
+}
+.micon-close:before {
+  content: "\e908";
+}
+.micon-edit:before {
+  content: "\e909";
+}
+.micon-eye-open:before {
+  content: "\e90a";
+}
+.micon-lock:before {
+  content: "\e90b";
+}
+.micon-logout:before {
+  content: "\e90c";
+}
+.micon-minus:before {
+  content: "\e90f";
+}
+.micon-nav:before {
+  content: "\e910";
+}
+.micon-save:before {
+  content: "\e915";
+}
+.micon-search:before {
+  content: "\e916";
+}
+.micon-user:before {
+  content: "\e917";
+}
+.micon-reset:before {
+  content: "\e983";
+}
+.micon-mobile:before {
+  content: "\e958";
+}

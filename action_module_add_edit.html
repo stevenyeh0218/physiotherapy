@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <form action="" method="post">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <div class="released-btn">
+                        <input type="checkbox" id="switch" checked>
+                        <label for="switch"></label>
+                        <span>上架</span>
+                        <span>下架</span>
+                    </div>
+                    <a href="action_module.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增動作模組</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <!-- 選擇運動元件 -->
+                        <div class="table-row select-motion-element">
+                            <h4>選擇運動元件</h4>
+                            <!-- 進階篩選 -->
+                            <div class="advanced-filter-bar">
+                                <div class="advanced-search-bar">
+                                    <input type="text" class="input-style" placeholder="關鍵字">
+                                    <button class="btn-style">
+                                        <i class="micon-search icon"></i>
+                                    </button>
+                                </div>
+                                <div class="advanced-filter-btn">
+                                    <i class="micon-filter icon"></i>進階篩選
+                                </div>
+                                <div class="advanced-filter-table">
+                                    <i class="micon-close close-btn"></i>
+                                    <!-- 已選擇的篩選條件顯示區 -->
+                                    <div class="filter-result">
+                                        已選擇：<div class="filter-result-list"></div>
+                                    </div>
+                                    <!-- 動作側邊 -->
+                                    <div class="advanced-filter-item">
+                                        <div class="advanced-filter-dropdown-text">
+                                            動作側邊<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="table">
+                                            <div class="filter-search-bar">
+                                                <i class="micon-search icon"></i>
+                                                <input type="text" class="input-style" id="filter-search1"
+                                                    placeholder="關鍵字">
+                                            </div>
+                                            <div class="list list-1">
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="左側">左側
+                                                </label>
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="右側">右側
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 動作部位 -->
+                                    <div class="advanced-filter-item">
+                                        <div class="advanced-filter-dropdown-text">
+                                            動作部位<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="table">
+                                            <div class="filter-search-bar">
+                                                <i class="micon-search icon"></i>
+                                                <input type="text" class="input-style" id="filter-search2"
+                                                    placeholder="關鍵字">
+                                            </div>
+                                            <div class="list list-2">
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="左側">左側
+                                                </label>
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="右側">右側
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 動作類別 -->
+                                    <div class="advanced-filter-item">
+                                        <div class="advanced-filter-dropdown-text">
+                                            動作類別<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="table">
+                                            <div class="filter-search-bar">
+                                                <i class="micon-search icon"></i>
+                                                <input type="text" class="input-style" id="filter-search3"
+                                                    placeholder="關鍵字">
+                                            </div>
+                                            <div class="list list-3">
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="左側">左側
+                                                </label>
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="右側">右側
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 姿勢擺位 -->
+                                    <div class="advanced-filter-item">
+                                        <div class="advanced-filter-dropdown-text">
+                                            姿勢擺位<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="table">
+                                            <div class="filter-search-bar">
+                                                <i class="micon-search icon"></i>
+                                                <input type="text" class="input-style" id="filter-search4"
+                                                    placeholder="關鍵字">
+                                            </div>
+                                            <div class="list list-4">
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="左側">左側
+                                                </label>
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="右側">右側
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 動作強度 -->
+                                    <div class="advanced-filter-item">
+                                        <div class="advanced-filter-dropdown-text">
+                                            動作強度<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="table">
+                                            <div class="filter-search-bar">
+                                                <i class="micon-search icon"></i>
+                                                <input type="text" class="input-style" id="filter-search5"
+                                                    placeholder="關鍵字">
+                                            </div>
+                                            <div class="list list-5">
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="左側">左側
+                                                </label>
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="右側">右側
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 輔具 -->
+                                    <div class="advanced-filter-item">
+                                        <div class="advanced-filter-dropdown-text">
+                                            輔具<i class="micon-down-arrow icon"></i>
+                                        </div>
+                                        <div class="table">
+                                            <div class="filter-search-bar">
+                                                <i class="micon-search icon"></i>
+                                                <input type="text" class="input-style" id="filter-search6"
+                                                    placeholder="關鍵字">
+                                            </div>
+                                            <div class="list list-6">
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="左側">左側
+                                                </label>
+                                                <label class="label--checkbox">
+                                                    <input type="checkbox" data-level="filter" class="checkbox"
+                                                        value="右側">右側
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-style advanced-search-btn">
+                                        <i class="micon-search icon"></i>查詢
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- 運動元件列表 -->
+                            <div class="list border-style">
+                                <div class="item added">
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img">
+                                    <i class="micon-plus icon add-btn"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img">
+                                    <i class="micon-plus icon add-btn"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img">
+                                    <i class="micon-plus icon add-btn"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img">
+                                    <i class="micon-plus icon add-btn"></i>
+                                </div>
+                                <div class="item">
+                                    <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                    <img src="/img/test.png" class="medical-prescription-img">
+                                    <i class="micon-plus icon add-btn"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 運動模組 -->
+                        <div class="table-row motion-module">
+                            <h4>運動模組</h4>
+                            <div class="table border-style">
+                                <div class="list">
+                                    <h5>填寫編號&模組名稱</h5>
+                                    <div class="overflow">
+                                        <div class="input-item">
+                                            <div class="point">*編號</div>
+                                            <input type="text" class="input-style" placeholder="請輸入編號" />
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="point">*運動模組名稱</div>
+                                            <input type="text" class="input-style" placeholder="請輸入運動模組名稱" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line"></div>
+                                <div class="list">
+                                    <h5>已選擇的元件列表</h5>
+                                    <div class="overflow sortable">
+                                        <div class="item">
+                                            <div class="drag-handle">
+                                                <i title="drag" class="micon-drag"></i>
+                                            </div>
+                                            <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                            <img src="/img/test.png" class="medical-prescription-img">
+                                            <i class="micon-minus icon add-btn"></i>
+                                            <i class="micon-trash icon trash-btn"></i>
+                                        </div>
+                                        <div class="item">
+                                            <i title="drag" class="micon-drag"></i>
+                                            <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                            <img src="/img/test.png" class="medical-prescription-img">
+                                            <i class="micon-minus icon add-btn"></i>
+                                            <i class="micon-trash icon trash-btn"></i>
+                                        </div>
+                                        <div class="item">
+                                            <i title="drag" class="micon-drag"></i>
+                                            <div class="text">坐姿左中斜角肌伸展運動＿手輔助頭</div>
+                                            <img src="/img/test.png" class="medical-prescription-img">
+                                            <i class="micon-minus icon add-btn"></i>
+                                            <i class="micon-trash icon trash-btn"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body>
+<!--lightbox-->
+<div class="lightbox-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <video controls src="img/b7a9a1edfcc947eb891bf0a7e7487ed5.mp4"></video>
+        <audio controls src="img/be5c2f999b974c33978064236f32602b.mp3"></audio>
+    </div>
+</div>
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 引用 filter 套件  -->
+<script src="vendor/filter-search/js/jquery-search.js"></script>
+
+<!-- 使用 filter 套件  -->
+<script src="js/filter.js"></script>
+<!-- popup window 功能  -->
+<script src="js/popup.js"></script>
+
+<!-- 使用 sortable -->
+<script src="vendor/Sortable/Sortable.min.js"></script>
+<script src="js/sortable.js"></script>
+
+</html>

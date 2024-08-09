@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <form action="" method="post">
+                <!-- 工具列 -->
+                <nav class="tool-list">
+                    <div class="amount">
+                        <div class="text">問題總數：</div>
+                        <div class="amount-number">10</div>
+                   </div>
+                    <div class="released-btn">
+                        <input type="checkbox" id="switch" checked="">
+                        <label for="switch"></label>
+                        <span>上架</span>
+                        <span>下架</span>
+                    </div>
+                    <a href="questionnaire_list.html" class="btn-style">
+                        <i class="micon-back-arrow icon"></i>返回
+                    </a>
+                    <button type="button" class="btn-style preview-btn">
+                        <i class="micon-preview icon"></i>樹狀預覽
+                    </button>
+                    <button type="button" class="btn-style">
+                        <i class="micon-save icon"></i>儲存
+                    </button>
+                </nav>
+                <div class="default-table border-style">
+                    <div class="table-header">
+                        <div class="text">新增問卷</div>
+                    </div>
+                    <div class="table-list input-list">
+                        <div class="table-row">
+                            <h4>*問卷名稱</h4>
+                            <input type="text" class="input-style" placeholder="請輸入問卷名稱" required>      
+                        </div>
+                        <div class="table-row textarea-row">
+                            <h4>問卷說明</h4>
+                            <textarea class="textarea-style" placeholder="請輸入約20個字的說明"></textarea>
+                        </div>
+                        <div class="table-row questionnaire-advanced-row">
+                            <div class="questionnaire-advanced-table border-style">
+                                <header>
+                                    <div class="title">
+                                        問題1
+                                        <input type="text" class="input-style" maxlength="16" placeholder="請輸入代碼">      
+                                    </div>                                
+                                    <div class="preview">
+                                        <div class="img-preview">
+                                            <img src="img/test.png"> 
+                                        </div>
+                                        <div class="video-preview">
+                                            <video controls="" class="endVideo"></video> 
+                                        </div>
+                                    </div>
+                                </header>
+                                <h4>請問以下哪個部位感到疼痛</h4>   
+                                <div class="list">
+                                    <div class="option border-style">
+                                        <div class="title">
+                                            <div class="tool-bar">
+                                                <div class="remind link-remind">
+                                                    <i class="micon-link"></i>
+                                                    接至 <button type="">問題3</button>
+                                                    <small class="fail">(未完成)</small>
+                                                </div>
+                                                <div class="del-bar">
+                                                    <i class="micon-trash icon"></i>
+                                                </div>
+                                            </div>
+                                            <h4>選項一</h4>                  
+                                            <select class="select-style">
+                                                <option value="進階設定" selected disabled hidden>進階設定</option>
+                                                <option value="接下一題">接下一題</option>
+                                                <option value="最後一題">最後一題</option>
+                                            </select>
+                                        </div>  
+                                        <div class="option-list">
+                                            <div class="item">
+                                                <h4>選項代碼</h4>
+                                                <input type="text" class="input-style" maxlength="16"  placeholder="請輸入選項代碼" >
+                                            </div>
+                                            <div class="item">
+                                                <h4>選項名稱</h4>
+                                                <input type="text" class="input-style" placeholder="請輸入選項 ex:肩部活動度" readonly>
+                                            </div>
+                                            <div class="item">
+                                                <h4>*定義</h4>
+                                                <input type="text" class="input-style" placeholder="請輸入選項定義 ex:角度不足" readonly>
+                                            </div> 
+                                        </div>      
+                                        <div class="preview">
+                                            <div class="title">
+                                                圖片預覽
+                                                <div class="edit-upload-item">
+                                                    <input type="file" accept=".png, .jpg, .jpeg" id="questionLibImageFile" hidden="">
+                                                    <label for="questionLibImageFile" id="lab-image" class="">
+                                                        <i class="micon-image icon"></i>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="img-preview">
+                                                <i class="micon-trash"></i>
+                                                <img src="img/preview.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="option border-style">
+                                        <div class="title">
+                                            <div class="tool-bar">
+                                                <div class="remind result-remind">
+                                                    <i class="micon-ending"></i> 
+                                                    此為最後一題
+                                                </div>
+                                                <div class="del-bar">
+                                                    <i class="micon-trash icon"></i>
+                                                </div>
+                                            </div>
+                                            <h4>選項二</h4>                  
+                                            <select class="select-style">
+                                                <option value="進階設定" selected disabled hidden>進階設定</option>
+                                                <option value="接下一題">接下一題</option>
+                                                <option value="最後一題">最後一題</option>
+                                            </select>
+                                        </div>       
+                                        <div class="option-list">
+                                            <div class="item">
+                                                <h4>選項代碼</h4>
+                                                <input type="text" class="input-style" maxlength="16"  placeholder="請輸入選項代碼" >
+                                            </div>
+                                            <div class="item">
+                                                <h4>選項名稱</h4>
+                                                <input type="text" class="input-style" placeholder="請輸入選項 ex:肩部活動度" readonly>    
+                                            </div>
+                                            <div class="item">
+                                                <h4>*定義</h4>
+                                                <input type="text" class="input-style" placeholder="請輸入選項定義 ex:角度不足" readonly>
+                                            </div> 
+                                        </div> 
+                                        <div class="preview">
+                                            <div class="title">
+                                                圖片預覽
+                                                <div class="edit-upload-item">
+                                                    <input type="file" accept=".png, .jpg, .jpeg" id="questionLibImageFile" hidden="">
+                                                    <label for="questionLibImageFile" id="lab-image" class="">
+                                                        <i class="micon-image icon"></i>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="img-preview">
+                                                <i class="micon-trash"></i>
+                                                <img src="img/preview.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="option border-style">
+                                        <div class="title">
+                                            <div class="tool-bar">
+                                                <div class="remind link-remind">
+                                                    <i class="micon-link"></i>
+                                                    接至 <button type="">問題3 </button>
+                                                    <small class="sucess">(已完成)</small>
+                                                </div>
+                                                <div class="del-bar">
+                                                    <i class="micon-trash icon"></i>
+                                                </div>
+                                            </div>
+                                            <h4>選項三</h4>                  
+                                            <select class="select-style">
+                                                <option value="進階設定" selected disabled hidden>進階設定</option>
+                                                <option value="接下一題">接下一題</option>
+                                                <option value="最後一題">最後一題</option>
+                                            </select>
+                                        </div>       
+                                        <div class="option-list">
+                                            <div class="item">
+                                                <h4>選項代碼</h4>
+                                                <input type="text" class="input-style" maxlength="16"  placeholder="請輸入選項代碼" >
+                                            </div>
+                                            <div class="item">
+                                                <h4>選項名稱</h4>
+                                                <input type="text" class="input-style" placeholder="請輸入選項 ex:肩部活動度" readonly>    
+                                            </div>
+                                            <div class="item">
+                                                <h4>*定義</h4>
+                                                <input type="text" class="input-style" placeholder="請輸入選項定義 ex:角度不足" readonly>
+                                            </div> 
+                                        </div>  
+                                        <div class="preview">
+                                            <div class="title">
+                                                圖片預覽
+                                                <div class="edit-upload-item">
+                                                    <input type="file" accept=".png, .jpg, .jpeg" id="questionLibImageFile" hidden="">
+                                                    <label for="questionLibImageFile" id="lab-image" class="">
+                                                        <i class="micon-image icon"></i>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="img-preview">
+                                                <i class="micon-trash"></i>
+                                                <img src="img/preview.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="pre-question">
+                                    上一層 [請問以下哪個部位感到疼痛?]
+                                </button>    
+                            </div>                                   
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body>            
+<!--問卷題庫列表彈出視窗-->
+<div class="question-data-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="table">
+            <div class="search-bar">
+                <i class="micon-search icon"></i>
+                <input type="text" class="input-style" placeholder="請輸入關鍵字">
+            </div>
+            <h4>請選擇問卷題庫</h4>
+            <div class="list">
+                <header>
+                    <div class="text"></div>
+                    <div class="text">題目名稱</div>
+                    <div class="text">回答選項</div>
+                    <div class="text">題型</div>
+                    <div class="text">備註</div>
+                </header>
+                <div class="label--radio">
+                    <input type="radio" id="question[0]" class="radio" name="option">
+                    <label for="question[0]" class="text">請問以下哪個部位感到疼痛?</label>
+                    <label for="question[0]" class="text">頸部/腰部/髖部/無疼痛部位</label>  
+                    <label for="question[0]" class="text">單選</label>  
+                    <label for="question[0]" class="text">Q1</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="question[1]" class="radio" name="option">
+                    <label for="question[1]" class="text">請問哪一側疼痛?</label>
+                    <label for="question[1]" class="text">左側/右側/雙側</label>  
+                    <label for="question[1]" class="text">多選</label>  
+                    <label for="question[1]" class="text">Q2</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="question[2]" class="radio" name="option">
+                    <label for="question[2]" class="text">請問疼痛分數幾分?</label>
+                    <label for="question[2]" class="text">0/1/2/3/4/5/6/7/8/9/10</label>  
+                    <label for="question[2]" class="text">單選</label>  
+                    <label for="question[2]" class="text">Q3</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="question[3]" class="radio" name="option">
+                    <label for="question[3]" class="text">請問您的狀況較符合哪張片?</label>
+                    <label for="question[3]" class="text">
+                        <img src="img/test.png">
+                    </label>                      
+                    <label for="question[3]">單選</label>  
+                    <label for="question[3]">Q4</label>  
+                </div>
+            </div>
+            <button type="button" class="btn-style save-btn">確定</button>
+        </div>
+    </div>
+</div> 
+<!-- 結果題庫列表彈出視窗 -->
+<div class="question-result-data-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="table">
+            <div class="search-bar">
+                <i class="micon-search icon"></i>
+                <input type="text" class="input-style" placeholder="請輸入關鍵字">
+            </div>
+            <h4>請選擇結果題庫</h4>
+            <div class="list">
+                <header>
+                    <div class="text"></div>
+                    <div class="text">題庫標題</div>
+                    <div class="text">運動處方</div>
+                    <div class="text">結果說明</div>
+                </header>
+                <div class="label--radio">
+                    <input type="radio" id="result[0]" class="radio" name="option">
+                    <label for="result[0]" class="text">頸部結果5-test</label>
+                    <label for="result[0]" class="text">嬰兒式向前伸展</label>  
+                    <label for="result[0]" class="text">以下是建議的舒緩運動，若舒緩運動做</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="result[1]" class="radio" name="option">
+                    <label for="result[1]" class="text">頸部結果5-test</label>
+                    <label for="result[1]" class="text">嬰兒式向前伸展</label>  
+                    <label for="result[1]" class="text">以下是建議的舒緩運動，若舒緩運動做</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="result[2]" class="radio" name="option">
+                    <label for="result[2]" class="text">頸部結果5-test</label>
+                    <label for="result[2]" class="text">嬰兒式向前伸展</label>  
+                    <label for="result[2]" class="text">以下是建議的舒緩運動，若舒緩運動做</label>  
+                </div>
+                <div class="label--radio">
+                    <input type="radio" id="result[3]" class="radio" name="option">
+                    <label for="result[3]" class="text">頸部結果5-test</label>
+                    <label for="result[3]" class="text">嬰兒式向前伸展</label>  
+                    <label for="result[3]" class="text">以下是建議的舒緩運動，若舒緩運動做</label>  
+                </div>
+            </div>
+            <button type="button" class="btn-style save-btn">確定</button>
+        </div>
+    </div>
+</div> 
+<!-- 預覽彈出視窗 -->
+<div class="preview-popupwindow">
+    <div class="content">
+        <button type="button" class="close-btn">
+            <i class="micon-close"></i>
+        </button>
+        <div class="tree">
+            <h2>問卷名稱</h2>            
+            <div class="tree-content">
+                <details class="is-expandable" open>
+                    <summary class="tree-title no-line">
+                        [問題1] 請問以下哪個部位感到疼痛 
+                        <a href="#" class="micon-edit"></a>
+                    </summary>                    
+                    <details class="tree-detail is-expandable" open>
+                        <summary class="tree-title">
+                            [選項一] 名稱
+                            <a href="#" class="micon-edit"></a>
+                        </summary>                        
+                        <details class="tree-detail is-expandable" open>
+                            <summary class="tree-title">
+                                [選項一] 無名稱
+                                <a href="#" class="micon-edit"></a>
+                            </summary>  
+                            <button class="tree-node-import">[選項1][問題4]</button>                     
+                            <div class="tree-node">[選項二] 名稱</div>
+                            <div class="tree-node">[選項三] 名稱</div>
+                            <div class="tree-node">[選項四] 名稱</div>                        
+                        </details>                    
+                        <div class="tree-node">[選項N] 名稱</div>
+                        <div class="tree-node">[選項N] 名稱</div>                    
+                    </details>                
+                    <div class="tree-node">[選項二] 名稱</div>
+                    <div class="tree-node">[選項三] 名稱</div>                
+                </details>                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- popup window 功能  -->
+<script src="js/popup.js"></script>
+
+</html>

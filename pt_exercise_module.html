@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居家物理治療後台</title>
+    <meta property="og:title" content="居家物理治療後台" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="居家物理治療後台">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 客製化 icon fonts -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- 主畫面樣式 -->
+    <link rel="stylesheet" href="css/backstage.css">
+</head>
+
+<body>
+    <!-- 側邊攔(menu) -->
+    <aside id="sidebar"></aside>
+    <!-- 會員名稱&登出按鈕 -->
+    <section id="member"></section>
+    <!-- 變動區 -->
+    <article id="contain">
+        <div class="parameter-content">
+            <!-- 工具列 -->
+            <nav class="tool-list pt-exercise-module-list">         
+                <div class="amount">
+                     <div class="text">運動模組總數：</div>
+                     <div class="amount-number">33</div>
+                </div>    
+                <div class="search-bar">
+                    <i class="micon-search icon"></i>
+                    <input type="text" class="input-style" placeholder="搜輸入關鍵字">
+                </div>
+                <button type="button" class="btn-style">
+                    <i class="micon-filter icon"></i>
+                    顯示上架的項目
+                </button>
+                <a href="pt_exercise_module_add_edit.html" class="btn-style">
+                    <i class="micon-plus icon"></i>新增
+                </a>
+            </nav>
+            <div class="default-table border-style">
+                <div class="table-header pt-exercise-module-header">
+                    <div class="text">編號</div>
+                    <div class="text">運動模組名稱</div>
+                    <div class="text">元件</div>
+                    <div class="setting-item"></div>
+                </div>
+                <div class="table-list">
+                    <div class="table-row pt-exercise-module-row">
+                        <div class="text" data-title="編號">自建</div>
+                        <div class="text" data-title="運動模組名稱">wording</div>
+                        <div class="text" data-title="元件">wording</div>
+                        <div class="setting-item">
+                            <button type="button" class="micon-edit icon btn-style edit-btn"></button>
+                            <button type="button" class="micon-trash icon btn-style del-btn"></button>
+                            <div class="released-btn">
+                                <input type="checkbox" id="switch" checked>
+                                <label for="switch"></label>
+                                <span>上架</span>
+                                <span>下架</span>
+                            </div>
+                        </div>
+                    </div>      
+                    <div class="table-row pt-exercise-module-row">
+                        <div class="text" data-title="編號">不限中英文</div>
+                        <div class="text" data-title="運動模組名稱">wording</div>
+                        <div class="text" data-title="元件">wording</div>
+                        <div class="setting-item">
+                            <button type="button" class="micon-edit icon btn-style edit-btn"></button>
+                            <button type="button" class="micon-trash icon btn-style del-btn"></button>
+                            <div class="released-btn">
+                                <input type="checkbox" id="switch">
+                                <label for="switch"></label>
+                                <span>上架</span>
+                                <span>下架</span>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="table-row pt-exercise-module-row">
+                        <div class="text" data-title="編號">不限字數</div>
+                        <div class="text" data-title="運動模組名稱">wording</div>
+                        <div class="text" data-title="元件">wording</div>
+                        <div class="setting-item">
+                            <button type="button" class="micon-edit icon btn-style edit-btn"></button>
+                            <button type="button" class="micon-trash icon btn-style del-btn"></button>
+                            <div class="released-btn">
+                                <input type="checkbox" id="switch">
+                                <label for="switch"></label>
+                                <span>上架</span>
+                                <span>下架</span>
+                            </div>
+                        </div>
+                    </div>                          
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- 變動區 end -->
+</body> 
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 引用 filter 套件  -->
+<script src="vendor/filter-search/js/jquery-search.js"></script>
+
+<!-- 使用 filter 套件  -->
+<script src="js/filter.js"></script>
+
+</html>
